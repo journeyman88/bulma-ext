@@ -19,69 +19,61 @@
  * Modified by Marco Bignami in 2026
  */
  
-@use "sass:map";
 @use "bulma/sass/utilities/derived-variables" as vars;
-@use "bulma/sass/utilities/initial-variables" as init;
 @use "bulma/sass/utilities/mixins";
 
+.divider-content {
+  color: var(--divider-content-color);
+}
 
-.is-divider, 
-.is-divider-vertical {
+.is-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 2rem 0;
   text-align: center;
-  --divider-border-color: var(--bulma-text-soft);
-  --divider-thickness: 0.1rem;
-  --divider-color: var(--bulma-text-soft);
-  --divider-font-size: init.$size-7;
+  --divider-line-color: var(--bulma-text-soft);
+  --divider-line-thickness: 0.1rem;
+  --divider-content-color: var(--bulma-text-soft);
+  --divider-content-font-size: var(--bulma-size-7);
   --divider-content-background-color: var(--bulma-scheme-main);
 
   @each $name, $color in vars.$colors {
     &.is-#{$name} {
-      --divider-border-color: var(--bulma-#{$name});
-      --divider-color: var(--bulma-#{$name});
+      --divider-line-color: var(--bulma-#{$name});
+      --divider-content-color: var(--bulma-#{$name});
     }
   }
-}
 
-.divider-content {
-  color: var(--divider-color);
-}
-
-// Horizontal Divider Line
-.is-divider {
-  border-top: var(--divider-thickness) solid var(--divider-border-color);
-  height: var(--divider-thickness);
+  border-top: var(--divider-line-thickness) solid var(--divider-line-color);
+  height: var(--divider-line-thickness);
   &:has(.divider-content) {
     border-top: none;
-    &::before {
-      content: "";
-      border-top: var(--divider-thickness) solid var(--divider-border-color);
-      height: var(--divider-thickness);
-      width: 100%;
+    &:not(.is-start) {
+      &::before {
+        content: "";
+        border-top: var(--divider-line-thickness) solid var(--divider-line-color);
+        height: var(--divider-line-thickness);
+        width: 100%;
+      }
     }
-    &::after {
-      content: "";
-      border-top: var(--divider-thickness) solid var(--divider-border-color);
-      height: var(--divider-thickness);
-      width: 100%;
+    &:not(.is-end) {
+      &::after {
+        content: "";
+        border-top: var(--divider-line-thickness) solid var(--divider-line-color);
+        height: var(--divider-line-thickness);
+        width: 100%;
+      }
     }
   }
 
   .divider-content {
     display: inline-block;
-    font-size: var(--divider-font-size);
+    font-size: var(--divider-content-font-size);
     padding: 0.4rem 0.8rem;
   }
-}
-
-// Vertical Divider Line
-.is-divider-vertical {
-  display: block;
   
-  @include mixins.tablet {
+  &.is-vertical {
     display: flex;
     flex-direction: column;
     width: auto;
@@ -89,27 +81,30 @@
     margin: 0;
     min-height: 2rem;
     border-top: none;
-    border-left: var(--divider-thickness) solid var(--divider-border-color);
+    border-left: var(--divider-line-thickness) solid var(--divider-line-color);
     
     &:has(.divider-content) {
       border-left: none;
-      &::before {
-        content: "";
-        border-left: var(--divider-thickness) solid var(--divider-border-color);
-        width: var(--divider-thickness);
-        height: 100%;
+      &:not(.is-start) {
+        &::before {
+          content: "";
+          border-left: var(--divider-line-thickness) solid var(--divider-line-color);
+          width: var(--divider-line-thickness);
+          height: 100%;
+        }
       }
-      &::after {
-        content: "";
-        border-left: var(--divider-thickness) solid var(--divider-border-color);
-        width: var(--divider-thickness);
-        height: 100%;
+      &:not(.is-end) {
+        &::after {
+          content: "";
+          border-left: var(--divider-line-thickness) solid var(--divider-line-color);
+          width: var(--divider-line-thickness);
+          height: 100%;
+        }
       }
     }
-
+  
     .divider-content {
       padding: 0.2rem 0.5rem;
     }
-
   }
 }

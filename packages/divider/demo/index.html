@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulma Divider Extension</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/divider.min.css">
     <style>
         :root {
@@ -67,11 +68,27 @@
                 <div class="column is-5">
                     <h2 class="title is-3">Horizontal</h2>
                     <p>Standard horizontal line. Use <code>.is-divider</code> and optional <code>.divider-content</code>
-                        for text overlays.</p>
-                    <pre><code>&lt;div class="is-divider"&gt;&lt;/div&gt;
+                        for text, icons, or images overlays.</p>
+                    <pre><code>&lt;!-- Simple --&gt;
+&lt;div class="is-divider"&gt;&lt;/div&gt;
 
+&lt;!-- With Text --&gt;
 &lt;div class="is-divider"&gt;
   &lt;span class="divider-content"&gt;OR&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- With Icon --&gt;
+&lt;div class="is-divider"&gt;
+  &lt;span class="divider-content"&gt;
+    &lt;i class="fas fa-star"&gt;&lt;/i&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- With Image --&gt;
+&lt;div class="is-divider"&gt;
+  &lt;span class="divider-content"&gt;
+    &lt;img src="../../timeline/demo/placeholder.png" width="32" height="32"&gt;
+  &lt;/span&gt;
 &lt;/div&gt;</code></pre>
                 </div>
                 <div class="column is-offset-1 is-6">
@@ -82,7 +99,19 @@
                         <div class="is-divider">
                             <span class="divider-content">OR</span>
                         </div>
-                        <p>Another block of text.</p>
+                        <p>Divider with icon.</p>
+                        <div class="is-divider">
+                            <span class="divider-content">
+                                <i class="fas fa-heart has-text-danger"></i>
+                            </span>
+                        </div>
+                        <p>Divider with image.</p>
+                        <div class="is-divider">
+                            <span class="divider-content">
+                                <img src="../../timeline/demo/placeholder.png" width="32" height="32"
+                                    alt="32x32 Placeholder">
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,7 +123,8 @@
         <section id="colors" class="demo-section">
             <h2 class="title is-3 has-text-centered">Color Variations</h2>
             <p class="subtitle has-text-centered mb-6">Apply Bulma core colors using standard modifiers like
-                <code>is-primary</code>, <code>is-info</code>, etc.</p>
+                <code>is-primary</code>, <code>is-info</code>, etc.
+            </p>
             <div class="columns is-multiline">
                 <div class="column is-4">
                     <div class="is-divider is-primary">
@@ -141,7 +171,7 @@
                                 <p class="is-size-4">Left Side</p>
                                 <p>Content one</p>
                             </div>
-                            <div class="is-divider-vertical">
+                            <div class="is-divider is-vertical">
                                 <span class="divider-content">AND</span>
                             </div>
                             <div class="column">
@@ -153,14 +183,74 @@
                 </div>
                 <div class="column is-offset-1 is-5">
                     <h2 class="title is-3">Vertical</h2>
-                    <p>Use <code>.is-divider-vertical</code> for vertical separation. Visible on tablet and larger
-                        screens.</p>
+                    <p>Use <code>.is-vertical</code> with <code>.is-divider</code> for vertical separation.</p>
                     <pre><code>&lt;div class="columns"&gt;
   &lt;div class="column"&gt;Left&lt;/div&gt;
-  &lt;div class="is-divider-vertical"&gt;
+  &lt;div class="is-divider is-vertical"&gt;
     &lt;span class="divider-content"&gt;AND&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class="column"&gt;Right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Alignment -->
+        <section id="alignment" class="demo-section">
+            <h2 class="title is-3 has-text-centered">Alignment</h2>
+            <p class="subtitle has-text-centered mb-6">Use <code>is-start</code> or <code>is-end</code> to align the
+                content
+                along the line.</p>
+
+            <div class="columns">
+                <div class="column is-6">
+                    <h3 class="title is-4">Horizontal</h3>
+                    <div class="example-box">
+                        <div class="is-divider is-start">
+                            <span class="divider-content">Left</span>
+                        </div>
+                        <div class="is-divider">
+                            <span class="divider-content">Center</span>
+                        </div>
+                        <div class="is-divider is-end">
+                            <span class="divider-content">Right</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <h3 class="title is-4">Vertical</h3>
+                    <div class="example-box">
+                        <div class="columns has-text-centered" style="height: 150px;">
+                            <div class="column">Content</div>
+                            <div class="is-divider is-vertical is-start">
+                                <span class="divider-content">Top</span>
+                            </div>
+                            <div class="column">Content</div>
+                            <div class="is-divider is-vertical">
+                                <span class="divider-content">Middle</span>
+                            </div>
+                            <div class="column">Content</div>
+                            <div class="is-divider is-vertical is-end">
+                                <span class="divider-content">Bottom</span>
+                            </div>
+                            <div class="column">Content</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <pre><code>&lt;!-- Horizontal --&gt;
+&lt;div class="is-divider is-start"&gt;
+    &lt;span class="divider-content"&gt;Left&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Vertical --&gt;
+&lt;div class="is-divider is-vertical is-end"&gt;
+    &lt;span class="divider-content"&gt;Bottom&lt;/span&gt;
 &lt;/div&gt;</code></pre>
                 </div>
             </div>
@@ -171,7 +261,8 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>Bulma Divider Extension</strong> by <a href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
+                <strong>Bulma Divider Extension</strong> by <a
+                    href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
                 The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
             </p>
         </div>
