@@ -1,0 +1,5 @@
+Bulma-Ext - Pageloader
+Copyright [2026] [Marco Bignami]
+
+This product includes software developed by Wikiki (https://www.npmjs.com/package/bulma-pageloader/v/0.3.0)
+originally released under the MIT License.

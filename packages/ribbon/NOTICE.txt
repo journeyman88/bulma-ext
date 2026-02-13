@@ -1,0 +1,5 @@
+Bulma-Ext - Ribbon
+Copyright [2026] [Marco Bignami]
+
+This product includes software developed by Wikiki (https://www.npmjs.com/package/bulma-extensions/v/6.2.7)
+originally released under the MIT License.
