@@ -22,6 +22,8 @@ This project is a modern evolution of the classic Bulma extensions. We are grate
 - **[bulma-extensions](https://www.npmjs.com/package/bulma-extensions/v/6.2.7)** (version 6.2.7) by Wikiki.
 - **[bulma-pageloader](https://www.npmjs.com/package/bulma-pageloader/v/0.3.0)** (version 0.3.0) by Wikiki.
 
+Links point to the archived packages on npm, since the original author archived the repository.
+
 ## Installation & Usage
 
 Each package is managed individually. Please refer to the specific package directory in `packages/` for detailed installation and usage instructions.
@@ -36,4 +38,7 @@ And include it in your project after the main Bulma stylesheet.
 
 ## License
 
-Apache-2.0
+The original code of bulma-extensions@6.2.7 is licensed under the MIT license.
+The original code of bulma-pageloader@0.3.0 is licensed under the MIT license.
+
+This project is licensed under the Apache-2.0 license.
