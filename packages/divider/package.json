@@ -1,0 +1,24 @@
+{
+  "name": "@bulma-ext/divider",
+  "version": "1.0.0",
+  "description": "A Divider Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
+  "license": "MIT",
+  "main": "css/divider.min.css",
+  "sass": "sass/divider.scss",
+  "scripts": {
+    "build:expanded": "sass sass/divider.scss css/divider.css --load-path=node_modules --quiet-deps --source-map",
+    "build:min": "sass sass/divider.scss css/divider.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+    "build": "pnpm run build:expanded && pnpm run build:min",
+    "watch": "sass sass/divider.scss css/divider.css --watch"
+  },
+  "keywords": [
+    "bulma",
+    "bulma-extension"
+  ],
+  "peerDependencies": {
+    "bulma": "^1.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

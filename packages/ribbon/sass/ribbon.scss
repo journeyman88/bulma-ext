@@ -1,0 +1,70 @@
+@use "sass:map";
+@use "bulma/sass/utilities/derived-variables" as vars;
+@use "bulma/sass/utilities/initial-variables" as init;
+@use "bulma/sass/utilities/mixins";
+
+.has-ribbon {
+  position: relative;
+}
+
+.has-ribbon-left {
+  position: relative;
+  .ribbon {
+    right: auto;
+    left: 0;
+    border-left: none;
+    border-right: 0.1rem solid var(--ribbon-border-color);
+  }
+}
+
+.has-ribbon-bottom {
+  position: relative;
+  .ribbon {
+    top: auto;
+    bottom: 0.5em;
+  }
+}
+
+.ribbon {
+  --ribbon-background-color: var(--bulma-scheme-main);
+  --ribbon-text-color: var(--bulma-text);
+  --ribbon-border-color: var(--bulma-scheme-main);
+  background-color: var(--ribbon-background-color);
+  border: 0.1rem solid var(--ribbon-border-color);
+  border-right: none;
+  color: var(--ribbon-text-color);
+  font-size: var(--bulma-size-normal);
+  justify-content: center;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  text-align: center;
+  white-space: nowrap;
+  position: absolute;
+  top: 0.5em;
+  right: 0;
+  font-weight: var(--bulma-weight-normal);
+  z-index: 2;
+
+  @each $name, $pair in vars.$colors {
+    &.is-#{$name} {
+      --ribbon-background-color: var(--bulma-#{$name});
+      --ribbon-text-color: var(--bulma-#{$name}-invert);
+      --ribbon-border-color: var(--bulma-#{$name});
+      &.is-outlined {
+        --ribbon-background-color: transparent;
+        --ribbon-text-color: var(--bulma-text);
+      }
+    }
+  }
+
+  // Sizes
+  &.is-small {
+    font-size: var(--bulma-size-small);
+  }
+  &.is-medium {
+    font-size: var(--bulma-size-medium);
+  }
+  &.is-large {
+    font-size: var(--bulma-size-large);
+  }
+}

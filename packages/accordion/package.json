@@ -1,0 +1,24 @@
+{
+    "name": "@bulma-ext/accordion",
+    "version": "1.0.0",
+    "description": "An Accordion Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
+    "license": "MIT",
+    "main": "css/accordion.min.css",
+    "sass": "sass/accordion.scss",
+    "scripts": {
+        "build:expanded": "sass sass/accordion.scss css/accordion.css --load-path=node_modules --quiet-deps --source-map",
+        "build:min": "sass sass/accordion.scss css/accordion.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+        "build": "pnpm run build:expanded && pnpm run build:min",
+        "watch": "sass sass/accordion.scss css/accordion.css --watch"
+    },
+    "keywords": [
+        "bulma",
+        "bulma-extension"
+    ],
+    "peerDependencies": {
+        "bulma": "^1.0.0"
+    },
+    "devDependencies": {
+        "sass": "^1.77.0"
+    }
+}

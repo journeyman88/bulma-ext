@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Divider Extension</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/divider.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .hero.is-danger {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .example-box {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            color: #efefef;
+        }
+
+        .vertical-divider-container {
+            display: flex;
+            align-items: stretch;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Header -->
+    <section class="hero is-danger is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Bulma Divider</h1>
+                <h2 class="subtitle">A simple yet powerful divider extension for Bulma.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6">
+        <!-- Horizontal Divider -->
+        <section id="horizontal" class="demo-section">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Horizontal</h2>
+                    <p>Standard horizontal line. Use <code>.is-divider</code> and optional <code>.divider-content</code>
+                        for text overlays.</p>
+                    <pre><code>&lt;div class="is-divider"&gt;&lt;/div&gt;
+
+&lt;div class="is-divider"&gt;
+  &lt;span class="divider-content"&gt;OR&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box block">
+                        <p>Text above divider.</p>
+                        <div class="is-divider"></div>
+                        <p>Text below divider.</p>
+                        <div class="is-divider">
+                            <span class="divider-content">OR</span>
+                        </div>
+                        <p>Another block of text.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Colors -->
+        <section id="colors" class="demo-section">
+            <h2 class="title is-3 has-text-centered">Color Variations</h2>
+            <p class="subtitle has-text-centered mb-6">Apply Bulma core colors using standard modifiers like
+                <code>is-primary</code>, <code>is-info</code>, etc.</p>
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="is-divider is-primary">
+                        <span class="divider-content">Primary</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-info">
+                        <span class="divider-content">Info</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-success">
+                        <span class="divider-content">Success</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-warning">
+                        <span class="divider-content">Warning</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-danger">
+                        <span class="divider-content">Danger</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-link">
+                        <span class="divider-content">Link</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Vertical Divider -->
+        <section id="vertical" class="demo-section mb-6">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <div class="example-box">
+                        <div class="columns is-mobile has-text-centered">
+                            <div class="column">
+                                <p class="is-size-4">Left Side</p>
+                                <p>Content one</p>
+                            </div>
+                            <div class="is-divider-vertical">
+                                <span class="divider-content">AND</span>
+                            </div>
+                            <div class="column">
+                                <p class="is-size-4">Right Side</p>
+                                <p>Content two</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-offset-1 is-5">
+                    <h2 class="title is-3">Vertical</h2>
+                    <p>Use <code>.is-divider-vertical</code> for vertical separation. Visible on tablet and larger
+                        screens.</p>
+                    <pre><code>&lt;div class="columns"&gt;
+  &lt;div class="column"&gt;Left&lt;/div&gt;
+  &lt;div class="is-divider-vertical"&gt;
+    &lt;span class="divider-content"&gt;AND&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;Right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma Divider Extension</strong> by <a href="https://github.com/m-bignami">M. Bignami</a>.
+                The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Pricing Table Extension</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/pricingtable.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+        }
+
+        .hero.is-primary {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            color: #efefef;
+        }
+
+        .pricing-table .pricing-plan {
+            margin: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Header -->
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Bulma Pricing Table</h1>
+                <h2 class="subtitle">A complete pricing table extension for Bulma.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6">
+        <!-- Basic Pricing Table -->
+        <section id="basic" class="demo-section">
+            <h2 class="title is-3">Basic Pricing Table</h2>
+            <p class="subtitle mt-3">Standard pricing plans with an active state to highlight the best value.</p>
+
+            <div class="pricing-table mt-5">
+                <div class="pricing-plan">
+                    <div class="plan-header">Starter</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>0</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">1 Project</div>
+                        <div class="plan-item">1GB Storage</div>
+                        <div class="plan-item">Communnity Support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose Plan</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-active">
+                    <div class="plan-header">Professional</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>29</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">20 Projects</div>
+                        <div class="plan-item">50GB Storage</div>
+                        <div class="plan-item">Priority Support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose Plan</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-info">
+                    <div class="plan-header">Business</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>99</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">Unlimited Projects</div>
+                        <div class="plan-item">Unlimited Storage</div>
+                        <div class="plan-item">24/7 Support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>&lt;div class="pricing-table"&gt;
+  &lt;div class="pricing-plan"&gt;
+    &lt;div class="plan-header"&gt;Starter&lt;/div&gt;
+    &lt;div class="plan-price"&gt;&lt;span class="plan-price-amount"&gt;&lt;span class="plan-price-currency"&gt;$&lt;/span&gt;0&lt;/span&gt;/mo&lt;/div&gt;
+    &lt;div class="plan-items"&gt;...&lt;/div&gt;
+    &lt;div class="plan-footer"&gt;&lt;button class="button is-fullwidth"&gt;Choose&lt;/button&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Highlight with is-active --&gt;
+  &lt;div class="pricing-plan is-active"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <hr>
+
+        <!-- Comparative Table -->
+        <section id="comparative" class="demo-section">
+            <h2 class="title is-3">Comparative Layout</h2>
+            <p class="subtitle mt-3">Plan items align horizontally across plans for easy feature comparison. Use
+                <code>is-comparative</code> on the table.</p>
+
+            <div class="pricing-table is-comparative mt-5">
+                <div class="pricing-plan">
+                    <div class="plan-header">Basic</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>10</span></div>
+                    <div class="plan-item" data-feature="Feature 1">Yes</div>
+                    <div class="plan-item" data-feature="Feature 2">No</div>
+                    <div class="plan-item" data-feature="Feature 3">No</div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-primary">
+                    <div class="plan-header">Plus</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>25</span></div>
+                    <div class="plan-item" data-feature="Feature 1">Yes</div>
+                    <div class="plan-item" data-feature="Feature 2">Yes</div>
+                    <div class="plan-item" data-feature="Feature 3">No</div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-warning">
+                    <div class="plan-header">Pro</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>50</span></div>
+                    <div class="plan-item" data-feature="Feature 1">Yes</div>
+                    <div class="plan-item" data-feature="Feature 2">Yes</div>
+                    <div class="plan-item" data-feature="Feature 3">Yes</div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose</button>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>&lt;div class="pricing-table is-comparative"&gt;
+  &lt;div class="pricing-plan"&gt;
+    &lt;div class="plan-item" data-feature="Custom Label"&gt;Feature Value&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <hr>
+
+        <!-- Horizontal Layout -->
+        <section id="horizontal" class="demo-section mb-6">
+            <h2 class="title is-3">Horizontal Layout</h2>
+            <p class="subtitle mt-3">Use <code>is-horizontal</code> to stack plans vertically (effective on desktop).
+            </p>
+
+            <div class="pricing-table is-horizontal mt-5">
+                <div class="pricing-plan is-active">
+                    <div class="plan-header">Monthly Plan</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>19</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">Access to all features</div>
+                        <div class="plan-item">Individual support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button">Subscribe Now</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-danger mt-4">
+                    <div class="plan-header">Annual Plan (Best Deal)</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>159</span>/yr</div>
+                    <div class="plan-items">
+                        <div class="plan-item">Save 30% over monthly</div>
+                        <div class="plan-item">VIP Support priority</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button">Subscribe Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>&lt;div class="pricing-table is-horizontal"&gt;
+  &lt;div class="pricing-plan"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma Pricing Table Extension</strong> by <a href="https://github.com/m-bignami">M. Bignami</a>.
+                The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

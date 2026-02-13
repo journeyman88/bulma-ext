@@ -1,0 +1,24 @@
+{
+    "name": "@bulma-ext/pricingtable",
+    "version": "1.0.0",
+    "description": "A PricingTable Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
+    "license": "MIT",
+    "main": "css/pricingtable.min.css",
+    "sass": "sass/pricingtable.scss",
+    "scripts": {
+        "build:expanded": "sass sass/pricingtable.scss css/pricingtable.css --load-path=node_modules --quiet-deps --source-map",
+        "build:min": "sass sass/pricingtable.scss css/pricingtable.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+        "build": "pnpm run build:expanded && pnpm run build:min",
+        "watch": "sass sass/pricingtable.scss css/pricingtable.css --watch"
+    },
+    "keywords": [
+        "bulma",
+        "bulma-extension"
+    ],
+    "peerDependencies": {
+        "bulma": "^1.0.0"
+    },
+    "devDependencies": {
+        "sass": "^1.77.0"
+    }
+}

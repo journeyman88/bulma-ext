@@ -1,0 +1,24 @@
+{
+    "name": "@bulma-ext/badge",
+    "version": "1.0.0",
+    "description": "A Badge Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
+    "license": "MIT",
+    "main": "css/badge.min.css",
+    "sass": "sass/badge.scss",
+    "scripts": {
+        "build:expanded": "sass sass/badge.scss css/badge.css --load-path=node_modules --quiet-deps --source-map",
+        "build:min": "sass sass/badge.scss css/badge.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+        "build": "pnpm run build:expanded && pnpm run build:min",
+        "watch": "sass sass/badge.scss css/badge.css --watch"
+    },
+    "keywords": [
+        "bulma",
+        "bulma-extension"
+    ],
+    "peerDependencies": {
+        "bulma": "^1.0.0"
+    },
+    "devDependencies": {
+        "sass": "^1.77.0"
+    }
+}

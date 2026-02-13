@@ -1,0 +1,94 @@
+@use "sass:map";
+@use "bulma/sass/utilities/derived-variables" as vars;
+@use "bulma/sass/utilities/initial-variables" as init;
+@use "bulma/sass/utilities/mixins";
+
+
+.is-divider, 
+.is-divider-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  text-align: center;
+  --divider-border-color: var(--bulma-text-soft);
+  --divider-thickness: 0.1rem;
+  --divider-color: var(--bulma-text-soft);
+  --divider-font-size: init.$size-7;
+  --divider-content-background-color: var(--bulma-scheme-main);
+
+  @each $name, $color in vars.$colors {
+    &.is-#{$name} {
+      --divider-border-color: var(--bulma-#{$name});
+      --divider-color: var(--bulma-#{$name});
+    }
+  }
+}
+
+.divider-content {
+  color: var(--divider-color);
+}
+
+// Horizontal Divider Line
+.is-divider {
+  border-top: var(--divider-thickness) solid var(--divider-border-color);
+  height: var(--divider-thickness);
+  &:has(.divider-content) {
+    border-top: none;
+    &::before {
+      content: "";
+      border-top: var(--divider-thickness) solid var(--divider-border-color);
+      height: var(--divider-thickness);
+      width: 100%;
+    }
+    &::after {
+      content: "";
+      border-top: var(--divider-thickness) solid var(--divider-border-color);
+      height: var(--divider-thickness);
+      width: 100%;
+    }
+  }
+
+  .divider-content {
+    display: inline-block;
+    font-size: var(--divider-font-size);
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+// Vertical Divider Line
+.is-divider-vertical {
+  display: block;
+  
+  @include mixins.tablet {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    margin: 0;
+    min-height: 2rem;
+    border-top: none;
+    border-left: var(--divider-thickness) solid var(--divider-border-color);
+    
+    &:has(.divider-content) {
+      border-left: none;
+      &::before {
+        content: "";
+        border-left: var(--divider-thickness) solid var(--divider-border-color);
+        width: var(--divider-thickness);
+        height: 100%;
+      }
+      &::after {
+        content: "";
+        border-left: var(--divider-thickness) solid var(--divider-border-color);
+        width: var(--divider-thickness);
+        height: 100%;
+      }
+    }
+
+    .divider-content {
+      padding: 0.2rem 0.5rem;
+    }
+
+  }
+}

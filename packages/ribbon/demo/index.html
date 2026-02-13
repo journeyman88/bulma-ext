@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Ribbon Extension</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/ribbon.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+        }
+
+        .hero.is-primary {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .example-box {
+            background-color: #f9f9f9;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            color: #efefef;
+        }
+
+        .container-box {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Header -->
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Bulma Ribbon</h1>
+                <h2 class="subtitle">A versatile ribbon extension for Bulma elements.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6">
+        <!-- Introduction -->
+        <div class="message is-link">
+            <div class="message-body">
+                The <strong>Ribbon</strong> extension allows you to easily add information banners or labels to
+                containers.
+                Simply add the <code>.has-ribbon</code> class to your container and the <code>.ribbon</code> element
+                inside it.
+            </div>
+        </div>
+
+        <!-- Positioning -->
+        <section id="positioning" class="demo-section">
+            <h2 class="title is-3">Positioning</h2>
+            <p class="subtitle">Place ribbons in any corner of a container.</p>
+            <div class="columns is-multiline">
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-primary">Top Right</div>
+                        <p>Default (Top-Right)</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon-left container-box">
+                        <div class="ribbon is-info">Top Left</div>
+                        <p>Top-Left</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon-bottom container-box">
+                        <div class="ribbon is-success">Bottom Right</div>
+                        <p>Bottom-Right</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon-left has-ribbon-bottom container-box">
+                        <div class="ribbon is-warning">Bottom Left</div>
+                        <p>Bottom-Left</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-12 px-0">
+                <pre><code>&lt;div class="box has-ribbon"&gt;
+  &lt;div class="ribbon is-primary"&gt;New&lt;/div&gt;
+  &lt;p&gt;Content goes here&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Colors & Outlined -->
+        <section id="colors" class="demo-section">
+            <h2 class="title is-3">Colors & Outlined</h2>
+            <p class="subtitle mb-6">Supports all Bulma colors and an outlined variant.</p>
+            <div class="example-box">
+                <div class="columns is-multiline is-mobile">
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-primary">Primary</div>
+                            Primary Light
+                        </div>
+                    </div>
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-info is-outlined">Outlined</div>
+                            Info Light
+                        </div>
+                    </div>
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-danger">Danger</div>
+                            Danger Light
+                        </div>
+                    </div>
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-success is-outlined">Success</div>
+                            Success Light
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Sizes -->
+        <section id="sizes" class="demo-section mb-6">
+            <h2 class="title is-3">Sizes</h2>
+            <p class="subtitle">Available in four sizes.</p>
+            <div class="columns is-multiline">
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-small is-dark">Small</div>
+                        <p>Small Ribbon</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-dark">Normal</div>
+                        <p>Normal Ribbon</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-medium is-dark">Medium</div>
+                        <p>Medium Ribbon</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-large is-dark">Large</div>
+                        <p>Large Ribbon</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-12 px-0">
+                <pre><code>&lt;div class="ribbon is-small"&gt;Small&lt;/div&gt;
+&lt;div class="ribbon is-medium"&gt;Medium&lt;/div&gt;
+&lt;div class="ribbon is-large"&gt;Large&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma Ribbon Extension</strong> by <a href="https://github.com/m-bignami">M. Bignami</a>.
+                The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

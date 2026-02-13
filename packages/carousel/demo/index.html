@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Carousel Extension</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/carousel.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
+        }
+
+        .hero.is-primary:not(.has-carousel) {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .example-box {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        /* Essential Demo Styles */
+        .slider-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .hero.is-medium .slider-item img {
+            height: 500px;
+        }
+
+        .is-vertical .slider-item img {
+            height: 300px;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            color: #efefef;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Carousel -->
+    <section class="hero is-medium is-primary has-carousel">
+        <div class="hero-carousel">
+            <div id="carousel-hero" class="slider">
+                <div class="slider-container">
+                    <div class="slider-item">
+                        <img src="https://picsum.photos/1200/500?random=1" alt="img1">
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://picsum.photos/1200/500?random=2" alt="img2">
+                    </div>
+                    <div class="slider-item">
+                        <img src="https://picsum.photos/1200/500?random=3" alt="img3">
+                    </div>
+                </div>
+                <div class="slider-navigation-previous">
+                    <svg viewBox="0 0 50 80" xml:space="preserve">
+                        <polyline fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"
+                            stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 " />
+                    </svg>
+                </div>
+                <div class="slider-navigation-next">
+                    <svg viewBox="0 0 50 80" xml:space="preserve">
+                        <polyline fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"
+                            stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 " />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Bulma Carousel</h1>
+                <h2 class="subtitle">Highlight your content with a beautiful, responsive slider.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6 px-3">
+        <!-- Introduction -->
+        <div class="message is-danger">
+            <div class="message-body">
+                The <strong>Carousel</strong> extension provides a flexible slider system.
+                It can be used as a standalone component or integrated directly into Bulma's <code>hero</code> sections.
+            </div>
+        </div>
+
+        <!-- Standard Slider -->
+        <section id="standard" class="demo-section">
+            <h2 class="title is-3">Standard Slider</h2>
+            <p class="subtitle mt-3">A classic horizontal carousel with navigation and pagination.</p>
+
+            <div class="example-box">
+                <div id="carousel-demo" class="slider">
+                    <div class="slider-container">
+                        <div class="slider-item">
+                            <img src="https://picsum.photos/800/400?random=4" alt="img4">
+                        </div>
+                        <div class="slider-item">
+                            <img src="https://picsum.photos/800/400?random=5" alt="img5">
+                        </div>
+                        <div class="slider-item">
+                            <img src="https://picsum.photos/800/400?random=6" alt="img6">
+                        </div>
+                    </div>
+                    <div class="slider-navigation-previous">
+                        <svg viewBox="0 0 50 80">
+                            <polyline fill="none" stroke="currentColor" stroke-width="8" points="45,75 5,40 45,5" />
+                        </svg>
+                    </div>
+                    <div class="slider-navigation-next">
+                        <svg viewBox="0 0 50 80">
+                            <polyline fill="none" stroke="currentColor" stroke-width="8" points="5,5 45,40 5,75" />
+                        </svg>
+                    </div>
+                    <div class="slider-pagination">
+                        <div class="slider-page is-active" data-index="0"></div>
+                        <div class="slider-page" data-index="1"></div>
+                        <div class="slider-page" data-index="2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>&lt;div class="slider"&gt;
+  &lt;div class="slider-container"&gt;
+    &lt;div class="slider-item"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="slider-navigation-previous"&gt;...&lt;/div&gt;
+  &lt;div class="slider-navigation-next"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <hr>
+
+        <!-- Vertical Slider -->
+        <section id="vertical" class="demo-section mb-6">
+            <h2 class="title is-3">Vertical Slider</h2>
+            <p class="subtitle mt-3">Add the <code>is-vertical</code> class to the container for vertical transitions.
+            </p>
+
+            <div class="example-box">
+                <div id="carousel-vertical" class="slider">
+                    <div class="slider-container is-vertical">
+                        <div class="slider-item">
+                            <img src="https://picsum.photos/800/300?random=7" alt="img7">
+                        </div>
+                        <div class="slider-item">
+                            <img src="https://picsum.photos/800/300?random=8" alt="img8">
+                        </div>
+                        <div class="slider-item">
+                            <img src="https://picsum.photos/800/300?random=9" alt="img9">
+                        </div>
+                    </div>
+                    <!-- Navigation is usually handled differently for vertical, but we'll reuse common ones -->
+                    <div class="slider-navigation-previous"
+                        style="transform: rotate(90deg); left: 50%; top: 10px; margin-left: -21px;">
+                        <svg viewBox="0 0 50 80">
+                            <polyline fill="none" stroke="currentColor" stroke-width="8" points="45,75 5,40 45,5" />
+                        </svg>
+                    </div>
+                    <div class="slider-navigation-next"
+                        style="transform: rotate(90deg); left: 50%; top: auto; bottom: 10px; margin-left: -21px;">
+                        <svg viewBox="0 0 50 80">
+                            <polyline fill="none" stroke="currentColor" stroke-width="8" points="5,5 45,40 5,75" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma Carousel Extension</strong> by <a href="https://github.com/m-bignami">M. Bignami</a>.
+                The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Carousel Script -->
+    <script>
+        class BulmaCarousel {
+            constructor(selector) {
+                this.element = document.querySelector(selector);
+                this.container = this.element.querySelector('.slider-container');
+                this.items = this.element.querySelectorAll('.slider-item');
+                this.prev = this.element.querySelector('.slider-navigation-previous');
+                this.next = this.element.querySelector('.slider-navigation-next');
+                this.pagination = this.element.querySelectorAll('.slider-page');
+                this.isVertical = this.container.classList.contains('is-vertical');
+                this.currentIndex = 0;
+                this.init();
+            }
+
+            init() {
+                if (this.prev) this.prev.addEventListener('click', () => this.move(-1));
+                if (this.next) this.next.addEventListener('click', () => this.move(1));
+                this.pagination.forEach(page => {
+                    page.addEventListener('click', () => {
+                        this.currentIndex = parseInt(page.dataset.index);
+                        this.update();
+                    });
+                });
+                window.addEventListener('resize', () => this.update());
+            }
+
+            move(delta) {
+                this.currentIndex = (this.currentIndex + delta + this.items.length) % this.items.length;
+                this.update();
+            }
+
+            update() {
+                const step = this.isVertical ? this.items[0].offsetHeight : this.items[0].offsetWidth;
+                const offset = -this.currentIndex * step;
+
+                if (this.isVertical) {
+                    this.container.style.transform = `translate3d(0, ${offset}px, 0)`;
+                } else {
+                    this.container.style.transform = `translate3d(${offset}px, 0, 0)`;
+                }
+                this.container.style.transition = 'transform 0.5s ease';
+
+                this.pagination.forEach((page, i) => {
+                    page.classList.toggle('is-active', i === this.currentIndex);
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new BulmaCarousel('#carousel-hero');
+            new BulmaCarousel('#carousel-demo');
+            new BulmaCarousel('#carousel-vertical');
+        });
+    </script>
+</body>
+
+</html>

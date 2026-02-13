@@ -1,0 +1,163 @@
+@use "sass:map";
+@use "bulma/sass/utilities/derived-variables" as vars;
+@use "bulma/sass/utilities/initial-variables" as init;
+@use "bulma/sass/utilities/mixins";
+
+// Variables using Bulma 1.0 naming conventions
+$accordion-radius: var(--bulma-radius) !default;
+
+$accordion-header-padding: 0.5em 0.75em !default;
+$accordion-header-radius: var(--bulma-radius) !default;
+
+$accordion-content-border: 1px solid var(--accordion-header-background-color) !default;
+$accordion-content-padding-top: 1em !default;
+$accordion-content-padding-left: 1.25em !default;
+$accordion-content-radius: var(--bulma-radius) !default;
+
+$accordion-content-pre-background-color: var(--bulma-white) !default;
+$accordion-content-pre-code-background-color: transparent !default;
+
+.accordions {
+
+  --accordion-header-background-color: var(--bulma-scheme-main-ter);
+  --accordion-panel-background-color: var(--bulma-background);
+  --accordion-panel-color: var(--bulma-text);
+  --accordion-header-color: var(--bulma-text);
+  
+  .accordion {
+    @include mixins.block;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--accordion-panel-background-color);
+    border-radius: $accordion-radius;
+    font-size: var(--bulma-size-normal);
+
+    strong {
+      color: currentColor;
+    }
+
+    a:not(.button):not(.tag) {
+      color: currentColor;
+      text-decoration: underline;
+    }
+
+    // Sizes
+    &.is-small {
+      font-size: var(--bulma-size-small);
+    }
+    &.is-medium {
+      font-size: var(--bulma-size-medium);
+    }
+    &.is-large {
+      font-size: var(--bulma-size-large);
+    }
+
+    &:not(:first-child) {
+      .accordion-header {
+        border-radius: 0;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+      .accordion-content {
+        border-radius: 0;
+      }
+    }
+
+    .toggle,
+    [data-action="toggle"] {
+      cursor: pointer;
+    }
+
+    .accordion-header {
+      align-items: center;
+      background-color: var(--accordion-header-background-color);
+      border-radius: $accordion-header-radius $accordion-header-radius 0 0;
+      color: var(--accordion-header-color);
+      display: flex;
+      justify-content: space-between;
+      line-height: 1.25;
+      padding: $accordion-header-padding;
+      position: relative;
+
+      .toggle {
+        appearance: none;
+        background-color: rgba(10, 10, 10, 0.2);
+        border: none;
+        border-radius: var(--bulma-radius-rounded);
+        display: inline-block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-left: 0.75em;
+        height: 20px;
+        width: 20px;
+        outline: none;
+        position: relative;
+        vertical-align: top;
+        user-select: none;
+
+        &::before {
+          color: var(--bulma-white);
+          display: flex;
+          inset: 0; // Modern shorthand for top/right/bottom/left
+          position: absolute;
+          content: '\002B';
+          line-height: 0;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+
+      & + .accordion-body {
+        overflow-y: hidden;
+        max-height: 0;
+        color: var(--accordion-panel-color);
+        border: $accordion-content-border;
+        border-radius: $accordion-content-radius;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: none;
+        transition: max-height 0.2s ease;
+
+        .accordion-content {
+          padding: $accordion-content-padding-top $accordion-content-padding-left;
+
+          code,
+          pre {
+            background-color: $accordion-content-pre-background-color;
+          }
+
+          pre code {
+            background-color: $accordion-content-pre-code-background-color;
+          }
+        }
+      }
+    }
+
+    &.is-active {
+      .accordion-header {
+        .toggle::before {
+          content: '\002D';
+        }
+      }
+      .accordion-body {
+        max-height: 100em;
+      }
+    }
+
+    // Colors Loop - Bulma 1.0 Style
+    @each $name, $pair in vars.$colors {
+      &.is-#{$name} {
+        --accordion-panel-background-color: var(--bulma-#{$name}-soft); 
+        --accordion-panel-color: var(--bulma-#{$name}-soft-invert);
+        --accordion-header-background-color: var(--bulma-#{$name});
+        --accordion-header-color: var(--bulma-#{$name}-invert);
+      }
+    }
+  }
+}

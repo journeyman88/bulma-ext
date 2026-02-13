@@ -1,0 +1,8 @@
+{
+  "name": "bulma-ext",
+  "private": true,
+  "devDependencies": {
+    "bulma": "^1.0.0",
+    "sass": "^1.77.0"
+  }
+}

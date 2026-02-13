@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Pageloader Extension</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/pageloader.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .hero.is-success {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .example-box {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            color: #efefef;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Pageloader Elements (Hidden by default) -->
+    <div id="loader-default" class="pageloader"><span class="title">Loading...</span></div>
+    <div id="loader-primary" class="pageloader is-primary"><span class="title">Primary Loader</span></div>
+    <div id="loader-info" class="pageloader is-info is-left-to-right"><span class="title">Slide Left to Right</span>
+    </div>
+    <div id="loader-warning" class="pageloader is-warning is-bottom-to-top"><span class="title">Slide Bottom to
+            Top</span></div>
+
+    <!-- Hero Header -->
+    <section class="hero is-success is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Bulma Pageloader</h1>
+                <h2 class="subtitle">A beautiful overlay loader for your Bulma projects.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6">
+        <!-- Introduction -->
+        <div class="message is-success">
+            <div class="message-body">
+                The <strong>Pageloader</strong> extension provides a full-page overlay with smooth animations.
+                Perfect for page transitions or long-running operations.
+            </div>
+        </div>
+
+        <!-- Triggers -->
+        <section id="triggers" class="demo-section">
+            <h2 class="title is-3">Interactive Examples</h2>
+            <p class="subtitle mb-6">Click the buttons below to trigger different pageloader variations and animations.
+            </p>
+
+            <div class="example-box">
+                <div class="buttons is-centered">
+                    <button class="button is-dark" onclick="triggerLoader('loader-default')">Default (Slide
+                        Down)</button>
+                    <button class="button is-primary" onclick="triggerLoader('loader-primary')">Primary Color</button>
+                    <button class="button is-info" onclick="triggerLoader('loader-info')">Left to Right</button>
+                    <button class="button is-warning" onclick="triggerLoader('loader-warning')">Bottom to Top</button>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Usage -->
+        <section id="usage" class="demo-section">
+            <div class="columns">
+                <div class="column is-6">
+                    <h2 class="title is-3">How to use</h2>
+                    <p>Add the <code>.pageloader</code> div at the beginning of your <code>&lt;body&gt;</code>. Control
+                        visibility by toggling the <code>.is-active</code> class.</p>
+                    <pre><code>&lt;div class="pageloader is-active"&gt;
+  &lt;span class="title"&gt;Loading...&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="column is-6">
+                    <h2 class="title is-3">Animations</h2>
+                    <p>Change the slide direction using modifier classes:</p>
+                    <ul>
+                        <li><code>is-left-to-right</code></li>
+                        <li><code>is-right-to-left</code></li>
+                        <li><code>is-bottom-to-top</code></li>
+                        <li>(Default: Top to Bottom)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- JavaScript -->
+        <section id="javascript" class="demo-section mb-6">
+            <h2 class="title is-3">Simple Trigger Script</h2>
+            <p class="mb-4">Use a small snippet of JavaScript to show and hide the loader after a delay.</p>
+            <pre><code>function triggerLoader(id) {
+  const loader = document.getElementById(id);
+  loader.classList.add('is-active');
+  
+  setTimeout(() => {
+    loader.classList.remove('is-active');
+  }, 2000);
+}</code></pre>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma Pageloader Extension</strong> by <a href="https://github.com/m-bignami">M. Bignami</a>.
+                The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function triggerLoader(id) {
+            const loader = document.getElementById(id);
+            loader.classList.add('is-active');
+
+            setTimeout(() => {
+                loader.classList.remove('is-active');
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+    "name": "@bulma-ext/carousel",
+    "version": "1.0.0",
+    "description": "A Carousel Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
+    "license": "MIT",
+    "main": "css/carousel.min.css",
+    "sass": "sass/carousel.scss",
+    "scripts": {
+        "build:expanded": "sass sass/carousel.scss css/carousel.css --load-path=node_modules --quiet-deps --source-map",
+        "build:min": "sass sass/carousel.scss css/carousel.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+        "build": "pnpm run build:expanded && pnpm run build:min",
+        "watch": "sass sass/carousel.scss css/carousel.css --watch"
+    },
+    "keywords": [
+        "bulma",
+        "bulma-extension"
+    ],
+    "peerDependencies": {
+        "bulma": "^1.0.0"
+    },
+    "devDependencies": {
+        "sass": "^1.77.0"
+    }
+}

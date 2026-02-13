@@ -1,0 +1,131 @@
+@use "sass:map";
+@use "bulma/sass/utilities/derived-variables" as vars;
+@use "bulma/sass/utilities/initial-variables" as init;
+@use "bulma/sass/utilities/mixins";
+
+// Variables
+$badge-padding: 0.1rem 0.25rem !default;
+$badge-z-index: 99 !default;
+
+@mixin badge-holder {
+  position: relative;
+}
+
+@mixin badge-left {
+	right: auto;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+@mixin badge-bottom {
+	top: auto;
+	bottom: 0;
+	transform: translate(50%, 50%);
+}
+
+@mixin badge-bottom-left {
+	transform: translate(-50%, 50%);
+}
+
+@mixin badge-outlined {
+	background-color: var(--bulma-scheme-main);
+	box-shadow: none;
+	border: 1px solid var(--badge-main-color);
+	color: var(--bulma-text);
+}
+
+@mixin badge-content {
+  --badge-main-color: var(--bulma-text);
+  --badge-text-color: var(--bulma-scheme-main);
+  display: inline-block;
+  position: absolute;
+  margin: 0;
+  padding: $badge-padding;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+  background-color: var(--badge-main-color);
+  background-clip: padding-box;
+  border-radius: var(--bulma-radius-rounded);
+  box-shadow: 0 0 0 1px var(--badge-main-color);
+  color: var(--badge-text-color);
+  z-index: $badge-z-index;
+  min-width: 1rem;
+  min-height: 1rem;
+  font-size: init.$size-7;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  transform: translate(50%, -50%);
+}
+
+[data-badge] {
+  @include badge-holder;
+  @each $name, $pair in vars.$colors {
+	&.has-badge-#{$name} {
+      &::after {
+	  	--badge-main-color: var(--bulma-#{$name});
+	  	--badge-text-color: var(--bulma-#{$name}-invert);
+      }
+    }
+  }
+  &.has-badge-outlined {
+    &::after {
+	  @include badge-outlined;
+    }
+  }
+
+  &.has-badge-left {
+    &::after {
+		@include badge-left;
+	}
+	
+	&.has-badge-bottom {
+		&::after {
+			@include badge-bottom-left;
+		}
+	}
+  }
+
+  &.has-badge-bottom {
+    &::after {
+		@include badge-bottom;
+	}
+  }
+
+  &::after {
+	@include badge-content;
+    content: attr(data-badge);
+  }
+}
+
+*:has(.badge) {
+  @include badge-holder;
+}
+
+.badge {
+  @include badge-content;
+
+  @each $name, $pair in vars.$colors {
+    &.is-#{$name} {
+	  --badge-main-color: var(--bulma-#{$name});
+	  --badge-text-color: var(--bulma-#{$name}-invert);
+    }
+  }
+
+  &.is-outlined {
+	@include badge-outlined;
+  }
+
+  &.is-left {
+	@include badge-left;
+	&.is-bottom {
+		@include badge-bottom-left;
+	}
+  }
+
+  &.is-bottom {
+	@include badge-bottom;
+  }
+}
