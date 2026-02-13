@@ -2,7 +2,7 @@
   "name": "@bulma-ext/divider",
   "version": "1.0.0",
   "description": "A Divider Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "css/divider.min.css",
   "sass": "sass/divider.scss",
   "scripts": {

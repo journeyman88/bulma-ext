@@ -2,7 +2,7 @@
   "name": "@bulma-ext/pageloader",
   "version": "1.0.0",
   "description": "A PageLoader / PageBlocker Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "css/pageloader.min.css",
   "sass": "sass/pageloader.scss",
   "scripts": {

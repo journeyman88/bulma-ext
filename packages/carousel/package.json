@@ -2,7 +2,7 @@
     "name": "@bulma-ext/carousel",
     "version": "1.0.0",
     "description": "A Carousel Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "main": "css/carousel.min.css",
     "sass": "sass/carousel.scss",
     "scripts": {

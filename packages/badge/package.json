@@ -2,7 +2,7 @@
     "name": "@bulma-ext/badge",
     "version": "1.0.0",
     "description": "A Badge Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "main": "css/badge.min.css",
     "sass": "sass/badge.scss",
     "scripts": {

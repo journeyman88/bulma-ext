@@ -2,7 +2,7 @@
     "name": "@bulma-ext/pricingtable",
     "version": "1.0.0",
     "description": "A PricingTable Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "main": "css/pricingtable.min.css",
     "sass": "sass/pricingtable.scss",
     "scripts": {

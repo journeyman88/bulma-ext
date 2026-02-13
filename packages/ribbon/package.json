@@ -2,7 +2,7 @@
     "name": "@bulma-ext/ribbon",
     "version": "1.0.0",
     "description": "A Ribbon Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "main": "css/ribbon.min.css",
     "sass": "sass/ribbon.scss",
     "scripts": {

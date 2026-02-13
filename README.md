@@ -36,4 +36,4 @@ And include it in your project after the main Bulma stylesheet.
 
 ## License
 
-MIT
+Apache-2.0

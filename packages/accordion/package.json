@@ -2,7 +2,7 @@
     "name": "@bulma-ext/accordion",
     "version": "1.0.0",
     "description": "An Accordion Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "main": "css/accordion.min.css",
     "sass": "sass/accordion.scss",
     "scripts": {

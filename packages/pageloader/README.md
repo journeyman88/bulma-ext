@@ -36,5 +36,5 @@ Based on the original project [bulma-pageloader](https://www.npmjs.com/package/b
 
 ## License
 
-MIT
+Apache-2.0
 
