@@ -1,0 +1,190 @@
+---
+import '../../packages/accordion/css/accordion.min.css';
+import { Code } from 'astro:components';
+---
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .hero.is-primary {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .example-box {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            color: #efefef;
+        }
+    </style>
+
+    <!-- Hero Header -->
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Bulma Accordion</h1>
+                <h2 class="subtitle">A simple and flexible accordion extension for Bulma.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6 px-3">
+        <!-- Overview -->
+        <div class="message is-info">
+            <div class="message-body">
+                The <strong>Accordion</strong> extension allows you to create collapsible content sections.
+                It supports multiple sizes, all Bulma colors, and smooth transitions.
+            </div>
+        </div>
+
+        <!-- Basic Accordion -->
+        <section id="basic" class="demo-section">
+            <h2 class="title is-3">Basic Accordion</h2>
+            <p class="subtitle mt-3">Wrap your items in an <code>.accordions</code> container. Use
+                <code>.is-active</code> to expand an item.
+            </p>
+
+            <div class="accordions">
+                <article id="article-1" class="accordion is-active">
+                    <div class="accordion-header toggle">
+                        <p>Accordion Header 1</p>
+                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-1')"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque nec nam
+                                aliquam sem.</strong>
+                            Aliquam quis eleifend ex.
+                        </div>
+                    </div>
+                </article>
+
+                <article id="article-2" class="accordion">
+                    <div class="accordion-header toggle">
+                        <p>Accordion Header 2</p>
+                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-2')"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Aenean feugiat tellus eu sodales scelerisque. Ut nisl dui, ornare quis ultrices vel,
+                            scelerisque nec diam.
+                        </div>
+                    </div>
+                </article>
+            </div>
+<Code code={
+`<div class="accordions">
+  <article class="accordion is-active">
+    <div class="accordion-header toggle">
+      <p>Header</p>
+      <button class="toggle"></button>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-content">Content...</div>
+    </div>
+  </article>
+</div>`} lang="html" />
+        </section>
+
+        <hr>
+
+        <!-- Colors -->
+        <section id="colors" class="demo-section">
+            <h2 class="title is-3">Color Variations</h2>
+            <p class="subtitle mt-3">Easily apply Bulma's standard color palette.</p>
+
+            <div class="accordions">
+                <article id="article-3" class="accordion is-primary">
+                    <div class="accordion-header toggle">
+                        <p>Primary Accordion</p>
+                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-3')"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Content for the primary styled accordion.
+                        </div>
+                    </div>
+                </article>
+
+                <article id="article-4" class="accordion is-info">
+                    <div class="accordion-header toggle">
+                        <p>Info Accordion</p>
+                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-4')"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Content for the info styled accordion.
+                        </div>
+                    </div>
+                </article>
+
+                <article id="article-5" class="accordion is-success">
+                    <div class="accordion-header toggle">
+                        <p>Success Accordion</p>
+                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-5')"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            Content for the success styled accordion.
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Sizes -->
+        <section id="sizes" class="demo-section mb-6">
+            <h2 class="title is-3">Sizing</h2>
+            <p class="subtitle mt-3">Choose the size that fits your design: small, normal, medium, or large.</p>
+
+            <div class="accordions">
+                <article id="article-6" class="accordion is-small is-dark">
+                    <div class="accordion-header toggle">
+                        <p>Small Accordion</p>
+                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-6')"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">Small content area.</div>
+                    </div>
+                </article>
+
+                <article id="article-7" class="accordion is-large is-link">
+                    <div class="accordion-header toggle">
+                        <p>Large Accordion</p>
+                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-7')"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">Large content area with bigger text.</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <script is:inline>
+        function triggerToggle(id) {
+            const loader = document.getElementById(id);
+            loader.classList.toggle('is-active');
+        }
+    </script>

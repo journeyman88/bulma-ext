@@ -1,0 +1,201 @@
+---
+import '../../packages/timeline/css/timeline.min.css';
+import placeholder from '../static/placeholder.png';
+import { Code } from 'astro:components';
+---
+<style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+        }
+
+        .hero.is-info {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .example-box {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        code {
+            color: #efefef;
+        }
+
+        .timeline-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- Hero Header -->
+    <section class="hero is-info is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">Bulma Timeline</h1>
+                <h2 class="subtitle">A versatile timeline extension for Bulma.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6">
+        <!-- Basic Timeline -->
+        <section id="basic" class="demo-section">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Basic Timeline</h2>
+                    <p>Standard vertical timeline with markers and content blocks. Supports colored markers and icons.
+                    </p>
+<Code code={
+`<div class="timeline">
+  <header class="timeline-header">
+    <span class="tag is-medium is-link">Start</span>
+  </header>
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <p class="heading">Step 1</p>
+      <p>Something happened.</p>
+    </div>
+  </div>
+</div>`} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <div class="timeline">
+                            <header class="timeline-header">
+                                <span class="tag is-medium is-link">History</span>
+                            </header>
+                            <div class="timeline-item is-link">
+                                <div class="timeline-marker is-link">
+                                    <span class="icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </span>
+                                </div>
+                                <div class="timeline-content">
+                                    <p class="heading">March 2026</p>
+                                    <p>Uploaded a file to the server.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item is-success">
+                                <div class="timeline-marker is-success">
+                                    <span class="icon">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                </div>
+                                <div class="timeline-content">
+                                    <p class="heading">April 2026</p>
+                                    <p>Verification complete.</p>
+                                </div>
+                            </div>
+                            <footer class="timeline-header">
+                                <span class="tag is-medium is-link">Done</span>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Centered Timeline -->
+        <section id="centered" class="demo-section">
+            <h2 class="title is-3 has-text-centered">Centered Layout</h2>
+            <p class="subtitle has-text-centered mb-6">Use <code>is-center</code> for a symmetric, balanced timeline
+                design.</p>
+            <div class="example-box">
+                <div class="timeline is-center">
+                    <header class="timeline-header">
+                        <span class="tag is-medium is-primary">Birth</span>
+                    </header>
+                    <div class="timeline-item is-primary">
+                        <div class="timeline-marker is-primary"></div>
+                        <div class="timeline-content">
+                            <p class="heading">January 2000</p>
+                            <p>Everything began here.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item is-warning">
+                        <div class="timeline-marker is-warning">
+                            <figure class="image is-64x64">
+                                <img src={placeholder.src} class="is-rounded">
+                            </figure>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="heading">May 2015</p>
+                            <p>A significant milestone with an image marker.</p>
+                        </div>
+                    </div>
+                    <footer class="timeline-header">
+                        <span class="tag is-medium is-primary">Now</span>
+                    </footer>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+<Code code={
+`<div class="timeline is-center">
+  <!-- Items will alternate sides -->
+</div>`} lang="html" />
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Right Aligned -->
+        <section id="right" class="demo-section mb-6">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <div class="example-box">
+                        <div class="timeline is-right">
+                            <header class="timeline-header">
+                                <span class="tag is-medium is-info">Archive</span>
+                            </header>
+                            <div class="timeline-item is-info">
+                                <div class="timeline-marker is-info"></div>
+                                <div class="timeline-content">
+                                    <p class="heading">2023</p>
+                                    <p>Legacy systems migrated.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item is-danger">
+                                <div class="timeline-marker is-danger">
+                                    <span class="icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </span>
+                                </div>
+                                <div class="timeline-content">
+                                    <p class="heading">2022</p>
+                                    <p>Critical issue resolved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-offset-1 is-5">
+                    <h2 class="title is-3">Right Aligned</h2>
+                    <p>Use <code>is-right</code> to align the timeline to the right side of its container.</p>
+<Code code={
+`<div class="timeline is-right">
+  ...
+</div>`} lang="html" />
+                </div>
+            </div>
+        </section>
+    </div>

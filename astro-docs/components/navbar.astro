@@ -1,0 +1,55 @@
+---
+// You can define variables (props) here to make it dynamic
+---
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a id="burger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="demoNavbar" onclick="toggleNavMenu('burger')">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="demoNavbar" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/bulma-ext/">Home</a>
+                
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Ready</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/bulma-ext/divider">Divider</a>
+                        <a class="navbar-item" href="/bulma-ext/pageloader">Pageloader</a>
+                        <a class="navbar-item" href="/bulma-ext/timeline">Timeline</a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Work In Progress</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/bulma-ext/accordion">Accordion</a>
+                        <a class="navbar-item" href="/bulma-ext/badge">Badge</a>
+                        <a class="navbar-item" href="/bulma-ext/ribbon">Ribbon</a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Draft</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/bulma-ext/carousel">Carousel</a>
+                        <a class="navbar-item" href="/bulma-ext/pricingtable">PricingTable</a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <a class="navbar-item">Contact</a>
+            </div>
+        </div>
+</nav>
+    <script is:inline>
+        function toggleNavMenu(id) {
+            const burgerIcon = document.getElementById(id);
+            const navMenu = document.getElementById(burgerIcon.dataset.target);
+            burgerIcon.classList.toggle('is-active');
+            navMenu.classList.toggle('is-active');
+        }
+    </script>

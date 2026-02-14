@@ -1,0 +1,239 @@
+---
+import '../../packages/badge/css/badge.min.css';
+import { Code } from 'astro:components';
+---
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+
+        .hero.is-primary {
+            background: var(--primary-gradient);
+        }
+
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .example-box {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+            border: 1px solid #eee;
+        }
+
+        .code-container {
+            position: relative;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #efefef;
+        }
+
+        .tag-desc {
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-demo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+    </style>
+    <!-- Hero Header -->
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container text-centered">
+                <h1 class="title">Bulma Badge</h1>
+                <h2 class="subtitle">A versatile, easy-to-use badge extension for Bulma.</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-6">
+        <!-- Overview -->
+        <div class="message is-info">
+            <div class="message-body">
+                The <strong>Badge Extension</strong> provides two distinct ways to add notifications and status
+                indicators to your elements:
+                <strong>Simple</strong> (via data-attribute) and <strong>Rich</strong> (via nested class).
+                All badges are <strong>rounded</strong> by default in this version.
+            </div>
+        </div>
+
+        <!-- Simple Usage -->
+        <section id="simple" class="demo-section">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Simple Usage</h2>
+                    <p class="tag-desc">Use the <code>data-badge</code> attribute for basic text notifications. These
+                        are generated via CSS <code>::after</code> pseudo-elements.</p>
+                    <div class="code-container">
+<Code code={
+`<button class="button" data-badge="8">
+  Notifications
+</button>`} lang="html" />
+                    </div>
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <div class="buttons">
+                            <span class="tag is-primary" data-badge="8">Notifications</span>
+                            <button class="button" data-badge="new">Updates</button>
+                            <div class="box mb-0" data-badge="info">Status Box</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Rich Usage -->
+        <section id="rich" class="demo-section">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Rich Usage</h2>
+                    <p class="tag-desc">Use the <code>.badge</code> class for badges that require icons or complex inner
+                        content. The parent element automatically becomes a badge holder.</p>
+                    <div class="code-container">
+<Code code={
+`<button class="button">
+  Profile
+  <span class="badge is-success">
+    <span class="icon is-small">
+      <i class="material-icons">check</i>
+    </span>
+  </span>
+</button>`} lang="html" />
+                    </div>
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <div class="buttons">
+                            <span class="tag is-link">
+                                Messages
+                                <span class="badge">99+</span>
+                            </span>
+                            <button class="button">
+                                User Profile
+                                <span class="badge is-success">
+                                    <span class="icon is-small">
+                                        <i class="material-icons" style="font-size: 0.8rem;">check</i>
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Positioning -->
+        <section id="positioning" class="demo-section">
+            <h2 class="title is-3 text-centered">Positioning</h2>
+            <p class="subtitle text-centered mb-6">Top-Right is default. Both versions support custom placement.</p>
+            <div class="columns is-multiline">
+                <!-- Rich Pos -->
+                <div class="column is-6">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Rich (.badge)</p>
+                        </header>
+                        <div class="card-content">
+                            <div class="buttons is-centered">
+                                <button class="button">
+                                    Bottom Right
+                                    <span class="badge is-bottom">BR</span>
+                                </button>
+                                <button class="button">
+                                    Top Left
+                                    <span class="badge is-left">TL</span>
+                                </button>
+                                <button class="button">
+                                    Bottom Left
+                                    <span class="badge is-left is-bottom">BL</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Simple Pos -->
+                <div class="column is-6">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Simple (data-badge)</p>
+                        </header>
+                        <div class="card-content">
+                            <div class="buttons is-centered">
+                                <button class="button has-badge-bottom" data-badge="BR">Bottom Right</button>
+                                <button class="button has-badge-left" data-badge="TL">Top Left</button>
+                                <button class="button has-badge-bottom has-badge-left" data-badge="BL">Bottom Left</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Colors -->
+        <section id="colors" class="demo-section">
+            <h2 class="title is-3 text-centered">Infinite Colors</h2>
+            <p class="subtitle text-centered mb-6">Badges support all Bulma core colors and outlined variations.</p>
+            <div class="example-box">
+                <div class="buttons is-centered">
+                    <button class="button">Primary <span class="badge is-primary">P</span></button>
+                    <button class="button">Info <span class="badge is-info">I</span></button>
+                    <button class="button">Success <span class="badge is-success">S</span></button>
+                    <button class="button">Warning <span class="badge is-warning">W</span></button>
+                    <button class="button">Danger <span class="badge is-danger">D</span></button>
+                    <button class="button">Outlined <span class="badge is-outlined is-info">O</span></button>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- With Icons -->
+        <section id="icons" class="demo-section mb-6">
+            <h2 class="title is-3 text-centered">Great for Icons</h2>
+            <p class="subtitle text-centered mb-6">Attach badges to larger icon holders for a modern UI look.</p>
+            <div class="example-box">
+                <div class="columns is-mobile is-centered" style="gap: 4rem;">
+                    <span class="icon is-large"
+                        style="background: #eee; border-radius: 12px; height: 4rem; width: 4rem;">
+                        <i class="fas fa-envelope fa-2x"></i>
+                        <span class="badge is-danger">
+                            <span class="icon is-small">
+                                <i class="fas fa-exclamation"></i>
+                            </span>
+                        </span>
+                    </span>
+
+                    <span class="icon is-large"
+                        style="background: #eee; border-radius: 12px; height: 4rem; width: 4rem;">
+                        <i class="fas fa-bell fa-2x"></i>
+                        <span class="badge is-warning is-outlined" style="height: 1.2rem; min-width: 1.2rem;"></span>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </div>
