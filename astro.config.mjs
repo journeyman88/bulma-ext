@@ -4,7 +4,8 @@ export default defineConfig({
   site: 'https://journeyman88.github.io',
   base: '/bulma-ext',
   build: {
-    format: 'directory', // Ensures /divider/index.html structure
+    format: 'directory',
+    inlineStylesheets: 'never',
   },
   srcDir: './astro-docs/sites/web',
   outDir: './pages',

@@ -1,38 +1,37 @@
 ---
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
 import '../static/common.css';
 import '../../packages/accordion/css/accordion.min.css';
 import { Code } from 'astro:components';
+// Examples
+import exampleBasic from '../examples/accordion/basic.html?raw';
+import exampleToggle from '../examples/accordion/toggle.js?raw';
 ---
-    <!-- Hero Header -->
-    <section class="hero is-primary is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Bulma Accordion</h1>
-                <h2 class="subtitle">A simple and flexible accordion extension for Bulma.</h2>
-            </div>
+<!-- Hero Header -->
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">Bulma Accordion</h1>
+            <h2 class="subtitle">A simple and flexible accordion extension for Bulma.</h2>
         </div>
-    </section>
-
-    <div class="container mt-6 px-3">
-
-        <Overview>
-                The <strong>Accordion</strong> extension allows you to create collapsible content sections.
-                It supports multiple sizes, all Bulma colors, and smooth transitions.
-        </Overview>
-
-        <!-- Basic Accordion -->
-        <section id="basic" class="demo-section">
-            <h2 class="title is-3">Basic Accordion</h2>
-            <p class="subtitle mt-3">Wrap your items in an <code>.accordions</code> container. Use
-                <code>.is-active</code> to expand an item.
-            </p>
-
-            <div class="accordions">
-                <article id="article-1" class="accordion is-active">
+    </div>
+</section>
+<Container>
+    <Overview>
+        The <strong>Accordion</strong> extension allows you to create collapsible content sections.
+        It supports multiple sizes, all Bulma colors, and smooth transitions.
+    </Overview>
+    <Section id="basic" title="Basic Accordion" showTitle>
+        <Fragment slot="subtitle">
+            Wrap your items in an <code>.accordions</code> container. Use <code>.is-active</code> to expand an item.
+        </Fragment>
+        <div class="accordions">
+                <article class="accordion is-active">
                     <div class="accordion-header toggle">
                         <p>Accordion Header 1</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-1')"></button>
+                        <button class="toggle" aria-label="toggle"></button>
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-content">
@@ -46,7 +45,7 @@ import { Code } from 'astro:components';
                 <article id="article-2" class="accordion">
                     <div class="accordion-header toggle">
                         <p>Accordion Header 2</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-2')"></button>
+                        <button class="toggle" aria-label="toggle"></button>
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-content">
@@ -55,33 +54,19 @@ import { Code } from 'astro:components';
                         </div>
                     </div>
                 </article>
-            </div>
-<Code code={
-`<div class="accordions">
-  <article class="accordion is-active">
-    <div class="accordion-header toggle">
-      <p>Header</p>
-      <button class="toggle"></button>
-    </div>
-    <div class="accordion-body">
-      <div class="accordion-content">Content...</div>
-    </div>
-  </article>
-</div>`} lang="html" />
-        </section>
-
-        <hr>
-
-        <!-- Colors -->
-        <section id="colors" class="demo-section">
-            <h2 class="title is-3">Color Variations</h2>
-            <p class="subtitle mt-3">Easily apply Bulma's standard color palette.</p>
-
+        </div>
+        <Code code={exampleBasic} lang="html" />
+    </Section>
+    <hr>
+    <Section id="colors" title="Color Variations" showTitle>
+        <Fragment slot="subtitle">
+            Easily apply Bulma's standard color palette.
+        </Fragment>
             <div class="accordions">
                 <article id="article-3" class="accordion is-primary">
                     <div class="accordion-header toggle">
                         <p>Primary Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-3')"></button>
+                        <button class="toggle" aria-label="toggle"></button>
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-content">
@@ -93,7 +78,7 @@ import { Code } from 'astro:components';
                 <article id="article-4" class="accordion is-info">
                     <div class="accordion-header toggle">
                         <p>Info Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-4')"></button>
+                        <button class="toggle" aria-label="toggle"></button>
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-content">
@@ -105,7 +90,7 @@ import { Code } from 'astro:components';
                 <article id="article-5" class="accordion is-success">
                     <div class="accordion-header toggle">
                         <p>Success Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-5')"></button>
+                        <button class="toggle" aria-label="toggle"></button>
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-content">
@@ -114,20 +99,18 @@ import { Code } from 'astro:components';
                     </div>
                 </article>
             </div>
-        </section>
-
-        <hr>
-
-        <!-- Sizes -->
-        <section id="sizes" class="demo-section mb-6">
-            <h2 class="title is-3">Sizing</h2>
-            <p class="subtitle mt-3">Choose the size that fits your design: small, normal, medium, or large.</p>
+    </Section>
+    <hr>
+    <Section id="sizes" title="Sizing" showTitle>
+        <Fragment slot="subtitle">
+            Choose the size that fits your design: small, normal, medium, or large.
+        </Fragment>
 
             <div class="accordions">
                 <article id="article-6" class="accordion is-small is-dark">
                     <div class="accordion-header toggle">
                         <p>Small Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-6')"></button>
+                        <button class="toggle" aria-label="toggle"></button>
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-content">Small content area.</div>
@@ -137,19 +120,21 @@ import { Code } from 'astro:components';
                 <article id="article-7" class="accordion is-large is-link">
                     <div class="accordion-header toggle">
                         <p>Large Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-7')"></button>
+                        <button class="toggle" aria-label="toggle"></button>
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-content">Large content area with bigger text.</div>
                     </div>
                 </article>
             </div>
-        </section>
-    </div>
-
-    <script is:inline>
-        function triggerToggle(id) {
-            const loader = document.getElementById(id);
-            loader.classList.toggle('is-active');
-        }
-    </script>
+    </Section>
+    <hr>
+    <Section id="javascript" title="Scripting" showTitle>
+        <Fragment slot="subtitle">
+            Scripting is needed to toggle the accordion on event, it can be done with a simple function or a component model.
+        </Fragment>
+        <Code code={exampleToggle} lang="js" />
+    </Section>
+</Container>
+<script src="../examples/accordion/toggle.js">
+</script>

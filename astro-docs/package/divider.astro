@@ -1,64 +1,39 @@
 ---
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
 import '../static/common.css';
 import '../../packages/divider/css/divider.min.css';
 import placeholder from '../static/placeholder.png';
 import { Code } from 'astro:components';
+// Examples
+import exampleHorizontal from '../examples/divider/horizontal.html?raw';
+import exampleVertical from '../examples/divider/vertical.html?raw';
+import exampleAlign from '../examples/divider/alignment.html?raw';
+
 ---
-    <style>
-        .vertical-divider-container {
-            display: flex;
-            align-items: stretch;
-            height: 200px;
-        }
-    </style>
-    <!-- Hero Header -->
-    <section class="hero is-primary is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Bulma Divider</h1>
-                <h2 class="subtitle">A simple yet powerful divider extension for Bulma.</h2>
-            </div>
+<!-- Hero Header -->
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">Bulma Divider</h1>
+            <h2 class="subtitle">A simple yet powerful divider extension for Bulma.</h2>
         </div>
-    </section>
-
-    <div class="container mt-6 px-3">
-
-        <Overview>
-                The <strong>Divider</strong> extension allows you to easily display horizontal or vertical
-                lines to separate your content. It supports custom text, icons, and images centered or aligned
-                along the line.
-        </Overview>
-
-        <!-- Horizontal Divider -->
-        <section id="horizontal" class="demo-section">
+    </div>
+</section>
+<Container>
+    <Overview>
+        The <strong>Divider</strong> extension allows you to easily display horizontal or vertical
+        lines to separate your content. It supports custom text, icons, and images centered or aligned
+        along the line.
+    </Overview>
+    <Section id="horizontal" title="Horizontal Divider">
             <div class="columns is-vcentered">
                 <div class="column is-5">
                     <h2 class="title is-3">Horizontal</h2>
                     <p>Standard horizontal line. Use <code>.is-divider</code> and optional <code>.divider-content</code>
                         for text, icons, or images overlays.</p>
-<Code code={
-`<!-- Simple -->
-<div class="is-divider"></div>
-
-<!-- With Text -->
-<div class="is-divider">
-  <span class="divider-content">OR</span>
-</div>
-
-<!-- With Icon -->
-<div class="is-divider">
-  <span class="divider-content">
-    <i class="fas fa-star"></i>
-  </span>
-</div>
-
-<!-- With Image -->
-<div class="is-divider">
-  <span class="divider-content">
-    <img src="/placeholder.png" width="32" height="32">
-  </span>
-</div>`} lang="html" />
+                    <Code code={exampleHorizontal} lang="html" />
                 </div>
                 <div class="column is-offset-1 is-6">
                     <div class="example-box block">
@@ -84,16 +59,12 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-        </section>
-
-        <hr>
-
-        <!-- Colors -->
-        <section id="colors" class="demo-section">
-            <h2 class="title is-3 has-text-centered">Color Variations</h2>
-            <p class="subtitle has-text-centered mb-6">Apply Bulma core colors using standard modifiers like
-                <code>is-primary</code>, <code>is-info</code>, etc.
-            </p>
+    </Section>
+    <hr>
+    <Section id="colors" title="Color Variations" showTitle>
+        <Fragment slot="subtitle">
+            Apply Bulma core colors using standard modifiers like <code>is-primary</code>, <code>is-info</code>, etc.
+        </Fragment>
             <div class="columns is-multiline">
                 <div class="column is-4">
                     <div class="is-divider is-primary">
@@ -126,12 +97,9 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-        </section>
-
-        <hr>
-
-        <!-- Vertical Divider -->
-        <section id="vertical" class="demo-section mb-6">
+    </Section>
+    <hr>
+    <Section id="vertical" title="Vertical Divider">
             <div class="columns is-vcentered">
                 <div class="column is-6">
                     <div class="example-box">
@@ -153,27 +121,16 @@ import { Code } from 'astro:components';
                 <div class="column is-offset-1 is-5">
                     <h2 class="title is-3">Vertical</h2>
                     <p>Use <code>.is-vertical</code> with <code>.is-divider</code> for vertical separation.</p>
-<Code code={
-`<div class="columns">
-  <div class="column">Left</div>
-  <div class="is-divider is-vertical">
-    <span class="divider-content">AND</span>
-  </div>
-  <div class="column">Right</div>
-</div>`} lang="html" />
+                    <Code code={exampleVertical} lang="html" />
                 </div>
             </div>
-        </section>
-
-        <hr>
-
-        <!-- Alignment -->
-        <section id="alignment" class="demo-section">
-            <h2 class="title is-3 has-text-centered">Alignment</h2>
-            <p class="subtitle has-text-centered mb-6">Use <code>is-start</code> or <code>is-end</code> to align the
-                content
-                along the line.</p>
-
+    </Section>
+    <hr>
+    <Section id="alignment" title="Alignment" showTitle>
+        <Fragment slot="subtitle">
+            Use <code>is-start</code> or <code>is-end</code> to align the content along the line.
+        </Fragment>
+        
             <div class="columns">
                 <div class="column is-6">
                     <h3 class="title is-4">Horizontal</h3>
@@ -213,17 +170,8 @@ import { Code } from 'astro:components';
 
             <div class="columns is-centered">
                 <div class="column is-8">
-<Code code={
-`<!-- Horizontal -->
-<div class="is-divider is-start">
-    <span class="divider-content">Left</span>
-</div>
-
-<!-- Vertical -->
-<div class="is-divider is-vertical is-end">
-    <span class="divider-content">Bottom</span>
-</div>`} lang="html" />
+                    <Code code={exampleAlign} lang="html" />
                 </div>
             </div>
-        </section>
-    </div>
+    </Section>
+</Container>

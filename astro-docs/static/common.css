@@ -6,10 +6,6 @@
     background: var(--primary-gradient);
 }
 
-.demo-section {
-    padding: 3rem 0;
-}
-
 .example-box {
     background-color: #f9f9f9;
     padding: 2rem;

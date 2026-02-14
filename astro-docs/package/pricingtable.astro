@@ -1,36 +1,39 @@
 ---
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
 import '../static/common.css';
 import '../../packages/pricingtable/css/pricingtable.min.css';
 import { Code } from 'astro:components';
+// Examples
+import exampleBasic from '../examples/pricingtable/basic.html?raw';
+import exampleComp from '../examples/pricingtable/comparative.html?raw';
+import exampleHorizontal from '../examples/pricingtable/horizontal.html?raw';
 ---
-    <style>
-        .pricing-table .pricing-plan {
-            margin: 0.5rem;
-        }
-    </style>
-    <!-- Hero Header -->
-    <section class="hero is-primary is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Bulma Pricing Table</h1>
-                <h2 class="subtitle">A complete pricing table extension for Bulma.</h2>
-            </div>
+<style>
+    .pricing-table .pricing-plan {
+        margin: 0.5rem;
+    }
+</style>
+<!-- Hero Header -->
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">Bulma Pricing Table</h1>
+            <h2 class="subtitle">A complete pricing table extension for Bulma.</h2>
         </div>
-    </section>
-
-    <div class="container mt-6 px-3">
-
-        <Overview>
-                The <strong>Pricing Table</strong> extension provides a complete solution for displaying
-                pricing plans. It supports multiple layouts including horizontal, comparative, and active
-                states to highlight specific plans.
-        </Overview>
-
-        <!-- Basic Pricing Table -->
-        <section id="basic" class="demo-section">
-            <h2 class="title is-3">Basic Pricing Table</h2>
-            <p class="subtitle mt-3">Standard pricing plans with an active state to highlight the best value.</p>
+    </div>
+</section>
+<Container>
+    <Overview>
+        The <strong>Pricing Table</strong> extension provides a complete solution for displaying
+        pricing plans. It supports multiple layouts including horizontal, comparative, and active
+        states to highlight specific plans.
+    </Overview>
+    <Section id="basic" title="Basic Pricing Table" showTitle>
+        <Fragment slot="subtitle">
+            Standard pricing plans with an active state to highlight the best value.
+        </Fragment>
 
             <div class="pricing-table mt-5">
                 <div class="pricing-plan">
@@ -75,26 +78,14 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-<Code code={
-`<div class="pricing-table">
-  <div class="pricing-plan">
-    <div class="plan-header">Starter</div>
-    <div class="plan-price"><span class="plan-price-amount"><span class="plan-price-currency">$</span>0</span>/mo</div>
-    <div class="plan-items">...</div>
-    <div class="plan-footer"><button class="button is-fullwidth">Choose</button></div>
-  </div>
-  <!-- Highlight with is-active -->
-  <div class="pricing-plan is-active">...</div>
-</div>`} lang="html" />
-        </section>
-
-        <hr>
-
-        <!-- Comparative Table -->
-        <section id="comparative" class="demo-section">
-            <h2 class="title is-3">Comparative Layout</h2>
-            <p class="subtitle mt-3">Plan items align horizontally across plans for easy feature comparison. Use
-                <code>is-comparative</code> on the table.</p>
+        <Code code={exampleBasic} lang="html" />
+    </Section>
+    <hr>
+    <Section id="comparative" title="Comparative Layout" showTitle>
+        <Fragment slot="subtitle">
+            Plan items align horizontally across plans for easy feature comparison. 
+            Use <code>is-comparative</code> on the table.
+        </Fragment>
 
             <div class="pricing-table is-comparative mt-5">
                 <div class="pricing-plan">
@@ -133,24 +124,16 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-<Code code={
-`<div class="pricing-table is-comparative">
-  <div class="pricing-plan">
-    <div class="plan-item" data-feature="Custom Label">Feature Value</div>
-  </div>
-</div>`} lang="html" />
-        </section>
-
-        <hr>
-
-        <!-- Horizontal Layout -->
-        <section id="horizontal" class="demo-section mb-6">
-            <h2 class="title is-3">Horizontal Layout</h2>
-            <p class="subtitle mt-3">Use <code>is-horizontal</code> to stack plans vertically (effective on desktop).
-            </p>
-
+            <Code code={exampleComp} lang="html" />
+    </Section>
+    <hr>
+    <Section id="horizontal" title="Horizontal Layout" showTitle>
+        <Fragment slot="subtitle">
+            Use <code>is-horizontal</code> to stack plans vertically (effective on desktop).
+        </Fragment>
+        
             <div class="pricing-table is-horizontal mt-5">
-                <div class="pricing-plan is-active">
+                <div class="pricing-plan is-primary">
                     <div class="plan-header">Monthly Plan</div>
                     <div class="plan-price"><span class="plan-price-amount"><span
                                 class="plan-price-currency">$</span>19</span>/mo</div>
@@ -176,9 +159,6 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-<Code code={
-`<div class="pricing-table is-horizontal">
-  <div class="pricing-plan">...</div>
-</div>`} lang="html" />
-        </section>
-    </div>
+        <Code code={exampleHorizontal} lang="html" />
+    </Section>
+</Container>
