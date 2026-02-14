@@ -1,212 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulma Accordion Extension</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="../css/accordion.min.css">
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .hero.is-primary {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        .example-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid #eee;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Hero Header -->
-    <section class="hero is-primary is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Bulma Accordion</h1>
-                <h2 class="subtitle">A simple and flexible accordion extension for Bulma.</h2>
-            </div>
-        </div>
-    </section>
-
-    <div class="container mt-6 px-3">
-        <!-- Overview -->
-        <div class="message is-info">
-            <div class="message-body">
-                The <strong>Accordion</strong> extension allows you to create collapsible content sections.
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><title>Bulma Extensions: Accordion</title><style>.accordions{--accordion-header-background-color: var(--bulma-scheme-main-ter);--accordion-panel-background-color: var(--bulma-background);--accordion-panel-color: var(--bulma-text);--accordion-header-color: var(--bulma-text)}.accordions .accordion:not(:last-child){margin-bottom:var(--bulma-block-spacing)}.accordions .accordion{display:flex;flex-direction:column;background-color:var(--accordion-panel-background-color);border-radius:var(--bulma-radius);font-size:var(--bulma-size-normal)}.accordions .accordion strong{color:currentColor}.accordions .accordion a:not(.button):not(.tag){color:currentColor;text-decoration:underline}.accordions .accordion.is-small{font-size:var(--bulma-size-small)}.accordions .accordion.is-medium{font-size:var(--bulma-size-medium)}.accordions .accordion.is-large{font-size:var(--bulma-size-large)}.accordions .accordion:not(:first-child) .accordion-header{border-radius:0}.accordions .accordion:not(:last-child){margin-bottom:0}.accordions .accordion:not(:last-child) .accordion-content{border-radius:0}.accordions .accordion .toggle,.accordions .accordion [data-action=toggle]{cursor:pointer}.accordions .accordion .accordion-header{align-items:center;background-color:var(--accordion-header-background-color);border-radius:var(--bulma-radius) var(--bulma-radius) 0 0;color:var(--accordion-header-color);display:flex;justify-content:space-between;line-height:1.25;padding:.5em .75em;position:relative}.accordions .accordion .accordion-header .toggle{appearance:none;background-color:#0a0a0a33;border:none;border-radius:var(--bulma-radius-rounded);display:inline-block;flex-grow:0;flex-shrink:0;margin-left:.75em;height:20px;width:20px;outline:none;position:relative;vertical-align:top;user-select:none}.accordions .accordion .accordion-header .toggle:before{color:var(--bulma-white);display:flex;inset:0;position:absolute;content:"+";line-height:0;justify-content:center;align-items:center}.accordions .accordion .accordion-header .toggle:after{display:none}.accordions .accordion .accordion-header+.accordion-body{overflow-y:hidden;max-height:0;color:var(--accordion-panel-color);border:1px solid var(--accordion-header-background-color);border-radius:var(--bulma-radius);border-top-left-radius:0;border-top-right-radius:0;border-top:none;transition:max-height .2s ease}.accordions .accordion .accordion-header+.accordion-body .accordion-content{padding:1em 1.25em}.accordions .accordion .accordion-header+.accordion-body .accordion-content code,.accordions .accordion .accordion-header+.accordion-body .accordion-content pre{background-color:var(--bulma-white)}.accordions .accordion .accordion-header+.accordion-body .accordion-content pre code{background-color:#0000}.accordions .accordion.is-active .accordion-header .toggle:before{content:"-"}.accordions .accordion.is-active .accordion-body{max-height:100em}.accordions .accordion.is-white{--accordion-panel-background-color: var(--bulma-white-soft);--accordion-panel-color: var(--bulma-white-soft-invert);--accordion-header-background-color: var(--bulma-white);--accordion-header-color: var(--bulma-white-invert)}.accordions .accordion.is-black{--accordion-panel-background-color: var(--bulma-black-soft);--accordion-panel-color: var(--bulma-black-soft-invert);--accordion-header-background-color: var(--bulma-black);--accordion-header-color: var(--bulma-black-invert)}.accordions .accordion.is-light{--accordion-panel-background-color: var(--bulma-light-soft);--accordion-panel-color: var(--bulma-light-soft-invert);--accordion-header-background-color: var(--bulma-light);--accordion-header-color: var(--bulma-light-invert)}.accordions .accordion.is-dark{--accordion-panel-background-color: var(--bulma-dark-soft);--accordion-panel-color: var(--bulma-dark-soft-invert);--accordion-header-background-color: var(--bulma-dark);--accordion-header-color: var(--bulma-dark-invert)}.accordions .accordion.is-text{--accordion-panel-background-color: var(--bulma-text-soft);--accordion-panel-color: var(--bulma-text-soft-invert);--accordion-header-background-color: var(--bulma-text);--accordion-header-color: var(--bulma-text-invert)}.accordions .accordion.is-primary{--accordion-panel-background-color: var(--bulma-primary-soft);--accordion-panel-color: var(--bulma-primary-soft-invert);--accordion-header-background-color: var(--bulma-primary);--accordion-header-color: var(--bulma-primary-invert)}.accordions .accordion.is-link{--accordion-panel-background-color: var(--bulma-link-soft);--accordion-panel-color: var(--bulma-link-soft-invert);--accordion-header-background-color: var(--bulma-link);--accordion-header-color: var(--bulma-link-invert)}.accordions .accordion.is-info{--accordion-panel-background-color: var(--bulma-info-soft);--accordion-panel-color: var(--bulma-info-soft-invert);--accordion-header-background-color: var(--bulma-info);--accordion-header-color: var(--bulma-info-invert)}.accordions .accordion.is-success{--accordion-panel-background-color: var(--bulma-success-soft);--accordion-panel-color: var(--bulma-success-soft-invert);--accordion-header-background-color: var(--bulma-success);--accordion-header-color: var(--bulma-success-invert)}.accordions .accordion.is-warning{--accordion-panel-background-color: var(--bulma-warning-soft);--accordion-panel-color: var(--bulma-warning-soft-invert);--accordion-header-background-color: var(--bulma-warning);--accordion-header-color: var(--bulma-warning-invert)}.accordions .accordion.is-danger{--accordion-panel-background-color: var(--bulma-danger-soft);--accordion-panel-color: var(--bulma-danger-soft-invert);--accordion-header-background-color: var(--bulma-danger);--accordion-header-color: var(--bulma-danger-invert)}:root{--primary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%)}.hero[data-astro-cid-ta4bxcqm].is-primary{background:var(--primary-gradient)}.demo-section[data-astro-cid-ta4bxcqm]{padding:3rem 0}.example-box[data-astro-cid-ta4bxcqm]{background-color:#f9f9f9;padding:2rem;border-radius:8px;margin-bottom:2rem;border:1px solid #eee}pre[data-astro-cid-ta4bxcqm]{background-color:#2d2d2d;color:#ccc;padding:1rem;border-radius:8px;overflow-x:auto;margin-top:1rem}code[data-astro-cid-ta4bxcqm]{color:#efefef}
+</style></head> <body>  <!-- Hero Header --><section class="hero is-primary is-bold" data-astro-cid-ta4bxcqm> <div class="hero-body" data-astro-cid-ta4bxcqm> <div class="container has-text-centered" data-astro-cid-ta4bxcqm> <h1 class="title" data-astro-cid-ta4bxcqm>Bulma Accordion</h1> <h2 class="subtitle" data-astro-cid-ta4bxcqm>A simple and flexible accordion extension for Bulma.</h2> </div> </div> </section> <div class="container mt-6 px-3" data-astro-cid-ta4bxcqm> <!-- Overview --> <div class="message is-info" data-astro-cid-ta4bxcqm> <div class="message-body" data-astro-cid-ta4bxcqm>
+The <strong data-astro-cid-ta4bxcqm>Accordion</strong> extension allows you to create collapsible content sections.
                 It supports multiple sizes, all Bulma colors, and smooth transitions.
-            </div>
-        </div>
-
-        <!-- Basic Accordion -->
-        <section id="basic" class="demo-section">
-            <h2 class="title is-3">Basic Accordion</h2>
-            <p class="subtitle mt-3">Wrap your items in an <code>.accordions</code> container. Use
-                <code>.is-active</code> to expand an item.
-            </p>
-
-            <div class="accordions">
-                <article id="article-1" class="accordion is-active">
-                    <div class="accordion-header toggle">
-                        <p>Accordion Header 1</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-1')"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque nec nam
+</div> </div> <!-- Basic Accordion --> <section id="basic" class="demo-section" data-astro-cid-ta4bxcqm> <h2 class="title is-3" data-astro-cid-ta4bxcqm>Basic Accordion</h2> <p class="subtitle mt-3" data-astro-cid-ta4bxcqm>Wrap your items in an <code data-astro-cid-ta4bxcqm>.accordions</code> container. Use
+<code data-astro-cid-ta4bxcqm>.is-active</code> to expand an item.
+</p> <div class="accordions" data-astro-cid-ta4bxcqm> <article id="article-1" class="accordion is-active" data-astro-cid-ta4bxcqm> <div class="accordion-header toggle" data-astro-cid-ta4bxcqm> <p data-astro-cid-ta4bxcqm>Accordion Header 1</p> <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-1')" data-astro-cid-ta4bxcqm></button> </div> <div class="accordion-body" data-astro-cid-ta4bxcqm> <div class="accordion-content" data-astro-cid-ta4bxcqm>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong data-astro-cid-ta4bxcqm>Pellentesque nec nam
                                 aliquam sem.</strong>
-                            Aliquam quis eleifend ex.
-                        </div>
-                    </div>
-                </article>
-
-                <article id="article-2" class="accordion">
-                    <div class="accordion-header toggle">
-                        <p>Accordion Header 2</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-2')"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Aenean feugiat tellus eu sodales scelerisque. Ut nisl dui, ornare quis ultrices vel,
+Aliquam quis eleifend ex.
+</div> </div> </article> <article id="article-2" class="accordion" data-astro-cid-ta4bxcqm> <div class="accordion-header toggle" data-astro-cid-ta4bxcqm> <p data-astro-cid-ta4bxcqm>Accordion Header 2</p> <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-2')" data-astro-cid-ta4bxcqm></button> </div> <div class="accordion-body" data-astro-cid-ta4bxcqm> <div class="accordion-content" data-astro-cid-ta4bxcqm>
+Aenean feugiat tellus eu sodales scelerisque. Ut nisl dui, ornare quis ultrices vel,
                             scelerisque nec diam.
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <pre><code>&lt;div class="accordions"&gt;
-  &lt;article class="accordion is-active"&gt;
-    &lt;div class="accordion-header toggle"&gt;
-      &lt;p&gt;Header&lt;/p&gt;
-      &lt;button class="toggle"&gt;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class="accordion-body"&gt;
-      &lt;div class="accordion-content"&gt;Content...&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/article&gt;
-&lt;/div&gt;</code></pre>
-        </section>
-
-        <hr>
-
-        <!-- Colors -->
-        <section id="colors" class="demo-section">
-            <h2 class="title is-3">Color Variations</h2>
-            <p class="subtitle mt-3">Easily apply Bulma's standard color palette.</p>
-
-            <div class="accordions">
-                <article id="article-3" class="accordion is-primary">
-                    <div class="accordion-header toggle">
-                        <p>Primary Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-3')"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Content for the primary styled accordion.
-                        </div>
-                    </div>
-                </article>
-
-                <article id="article-4" class="accordion is-info">
-                    <div class="accordion-header toggle">
-                        <p>Info Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-4')"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Content for the info styled accordion.
-                        </div>
-                    </div>
-                </article>
-
-                <article id="article-5" class="accordion is-success">
-                    <div class="accordion-header toggle">
-                        <p>Success Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-5')"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Content for the success styled accordion.
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <hr>
-
-        <!-- Sizes -->
-        <section id="sizes" class="demo-section mb-6">
-            <h2 class="title is-3">Sizing</h2>
-            <p class="subtitle mt-3">Choose the size that fits your design: small, normal, medium, or large.</p>
-
-            <div class="accordions">
-                <article id="article-6" class="accordion is-small is-dark">
-                    <div class="accordion-header toggle">
-                        <p>Small Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-6')"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">Small content area.</div>
-                    </div>
-                </article>
-
-                <article id="article-7" class="accordion is-large is-link">
-                    <div class="accordion-header toggle">
-                        <p>Large Accordion</p>
-                        <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-7')"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">Large content area with bigger text.</div>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Bulma Accordion Extension</strong> by <a href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
-                The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Toggle Script -->
-
-    <script>
+</div> </div> </article> </div> <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-astro-cid-ta4bxcqm data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"accordions"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">article</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"accordion is-active"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"accordion-header toggle"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>Header&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"toggle"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"accordion-body"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"accordion-content"</span><span style="color:#E1E4E8">>Content...&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">article</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </section> <hr data-astro-cid-ta4bxcqm> <!-- Colors --> <section id="colors" class="demo-section" data-astro-cid-ta4bxcqm> <h2 class="title is-3" data-astro-cid-ta4bxcqm>Color Variations</h2> <p class="subtitle mt-3" data-astro-cid-ta4bxcqm>Easily apply Bulma's standard color palette.</p> <div class="accordions" data-astro-cid-ta4bxcqm> <article id="article-3" class="accordion is-primary" data-astro-cid-ta4bxcqm> <div class="accordion-header toggle" data-astro-cid-ta4bxcqm> <p data-astro-cid-ta4bxcqm>Primary Accordion</p> <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-3')" data-astro-cid-ta4bxcqm></button> </div> <div class="accordion-body" data-astro-cid-ta4bxcqm> <div class="accordion-content" data-astro-cid-ta4bxcqm>
+Content for the primary styled accordion.
+</div> </div> </article> <article id="article-4" class="accordion is-info" data-astro-cid-ta4bxcqm> <div class="accordion-header toggle" data-astro-cid-ta4bxcqm> <p data-astro-cid-ta4bxcqm>Info Accordion</p> <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-4')" data-astro-cid-ta4bxcqm></button> </div> <div class="accordion-body" data-astro-cid-ta4bxcqm> <div class="accordion-content" data-astro-cid-ta4bxcqm>
+Content for the info styled accordion.
+</div> </div> </article> <article id="article-5" class="accordion is-success" data-astro-cid-ta4bxcqm> <div class="accordion-header toggle" data-astro-cid-ta4bxcqm> <p data-astro-cid-ta4bxcqm>Success Accordion</p> <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-5')" data-astro-cid-ta4bxcqm></button> </div> <div class="accordion-body" data-astro-cid-ta4bxcqm> <div class="accordion-content" data-astro-cid-ta4bxcqm>
+Content for the success styled accordion.
+</div> </div> </article> </div> </section> <hr data-astro-cid-ta4bxcqm> <!-- Sizes --> <section id="sizes" class="demo-section mb-6" data-astro-cid-ta4bxcqm> <h2 class="title is-3" data-astro-cid-ta4bxcqm>Sizing</h2> <p class="subtitle mt-3" data-astro-cid-ta4bxcqm>Choose the size that fits your design: small, normal, medium, or large.</p> <div class="accordions" data-astro-cid-ta4bxcqm> <article id="article-6" class="accordion is-small is-dark" data-astro-cid-ta4bxcqm> <div class="accordion-header toggle" data-astro-cid-ta4bxcqm> <p data-astro-cid-ta4bxcqm>Small Accordion</p> <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-6')" data-astro-cid-ta4bxcqm></button> </div> <div class="accordion-body" data-astro-cid-ta4bxcqm> <div class="accordion-content" data-astro-cid-ta4bxcqm>Small content area.</div> </div> </article> <article id="article-7" class="accordion is-large is-link" data-astro-cid-ta4bxcqm> <div class="accordion-header toggle" data-astro-cid-ta4bxcqm> <p data-astro-cid-ta4bxcqm>Large Accordion</p> <button class="toggle" aria-label="toggle" onclick="triggerToggle('article-7')" data-astro-cid-ta4bxcqm></button> </div> <div class="accordion-body" data-astro-cid-ta4bxcqm> <div class="accordion-content" data-astro-cid-ta4bxcqm>Large content area with bigger text.</div> </div> </article> </div> </section> </div> <script>
         function triggerToggle(id) {
             const loader = document.getElementById(id);
             loader.classList.toggle('is-active');
         }
-    </script>
-</body>
-
-</html>
+    </script>  <!-- This is where your page content goes --> <footer class="footer"> <div class="content has-text-centered"> <p> <strong>Bulma Extensions: Accordion</strong> by <a href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
+            The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
+</p> </div> </footer> </body></html>
