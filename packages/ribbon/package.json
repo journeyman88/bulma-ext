@@ -8,7 +8,8 @@
     "scripts": {
         "build:expanded": "sass sass/ribbon.scss css/ribbon.css --load-path=node_modules --quiet-deps --source-map",
         "build:min": "sass sass/ribbon.scss css/ribbon.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
-        "build": "pnpm run build:expanded && pnpm run build:min",
+            "build:demo": "astro build",
+    "build": "pnpm run build:expanded && pnpm run build:min && pnpm build:demo",
         "watch": "sass sass/ribbon.scss css/ribbon.css --watch"
     },
     "keywords": [
@@ -19,6 +20,7 @@
         "bulma": "^1.0.0"
     },
     "devDependencies": {
-        "sass": "^1.77.0"
+        "sass": "^1.77.0",
+        "astro": "^5.17.2"
     }
 }

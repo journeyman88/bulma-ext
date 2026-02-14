@@ -9,7 +9,7 @@
     "build:expanded": "sass sass/divider.scss css/divider.css --load-path=node_modules --quiet-deps --source-map",
     "build:min": "sass sass/divider.scss css/divider.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
     "build:demo": "astro build",
-    "build": "pnpm run build:expanded && pnpm run build:min",
+    "build": "pnpm run build:expanded && pnpm run build:min && pnpm build:demo",
     "watch": "sass sass/divider.scss css/divider.css --watch"
   },
   "keywords": [

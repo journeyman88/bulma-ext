@@ -4,6 +4,6 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
-  srcDir: '../../astro-docs/sites/demo-divider',
+  srcDir: '../../astro-docs/sites/demo-badge',
   outDir: './demo',
 });

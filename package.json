@@ -4,6 +4,13 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "bulma": "^1.0.0",
-    "sass": "^1.77.0"
+    "sass": "^1.77.0",
+    "astro": "^5.17.2"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build:pages": "astro build",
+    "preview": "astro preview",
+    "all": "pnpm -r run build && pnpm run build:pages"
   }
 }
