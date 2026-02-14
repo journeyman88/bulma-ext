@@ -1,49 +1,18 @@
 ---
+import Overview from '../components/overview.astro';
+import '../static/common.css';
 import '../../packages/timeline/css/timeline.min.css';
 import placeholder from '../static/placeholder.png';
 import { Code } from 'astro:components';
 ---
 <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-        }
-
-        .hero.is-info {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        .example-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid #eee;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
-        }
-
-        .timeline-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    .timeline-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>
     <!-- Hero Header -->
-    <section class="hero is-info is-bold">
+    <section class="hero is-primary is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">Bulma Timeline</h1>

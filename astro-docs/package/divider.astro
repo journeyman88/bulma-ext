@@ -1,42 +1,11 @@
 ---
+import Overview from '../components/overview.astro';
+import '../static/common.css';
 import '../../packages/divider/css/divider.min.css';
 import placeholder from '../static/placeholder.png';
 import { Code } from 'astro:components';
 ---
     <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .hero.is-danger {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        .example-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid #eee;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
-        }
-
         .vertical-divider-container {
             display: flex;
             align-items: stretch;
@@ -44,7 +13,7 @@ import { Code } from 'astro:components';
         }
     </style>
     <!-- Hero Header -->
-    <section class="hero is-danger is-bold">
+    <section class="hero is-primary is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">Bulma Divider</h1>

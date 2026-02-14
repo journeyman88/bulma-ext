@@ -1,26 +1,12 @@
 ---
+import Overview from '../components/overview.astro';
+import '../static/common.css';
 import '../../packages/carousel/css/carousel.min.css';
 import { Code } from 'astro:components';
 ---
     <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
-        }
-
         .hero.is-primary:not(.has-carousel) {
             background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        .example-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid #eee;
         }
 
         /* Essential Demo Styles */
@@ -36,19 +22,6 @@ import { Code } from 'astro:components';
 
         .is-vertical .slider-item img {
             height: 300px;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
         }
     </style>
     <!-- Hero Carousel -->
@@ -89,13 +62,12 @@ import { Code } from 'astro:components';
     </section>
 
     <div class="container mt-6 px-3">
-        <!-- Introduction -->
-        <div class="message is-danger">
-            <div class="message-body">
-                The <strong>Carousel</strong> extension provides a flexible slider system.
-                It can be used as a standalone component or integrated directly into Bulma's <code>hero</code> sections.
-            </div>
-        </div>
+
+        <Overview>
+            The <strong>Carousel</strong> extension provides a flexible slider system.
+            It can be used as a standalone component or integrated directly into Bulma's 
+            <code>hero</code> sections.
+        </Overview>
 
         <!-- Standard Slider -->
         <section id="standard" class="demo-section">

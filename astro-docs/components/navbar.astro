@@ -41,15 +41,19 @@
                 </div>
             </div>
             <div class="navbar-end">
-                <a class="navbar-item">Contact</a>
+                <a class="navbar-item" href="https://github.com/journeyman88/bulma-ext">
+                    <span class="icon is-large">
+                        <i class="fab fa-github fa-2x"></i>
+                    </span>
+                </a>
             </div>
         </div>
 </nav>
-    <script is:inline>
-        function toggleNavMenu(id) {
-            const burgerIcon = document.getElementById(id);
-            const navMenu = document.getElementById(burgerIcon.dataset.target);
-            burgerIcon.classList.toggle('is-active');
-            navMenu.classList.toggle('is-active');
-        }
-    </script>
+<script is:inline>
+    function toggleNavMenu(id) {
+        const burgerIcon = document.getElementById(id);
+        const navMenu = document.getElementById(burgerIcon.dataset.target);
+        burgerIcon.classList.toggle('is-active');
+        navMenu.classList.toggle('is-active');
+    }
+</script>

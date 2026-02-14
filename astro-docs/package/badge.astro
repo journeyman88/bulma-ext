@@ -1,46 +1,13 @@
 ---
+import Overview from '../components/overview.astro';
+import '../static/common.css';
 import '../../packages/badge/css/badge.min.css';
 import { Code } from 'astro:components';
 ---
     <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        }
-
-        .hero.is-primary {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        .example-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 150px;
-            border: 1px solid #eee;
-        }
 
         .code-container {
             position: relative;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-
-        code {
-            color: #efefef;
         }
 
         .tag-desc {
@@ -57,7 +24,7 @@ import { Code } from 'astro:components';
     <!-- Hero Header -->
     <section class="hero is-primary is-bold">
         <div class="hero-body">
-            <div class="container text-centered">
+            <div class="container has-text-centered">
                 <h1 class="title">Bulma Badge</h1>
                 <h2 class="subtitle">A versatile, easy-to-use badge extension for Bulma.</h2>
             </div>
@@ -65,15 +32,12 @@ import { Code } from 'astro:components';
     </section>
 
     <div class="container mt-6">
-        <!-- Overview -->
-        <div class="message is-info">
-            <div class="message-body">
-                The <strong>Badge Extension</strong> provides two distinct ways to add notifications and status
-                indicators to your elements:
-                <strong>Simple</strong> (via data-attribute) and <strong>Rich</strong> (via nested class).
-                All badges are <strong>rounded</strong> by default in this version.
-            </div>
-        </div>
+        <Overview>
+            The <strong>Badge Extension</strong> provides two distinct ways to add notifications and status
+            indicators to your elements:<strong>Simple</strong> (via data-attribute) 
+            and <strong>Rich</strong> (via nested class).
+            All badges are <strong>rounded</strong> by default in this version.
+        </Overview>
 
         <!-- Simple Usage -->
         <section id="simple" class="demo-section">
@@ -90,8 +54,8 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
                 <div class="column is-offset-1 is-6">
-                    <div class="example-box">
-                        <div class="buttons">
+                    <div class="example-box ">
+                        <div class="is-flex is-justify-content-space-evenly is-align-items-center">
                             <span class="tag is-primary" data-badge="8">Notifications</span>
                             <button class="button" data-badge="new">Updates</button>
                             <div class="box mb-0" data-badge="info">Status Box</div>
@@ -124,7 +88,7 @@ import { Code } from 'astro:components';
                 </div>
                 <div class="column is-offset-1 is-6">
                     <div class="example-box">
-                        <div class="buttons">
+                        <div class="is-flex is-justify-content-space-evenly is-align-items-center">
                             <span class="tag is-link">
                                 Messages
                                 <span class="badge">99+</span>
@@ -133,7 +97,7 @@ import { Code } from 'astro:components';
                                 User Profile
                                 <span class="badge is-success">
                                     <span class="icon is-small">
-                                        <i class="material-icons" style="font-size: 0.8rem;">check</i>
+                                        <i class="fas fa-check"></i>
                                     </span>
                                 </span>
                             </button>

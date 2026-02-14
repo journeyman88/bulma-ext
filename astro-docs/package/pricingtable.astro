@@ -1,33 +1,10 @@
 ---
+import Overview from '../components/overview.astro';
+import '../static/common.css';
 import '../../packages/pricingtable/css/pricingtable.min.css';
 import { Code } from 'astro:components';
 ---
     <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
-        }
-
-        .hero.is-primary {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
-        }
-
         .pricing-table .pricing-plan {
             margin: 0.5rem;
         }

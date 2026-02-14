@@ -1,41 +1,9 @@
 ---
+import Overview from '../components/overview.astro';
+import '../static/common.css';
 import '../../packages/pageloader/css/pageloader.min.css';
 import { Code } from 'astro:components';
 ---
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-        }
-
-        .hero.is-success {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        .example-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid #eee;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
-        }
-    </style>
     <!-- Pageloader Elements (Hidden by default) -->
     <div id="loader-default" class="pageloader"><span class="title">Loading...</span></div>
     <div id="loader-primary" class="pageloader is-primary"><span class="title">Primary Loader</span></div>
@@ -45,7 +13,7 @@ import { Code } from 'astro:components';
             Top</span></div>
 
     <!-- Hero Header -->
-    <section class="hero is-success is-bold">
+    <section class="hero is-primary is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">Bulma Pageloader</h1>
@@ -55,13 +23,11 @@ import { Code } from 'astro:components';
     </section>
 
     <div class="container mt-6">
-        <!-- Introduction -->
-        <div class="message is-success">
-            <div class="message-body">
+
+        <Overview>
                 The <strong>Pageloader</strong> extension provides a full-page overlay with smooth animations.
                 Perfect for page transitions or long-running operations.
-            </div>
-        </div>
+        </Overview>
 
         <!-- Triggers -->
         <section id="triggers" class="demo-section">
