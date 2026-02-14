@@ -8,6 +8,7 @@
   "scripts": {
     "build:expanded": "sass sass/divider.scss css/divider.css --load-path=node_modules --quiet-deps --source-map",
     "build:min": "sass sass/divider.scss css/divider.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+    "build:demo": "astro build",
     "build": "pnpm run build:expanded && pnpm run build:min",
     "watch": "sass sass/divider.scss css/divider.css --watch"
   },
@@ -19,6 +20,7 @@
     "bulma": "^1.0.0"
   },
   "devDependencies": {
-    "sass": "^1.77.0"
+    "sass": "^1.77.0",
+    "astro": "^5.17.2"
   }
 }
