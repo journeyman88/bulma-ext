@@ -1,32 +1,13 @@
 ---
 import SiteLayout from '../../../layouts/website.astro';
+import Hero from '../../../components/hero.astro';
+import Container from '../../../components/container.astro';
 import { Code } from 'astro:components';
 ---
 <SiteLayout title="Bulma Extensions | Modern, Updated, Premium">
-    <section class="hero is-medium is-link is-bold" style="background: linear-gradient(135deg, #4a69bd 0%, #1e3799 100%);">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title is-1 mb-6">
-                    Modern Extensions for Bulma 1.0
-                </h1>
-                <h2 class="subtitle is-4 mb-6">
-                    A collection of simple, updated extensions for modern web standards. Re-designed for maximum flexibility and visual excellence.
-                </h2>
-                <div class="buttons is-centered">
-                    <a href="/bulma-ext/divider" class="button is-white is-outlined is-medium is-rounded">Explore Components</a>
-                    <a href="https://github.com/journeyman88/bulma-ext" class="button is-white is-medium is-rounded">
-                        <span class="icon">
-                            <i class="fab fa-github"></i>
-                        </span>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
+    <Hero title="Modern Extensions for Bulma 1.0" subtitle="A collection of simple, updated extensions for modern web standards. Re-designed for maximum flexibility and visual excellence." />
+    <Container>
+        <section class="section">
             <h2 class="title is-2 has-text-centered mb-6">Ready to Use</h2>
             <div class="columns is-multiline">
                 <div class="column is-4">
@@ -101,11 +82,10 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-        </div>
     </section>
+    <hr>
 
-    <section class="section has-background-light">
-        <div class="container">
+    <section class="section">
             <h2 class="title is-3 has-text-centered mb-6">Coming Soon & Experimental</h2>
             <div class="columns is-multiline is-centered">
                 <div class="column is-2">
@@ -139,11 +119,9 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-        </div>
     </section>
-
+    <hr>
     <section class="section">
-        <div class="container">
             <div class="columns is-centered">
                 <div class="column is-8">
                     <h2 class="title is-3 mb-5">Quick Start</h2>
@@ -158,8 +136,8 @@ import { Code } from 'astro:components';
                     </div>
                 </div>
             </div>
-        </div>
     </section>
+    </Container>
 
     <style>
         .card.is-fullheight {

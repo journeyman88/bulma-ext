@@ -1,4 +1,5 @@
 ---
+import Hero from '../components/hero.astro';
 import Container from '../components/container.astro';
 import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
@@ -9,15 +10,7 @@ import { Code } from 'astro:components';
 import exampleBasic from '../examples/accordion/basic.html?raw';
 import exampleToggle from '../examples/accordion/toggle.js?raw';
 ---
-<!-- Hero Header -->
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Bulma Accordion</h1>
-            <h2 class="subtitle">A simple and flexible accordion extension for Bulma.</h2>
-        </div>
-    </div>
-</section>
+<Hero title="Bulma Accordion" subtitle="A simple and flexible accordion extension for Bulma." />
 <Container>
     <Overview>
         The <strong>Accordion</strong> extension allows you to create collapsible content sections.

@@ -1,4 +1,5 @@
 ---
+import Hero from '../components/hero.astro';
 import Container from '../components/container.astro';
 import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
@@ -17,15 +18,7 @@ import exampleSizes from '../examples/ribbon/sizes.html?raw';
         justify-content: center;
     }
 </style>
-<!-- Hero Header -->
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Bulma Ribbon</h1>
-            <h2 class="subtitle">A versatile ribbon extension for Bulma elements.</h2>
-        </div>
-    </div>
-</section>
+<Hero title="Bulma Ribbon" subtitle="A versatile ribbon extension for Bulma elements." />
 <Container>
     <Overview>
         The <strong>Ribbon</strong> extension allows you to easily add information banners or labels to

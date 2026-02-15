@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+}
+const { title, subtitle } = Astro.props;
+---
+<style>
+    .hero.is-primary {
+        background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+    }
+</style>
+<!-- Hero Header -->
+<header class="hero is-primary is-bold is-medium">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1 mb-4">{title}</h1>
+            <p class="subtitle is-4">{subtitle}</p>
+        </div>
+    </div>
+</header>

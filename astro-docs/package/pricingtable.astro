@@ -1,4 +1,5 @@
 ---
+import Hero from '../components/hero.astro';
 import Container from '../components/container.astro';
 import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
@@ -15,15 +16,7 @@ import exampleHorizontal from '../examples/pricingtable/horizontal.html?raw';
         margin: 0.5rem;
     }
 </style>
-<!-- Hero Header -->
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Bulma Pricing Table</h1>
-            <h2 class="subtitle">A complete pricing table extension for Bulma.</h2>
-        </div>
-    </div>
-</section>
+<Hero title="Bulma PricingTable" subtitle="A complete pricing table extension for Bulma." />
 <Container>
     <Overview>
         The <strong>Pricing Table</strong> extension provides a complete solution for displaying
@@ -131,7 +124,7 @@ import exampleHorizontal from '../examples/pricingtable/horizontal.html?raw';
         <Fragment slot="subtitle">
             Use <code>is-horizontal</code> to stack plans vertically (effective on desktop).
         </Fragment>
-        
+
             <div class="pricing-table is-horizontal mt-5">
                 <div class="pricing-plan is-primary">
                     <div class="plan-header">Monthly Plan</div>

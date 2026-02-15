@@ -1,4 +1,5 @@
 ---
+import Hero from '../components/hero.astro';
 import Container from '../components/container.astro';
 import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
@@ -11,15 +12,7 @@ import exampleBasic from '../examples/timeline/basic.html?raw';
 import exampleCenter from '../examples/timeline/centered.html?raw';
 import exampleRight from '../examples/timeline/right.html?raw';
 ---
-<!-- Hero Header -->
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Bulma Timeline</h1>
-            <h2 class="subtitle">A versatile timeline extension for Bulma.</h2>
-        </div>
-    </div>
-</section>
+<Hero title="Bulma Timeline" subtitle="A versatile timeline extension for Bulma." />
 <Container>
     <Overview>
         The <strong>Timeline</strong> extension allows you to create beautiful vertical timelines.

@@ -1,4 +1,5 @@
 ---
+import Hero from '../components/hero.astro';
 import Container from '../components/container.astro';
 import Section from '../components/demoSection.astro';
 import Overview from '../components/overview.astro';
@@ -15,15 +16,7 @@ import exampleTrigger from '../examples/pageloader/trigger.js?raw';
 <div id="loader-info" class="pageloader is-info is-left-to-right"><span class="title">Slide Left to Right</span></div>
 <div id="loader-warning" class="pageloader is-warning is-bottom-to-top"><span class="title">Slide Bottom to Top</span></div>
 
-<!-- Hero Header -->
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Bulma Pageloader</h1>
-            <h2 class="subtitle">A beautiful overlay loader for your Bulma projects.</h2>
-        </div>
-    </div>
-</section>
+<Hero title="Bulma Pageloader" subtitle="A beautiful overlay loader for your Bulma projects." />
 <Container>
     <Overview>
         The <strong>Pageloader</strong> extension provides a full-page overlay with smooth animations.
