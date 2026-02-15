@@ -1,0 +1,170 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/divider/css/divider.min.css';
+import placeholder from '../static/placeholder.png';
+import { Code } from 'astro:components';
+// Examples
+import exampleHorizontal from '../examples/divider/horizontal.html?raw';
+import exampleVertical from '../examples/divider/vertical.html?raw';
+import exampleAlign from '../examples/divider/alignment.html?raw';
+
+---
+<Hero title="Bulma Divider" subtitle="A simple yet powerful divider extension for Bulma." />
+<Container>
+    <Overview>
+        The <strong>Divider</strong> extension allows you to easily display horizontal or vertical
+        lines to separate your content. It supports custom text, icons, and images centered or aligned
+        along the line.
+    </Overview>
+    <Section id="horizontal" title="Horizontal Divider">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Horizontal</h2>
+                    <p>Standard horizontal line. Use <code>.is-divider</code> and optional <code>.divider-content</code>
+                        for text, icons, or images overlays.</p>
+                    <Code code={exampleHorizontal} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box block">
+                        <p>Text above divider.</p>
+                        <div class="is-divider"></div>
+                        <p>Text below divider.</p>
+                        <div class="is-divider">
+                            <span class="divider-content">OR</span>
+                        </div>
+                        <p>Divider with icon.</p>
+                        <div class="is-divider">
+                            <span class="divider-content">
+                                <i class="fas fa-heart has-text-danger"></i>
+                            </span>
+                        </div>
+                        <p>Divider with image.</p>
+                        <div class="is-divider">
+                            <span class="divider-content">
+                                <img src={placeholder.src} width="32" height="32"
+                                    alt="32x32 Placeholder">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="colors" title="Color Variations" showTitle>
+        <Fragment slot="subtitle">
+            Apply Bulma core colors using standard modifiers like <code>is-primary</code>, <code>is-info</code>, etc.
+        </Fragment>
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="is-divider is-primary">
+                        <span class="divider-content">Primary</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-info">
+                        <span class="divider-content">Info</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-success">
+                        <span class="divider-content">Success</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-warning">
+                        <span class="divider-content">Warning</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-danger">
+                        <span class="divider-content">Danger</span>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="is-divider is-link">
+                        <span class="divider-content">Link</span>
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="vertical" title="Vertical Divider">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <div class="example-box">
+                        <div class="columns is-mobile has-text-centered">
+                            <div class="column">
+                                <p class="is-size-4">Left Side</p>
+                                <p>Content one</p>
+                            </div>
+                            <div class="is-divider is-vertical">
+                                <span class="divider-content">AND</span>
+                            </div>
+                            <div class="column">
+                                <p class="is-size-4">Right Side</p>
+                                <p>Content two</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-offset-1 is-5">
+                    <h2 class="title is-3">Vertical</h2>
+                    <p>Use <code>.is-vertical</code> with <code>.is-divider</code> for vertical separation.</p>
+                    <Code code={exampleVertical} lang="html" />
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="alignment" title="Alignment" showTitle>
+        <Fragment slot="subtitle">
+            Use <code>is-start</code> or <code>is-end</code> to align the content along the line.
+        </Fragment>
+
+            <div class="columns">
+                <div class="column is-6">
+                    <h3 class="title is-4">Horizontal</h3>
+                    <div class="example-box">
+                        <div class="is-divider is-start">
+                            <span class="divider-content">Left</span>
+                        </div>
+                        <div class="is-divider">
+                            <span class="divider-content">Center</span>
+                        </div>
+                        <div class="is-divider is-end">
+                            <span class="divider-content">Right</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <h3 class="title is-4">Vertical</h3>
+                    <div class="example-box">
+                        <div class="columns has-text-centered" style="height: 150px;">
+                            <div class="column">Content</div>
+                            <div class="is-divider is-vertical is-start">
+                                <span class="divider-content">Top</span>
+                            </div>
+                            <div class="column">Content</div>
+                            <div class="is-divider is-vertical">
+                                <span class="divider-content">Middle</span>
+                            </div>
+                            <div class="column">Content</div>
+                            <div class="is-divider is-vertical is-end">
+                                <span class="divider-content">Bottom</span>
+                            </div>
+                            <div class="column">Content</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <Code code={exampleAlign} lang="html" />
+                </div>
+            </div>
+    </Section>
+</Container>

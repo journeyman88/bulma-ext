@@ -1,0 +1,157 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/pricingtable/css/pricingtable.min.css';
+import { Code } from 'astro:components';
+// Examples
+import exampleBasic from '../examples/pricingtable/basic.html?raw';
+import exampleComp from '../examples/pricingtable/comparative.html?raw';
+import exampleHorizontal from '../examples/pricingtable/horizontal.html?raw';
+---
+<style>
+    .pricing-table .pricing-plan {
+        margin: 0.5rem;
+    }
+</style>
+<Hero title="Bulma PricingTable" subtitle="A complete pricing table extension for Bulma." />
+<Container>
+    <Overview>
+        The <strong>Pricing Table</strong> extension provides a complete solution for displaying
+        pricing plans. It supports multiple layouts including horizontal, comparative, and active
+        states to highlight specific plans.
+    </Overview>
+    <Section id="basic" title="Basic Pricing Table" showTitle>
+        <Fragment slot="subtitle">
+            Standard pricing plans with an active state to highlight the best value.
+        </Fragment>
+
+            <div class="pricing-table mt-5">
+                <div class="pricing-plan">
+                    <div class="plan-header">Starter</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>0</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">1 Project</div>
+                        <div class="plan-item">1GB Storage</div>
+                        <div class="plan-item">Communnity Support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose Plan</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-active">
+                    <div class="plan-header">Professional</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>29</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">20 Projects</div>
+                        <div class="plan-item">50GB Storage</div>
+                        <div class="plan-item">Priority Support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose Plan</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-info">
+                    <div class="plan-header">Business</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>99</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">Unlimited Projects</div>
+                        <div class="plan-item">Unlimited Storage</div>
+                        <div class="plan-item">24/7 Support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+        <Code code={exampleBasic} lang="html" />
+    </Section>
+    <hr>
+    <Section id="comparative" title="Comparative Layout" showTitle>
+        <Fragment slot="subtitle">
+            Plan items align horizontally across plans for easy feature comparison. 
+            Use <code>is-comparative</code> on the table.
+        </Fragment>
+
+            <div class="pricing-table is-comparative mt-5">
+                <div class="pricing-plan">
+                    <div class="plan-header">Basic</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>10</span></div>
+                    <div class="plan-item" data-feature="Feature 1">Yes</div>
+                    <div class="plan-item" data-feature="Feature 2">No</div>
+                    <div class="plan-item" data-feature="Feature 3">No</div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-primary">
+                    <div class="plan-header">Plus</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>25</span></div>
+                    <div class="plan-item" data-feature="Feature 1">Yes</div>
+                    <div class="plan-item" data-feature="Feature 2">Yes</div>
+                    <div class="plan-item" data-feature="Feature 3">No</div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-warning">
+                    <div class="plan-header">Pro</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>50</span></div>
+                    <div class="plan-item" data-feature="Feature 1">Yes</div>
+                    <div class="plan-item" data-feature="Feature 2">Yes</div>
+                    <div class="plan-item" data-feature="Feature 3">Yes</div>
+                    <div class="plan-footer">
+                        <button class="button is-fullwidth">Choose</button>
+                    </div>
+                </div>
+            </div>
+            <Code code={exampleComp} lang="html" />
+    </Section>
+    <hr>
+    <Section id="horizontal" title="Horizontal Layout" showTitle>
+        <Fragment slot="subtitle">
+            Use <code>is-horizontal</code> to stack plans vertically (effective on desktop).
+        </Fragment>
+
+            <div class="pricing-table is-horizontal mt-5">
+                <div class="pricing-plan is-primary">
+                    <div class="plan-header">Monthly Plan</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>19</span>/mo</div>
+                    <div class="plan-items">
+                        <div class="plan-item">Access to all features</div>
+                        <div class="plan-item">Individual support</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button">Subscribe Now</button>
+                    </div>
+                </div>
+
+                <div class="pricing-plan is-danger mt-4">
+                    <div class="plan-header">Annual Plan (Best Deal)</div>
+                    <div class="plan-price"><span class="plan-price-amount"><span
+                                class="plan-price-currency">$</span>159</span>/yr</div>
+                    <div class="plan-items">
+                        <div class="plan-item">Save 30% over monthly</div>
+                        <div class="plan-item">VIP Support priority</div>
+                    </div>
+                    <div class="plan-footer">
+                        <button class="button">Subscribe Now</button>
+                    </div>
+                </div>
+            </div>
+        <Code code={exampleHorizontal} lang="html" />
+    </Section>
+</Container>

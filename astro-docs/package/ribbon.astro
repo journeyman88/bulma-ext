@@ -1,0 +1,132 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/ribbon/css/ribbon.min.css';
+import { Code } from 'astro:components';
+// Examples
+import exampleBasic from '../examples/ribbon/basic.html?raw';
+import exampleSizes from '../examples/ribbon/sizes.html?raw';
+---
+<style>
+    .container-box {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<Hero title="Bulma Ribbon" subtitle="A versatile ribbon extension for Bulma elements." />
+<Container>
+    <Overview>
+        The <strong>Ribbon</strong> extension allows you to easily add information banners or labels to
+        containers.
+        Simply add the <code>.has-ribbon</code> class to your container and the <code>.ribbon</code> element
+        inside it.
+    </Overview>
+    <Section id="positioning" title="Positioning" showTitle>
+        <Fragment slot="subtitle">
+            Place ribbons in any corner of a container.
+        </Fragment>
+            <div class="columns is-multiline">
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-primary">Top Right</div>
+                        <p>Default (Top-Right)</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon-left container-box">
+                        <div class="ribbon is-info">Top Left</div>
+                        <p>Top-Left</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon-bottom container-box">
+                        <div class="ribbon is-success">Bottom Right</div>
+                        <p>Bottom-Right</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon-left has-ribbon-bottom container-box">
+                        <div class="ribbon is-warning">Bottom Left</div>
+                        <p>Bottom-Left</p>
+                    </div>
+                </div>
+            </div>
+        <div class="column is-12 px-0">
+            <Code code={exampleBasic} lang="html" />
+        </div>
+    </Section>
+    <hr>
+    <Section id="colors" title="Colors & Outlined" showTitle>
+        <Fragment slot="subtitle">
+            Supports all Bulma colors and an outlined variant.
+        </Fragment>
+            <div class="example-box">
+                <div class="columns is-multiline is-mobile">
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-primary">Primary</div>
+                            Primary Light
+                        </div>
+                    </div>
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-info is-outlined">Outlined</div>
+                            Info Light
+                        </div>
+                    </div>
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-danger">Danger</div>
+                            Danger Light
+                        </div>
+                    </div>
+                    <div class="column is-3-tablet is-6-mobile">
+                        <div class="notification is-light has-ribbon">
+                            <div class="ribbon is-success is-outlined">Success</div>
+                            Success Light
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="sizes" title="Sizes" showTitle>
+        <Fragment slot="subtitle">
+            Available in four sizes.
+        </Fragment>
+            <div class="columns is-multiline">
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-small is-dark">Small</div>
+                        <p>Small Ribbon</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-dark">Normal</div>
+                        <p>Normal Ribbon</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-medium is-dark">Medium</div>
+                        <p>Medium Ribbon</p>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="box has-ribbon container-box">
+                        <div class="ribbon is-large is-dark">Large</div>
+                        <p>Large Ribbon</p>
+                    </div>
+                </div>
+            </div>
+        <div class="column is-12 px-0">
+            <Code code={exampleSizes} lang="html" />
+        </div>
+    </Section>
+</Container>

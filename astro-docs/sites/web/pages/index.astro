@@ -1,0 +1,159 @@
+---
+import SiteLayout from '../../../layouts/website.astro';
+import Hero from '../../../components/hero.astro';
+import Container from '../../../components/container.astro';
+import { Code } from 'astro:components';
+---
+<SiteLayout title="Bulma Extensions | Modern, Updated, Premium">
+    <Hero title="Modern Extensions for Bulma 1.0" subtitle="A collection of simple, updated extensions for modern web standards. Re-designed for maximum flexibility and visual excellence." />
+    <Container>
+        <section class="section">
+            <h2 class="title is-2 has-text-centered mb-6">Ready to Use</h2>
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="card is-fullheight">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <span class="icon is-large has-text-link">
+                                        <i class="fas fa-grip-lines fa-2x"></i>
+                                    </span>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Divider</p>
+                                    <p class="subtitle is-6">Ready</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                A versatile Divider stylesheet for separating content with text, icons, or vertical lines.
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="/bulma-ext/divider" class="card-footer-item">View Demo</a>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card is-fullheight">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <span class="icon is-large has-text-info">
+                                        <i class="fas fa-stream fa-2x"></i>
+                                    </span>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Timeline</p>
+                                    <p class="subtitle is-6">Ready</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Display chronological events beautifully with a responsive and customizable timeline.
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="/bulma-ext/timeline" class="card-footer-item">View Demo</a>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card is-fullheight">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fas fa-spinner fa-2x"></i>
+                                    </span>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4">Pageloader</p>
+                                    <p class="subtitle is-6">Ready</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Elegant page loaders and blockers to manage asynchronous states in your application.
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="/bulma-ext/pageloader" class="card-footer-item">View Demo</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <hr>
+
+    <section class="section">
+            <h2 class="title is-3 has-text-centered mb-6">Coming Soon & Experimental</h2>
+            <div class="columns is-multiline is-centered">
+                <div class="column is-2">
+                    <div class="box has-text-centered">
+                        <p class="title is-5">Ribbon</p>
+                        <p class="subtitle is-7">In Progress</p>
+                    </div>
+                </div>
+                <div class="column is-2">
+                    <div class="box has-text-centered">
+                        <p class="title is-5">Badge</p>
+                        <p class="subtitle is-7">In Progress</p>
+                    </div>
+                </div>
+                <div class="column is-2">
+                    <div class="box has-text-centered">
+                        <p class="title is-5">Accordion</p>
+                        <p class="subtitle is-7">In Progress</p>
+                    </div>
+                </div>
+                <div class="column is-2">
+                    <div class="box has-text-centered">
+                        <p class="title is-5">Carousel</p>
+                        <p class="subtitle is-7">Draft</p>
+                    </div>
+                </div>
+                <div class="column is-2">
+                    <div class="box has-text-centered">
+                        <p class="title is-5">Pricing Table</p>
+                        <p class="subtitle is-7">Draft</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <hr>
+    <section class="section">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <h2 class="title is-3 mb-5">Quick Start</h2>
+                    <div class="content">
+                        <p>Install your favorite extension via pnpm:</p>
+<Code code={
+`pnpm add @bulma-ext/divider`} lang="bash" />
+                        <p>Then, simply include it in your project after the main Bulma stylesheet:</p>
+<Code code={
+`<link rel="stylesheet" href="bulma.min.css">
+<link rel="stylesheet" href="bulma-divider.min.css">`} lang="html" />
+                    </div>
+                </div>
+            </div>
+    </section>
+    </Container>
+
+    <style>
+        .card.is-fullheight {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-footer {
+            margin-top: auto;
+        }
+        .box {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</SiteLayout>

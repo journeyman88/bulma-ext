@@ -1,0 +1,71 @@
+---
+// You can define variables (props) here to make it dynamic
+---
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="demoNavbar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="demoNavbar" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/bulma-ext/">Home</a>    
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Ready</a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="/bulma-ext/divider">Divider</a>
+                    <a class="navbar-item" href="/bulma-ext/pageloader">Pageloader</a>
+                    <a class="navbar-item" href="/bulma-ext/timeline">Timeline</a>
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Work In Progress</a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="/bulma-ext/accordion">Accordion</a>
+                    <a class="navbar-item" href="/bulma-ext/badge">Badge</a>
+                    <a class="navbar-item" href="/bulma-ext/ribbon">Ribbon</a>
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Draft</a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="/bulma-ext/carousel">Carousel</a>
+                    <a class="navbar-item" href="/bulma-ext/pricingtable">PricingTable</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-end">
+            <a class="navbar-item" href="https://github.com/journeyman88/bulma-ext">
+                <span class="icon is-large">
+                    <i class="fab fa-github fa-2x"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
+<script>
+    class BulmaNavbar {
+        constructor(node) {
+            this.navbar = node;
+            this.burger = this.navbar.querySelector('.navbar-burger');
+            this.menu = document.getElementById(this.burger.dataset.target);
+            this.init();
+        }
+        init() {
+            if (this.burger) this.burger.addEventListener('click', () => this.toggleMenu());
+        }
+        toggleMenu() {
+            this.burger.classList.toggle('is-active');
+            this.menu.classList.toggle('is-active');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbars = document.querySelectorAll('.navbar').forEach(n => new BulmaNavbar(n));
+    });
+</script>

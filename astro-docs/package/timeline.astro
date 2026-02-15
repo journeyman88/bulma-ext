@@ -1,0 +1,142 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/timeline/css/timeline.min.css';
+import placeholder from '../static/placeholder.png';
+import { Code } from 'astro:components';
+// Examples
+import exampleBasic from '../examples/timeline/basic.html?raw';
+import exampleCenter from '../examples/timeline/centered.html?raw';
+import exampleRight from '../examples/timeline/right.html?raw';
+---
+<Hero title="Bulma Timeline" subtitle="A versatile timeline extension for Bulma." />
+<Container>
+    <Overview>
+        The <strong>Timeline</strong> extension allows you to create beautiful vertical timelines.
+        It supports markers with icons or images, and multiple alignment options including centered
+        and right-aligned layouts.
+    </Overview>
+    <Section id="basic" title="Basic Timeline">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Basic Timeline</h2>
+                    <p>Standard vertical timeline with markers and content blocks. Supports colored markers and icons.
+                    </p>
+                    <Code code={exampleBasic} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <div class="timeline">
+                            <header class="timeline-header">
+                                <span class="tag is-medium is-link">History</span>
+                            </header>
+                            <div class="timeline-item is-link">
+                                <div class="timeline-marker is-link">
+                                    <span class="icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </span>
+                                </div>
+                                <div class="timeline-content">
+                                    <p class="heading">March 2026</p>
+                                    <p>Uploaded a file to the server.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item is-success">
+                                <div class="timeline-marker is-success">
+                                    <span class="icon">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                </div>
+                                <div class="timeline-content">
+                                    <p class="heading">April 2026</p>
+                                    <p>Verification complete.</p>
+                                </div>
+                            </div>
+                            <footer class="timeline-header">
+                                <span class="tag is-medium is-link">Done</span>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="centered" title="Cerntered Layout" showTitle>
+        <Fragment slot="subtitle">
+            Use <code>is-center</code> for a symmetric, balanced timeline design.
+        </Fragment>
+            <div class="example-box">
+                <div class="timeline is-center">
+                    <header class="timeline-header">
+                        <span class="tag is-medium is-primary">Birth</span>
+                    </header>
+                    <div class="timeline-item is-primary">
+                        <div class="timeline-marker is-primary"></div>
+                        <div class="timeline-content">
+                            <p class="heading">January 2000</p>
+                            <p>Everything began here.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item is-warning">
+                        <div class="timeline-marker is-warning">
+                            <figure class="image is-64x64">
+                                <img src={placeholder.src} class="is-rounded">
+                            </figure>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="heading">May 2015</p>
+                            <p>A significant milestone with an image marker.</p>
+                        </div>
+                    </div>
+                    <footer class="timeline-header">
+                        <span class="tag is-medium is-primary">Now</span>
+                    </footer>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <Code code={exampleCenter} lang="html" />
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="right" title="Right Aligned">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <div class="example-box">
+                        <div class="timeline is-right">
+                            <header class="timeline-header">
+                                <span class="tag is-medium is-info">Archive</span>
+                            </header>
+                            <div class="timeline-item is-info">
+                                <div class="timeline-marker is-info"></div>
+                                <div class="timeline-content">
+                                    <p class="heading">2023</p>
+                                    <p>Legacy systems migrated.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item is-danger">
+                                <div class="timeline-marker is-danger">
+                                    <span class="icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </span>
+                                </div>
+                                <div class="timeline-content">
+                                    <p class="heading">2022</p>
+                                    <p>Critical issue resolved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-offset-1 is-5">
+                    <h2 class="title is-3">Right Aligned</h2>
+                    <p>Use <code>is-right</code> to align the timeline to the right side of its container.</p>
+                    <Code code={exampleRight} lang="html" />
+                </div>
+            </div>
+    </Section>
+</Container>

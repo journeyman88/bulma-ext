@@ -1,0 +1,25 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  showTitle?: boolean;
+}
+const { id, title, showTitle = false} = Astro.props;
+const htmlComment = `<!-- ${title} -->`;
+const showSubtitle = showTitle && Astro.slots.has('subtitle');
+---
+<style>
+.demo-section {
+    padding: 3rem 0;
+}
+</style>
+<Fragment set:html={htmlComment} />
+<section id={id} class="demo-section">
+    {showTitle && <h2 class="title is-3 has-text-centered">{title}</h2>}
+    {showSubtitle && (
+        <p class="subtitle has-text-centered mb-6 mt-2">
+            <slot name="subtitle" />
+        </p>
+    )}
+    <slot />
+</section>

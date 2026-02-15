@@ -1,272 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulma Divider Extension</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/divider.min.css">
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .hero.is-danger {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        .example-box {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid #eee;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
-        }
-
-        .vertical-divider-container {
-            display: flex;
-            align-items: stretch;
-            height: 200px;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Hero Header -->
-    <section class="hero is-danger is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Bulma Divider</h1>
-                <h2 class="subtitle">A simple yet powerful divider extension for Bulma.</h2>
-            </div>
-        </div>
-    </section>
-
-    <div class="container mt-6">
-        <!-- Horizontal Divider -->
-        <section id="horizontal" class="demo-section">
-            <div class="columns is-vcentered">
-                <div class="column is-5">
-                    <h2 class="title is-3">Horizontal</h2>
-                    <p>Standard horizontal line. Use <code>.is-divider</code> and optional <code>.divider-content</code>
-                        for text, icons, or images overlays.</p>
-                    <pre><code>&lt;!-- Simple --&gt;
-&lt;div class="is-divider"&gt;&lt;/div&gt;
-
-&lt;!-- With Text --&gt;
-&lt;div class="is-divider"&gt;
-  &lt;span class="divider-content"&gt;OR&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;!-- With Icon --&gt;
-&lt;div class="is-divider"&gt;
-  &lt;span class="divider-content"&gt;
-    &lt;i class="fas fa-star"&gt;&lt;/i&gt;
-  &lt;/span&gt;
-&lt;/div&gt;
-
-&lt;!-- With Image --&gt;
-&lt;div class="is-divider"&gt;
-  &lt;span class="divider-content"&gt;
-    &lt;img src="../../timeline/demo/placeholder.png" width="32" height="32"&gt;
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-                </div>
-                <div class="column is-offset-1 is-6">
-                    <div class="example-box block">
-                        <p>Text above divider.</p>
-                        <div class="is-divider"></div>
-                        <p>Text below divider.</p>
-                        <div class="is-divider">
-                            <span class="divider-content">OR</span>
-                        </div>
-                        <p>Divider with icon.</p>
-                        <div class="is-divider">
-                            <span class="divider-content">
-                                <i class="fas fa-heart has-text-danger"></i>
-                            </span>
-                        </div>
-                        <p>Divider with image.</p>
-                        <div class="is-divider">
-                            <span class="divider-content">
-                                <img src="../../timeline/demo/placeholder.png" width="32" height="32"
-                                    alt="32x32 Placeholder">
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr>
-
-        <!-- Colors -->
-        <section id="colors" class="demo-section">
-            <h2 class="title is-3 has-text-centered">Color Variations</h2>
-            <p class="subtitle has-text-centered mb-6">Apply Bulma core colors using standard modifiers like
-                <code>is-primary</code>, <code>is-info</code>, etc.
-            </p>
-            <div class="columns is-multiline">
-                <div class="column is-4">
-                    <div class="is-divider is-primary">
-                        <span class="divider-content">Primary</span>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="is-divider is-info">
-                        <span class="divider-content">Info</span>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="is-divider is-success">
-                        <span class="divider-content">Success</span>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="is-divider is-warning">
-                        <span class="divider-content">Warning</span>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="is-divider is-danger">
-                        <span class="divider-content">Danger</span>
-                    </div>
-                </div>
-                <div class="column is-4">
-                    <div class="is-divider is-link">
-                        <span class="divider-content">Link</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr>
-
-        <!-- Vertical Divider -->
-        <section id="vertical" class="demo-section mb-6">
-            <div class="columns is-vcentered">
-                <div class="column is-6">
-                    <div class="example-box">
-                        <div class="columns is-mobile has-text-centered">
-                            <div class="column">
-                                <p class="is-size-4">Left Side</p>
-                                <p>Content one</p>
-                            </div>
-                            <div class="is-divider is-vertical">
-                                <span class="divider-content">AND</span>
-                            </div>
-                            <div class="column">
-                                <p class="is-size-4">Right Side</p>
-                                <p>Content two</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-offset-1 is-5">
-                    <h2 class="title is-3">Vertical</h2>
-                    <p>Use <code>.is-vertical</code> with <code>.is-divider</code> for vertical separation.</p>
-                    <pre><code>&lt;div class="columns"&gt;
-  &lt;div class="column"&gt;Left&lt;/div&gt;
-  &lt;div class="is-divider is-vertical"&gt;
-    &lt;span class="divider-content"&gt;AND&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="column"&gt;Right&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <hr>
-
-        <!-- Alignment -->
-        <section id="alignment" class="demo-section">
-            <h2 class="title is-3 has-text-centered">Alignment</h2>
-            <p class="subtitle has-text-centered mb-6">Use <code>is-start</code> or <code>is-end</code> to align the
-                content
-                along the line.</p>
-
-            <div class="columns">
-                <div class="column is-6">
-                    <h3 class="title is-4">Horizontal</h3>
-                    <div class="example-box">
-                        <div class="is-divider is-start">
-                            <span class="divider-content">Left</span>
-                        </div>
-                        <div class="is-divider">
-                            <span class="divider-content">Center</span>
-                        </div>
-                        <div class="is-divider is-end">
-                            <span class="divider-content">Right</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-6">
-                    <h3 class="title is-4">Vertical</h3>
-                    <div class="example-box">
-                        <div class="columns has-text-centered" style="height: 150px;">
-                            <div class="column">Content</div>
-                            <div class="is-divider is-vertical is-start">
-                                <span class="divider-content">Top</span>
-                            </div>
-                            <div class="column">Content</div>
-                            <div class="is-divider is-vertical">
-                                <span class="divider-content">Middle</span>
-                            </div>
-                            <div class="column">Content</div>
-                            <div class="is-divider is-vertical is-end">
-                                <span class="divider-content">Bottom</span>
-                            </div>
-                            <div class="column">Content</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered">
-                <div class="column is-8">
-                    <pre><code>&lt;!-- Horizontal --&gt;
-&lt;div class="is-divider is-start"&gt;
-    &lt;span class="divider-content"&gt;Left&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;!-- Vertical --&gt;
-&lt;div class="is-divider is-vertical is-end"&gt;
-    &lt;span class="divider-content"&gt;Bottom&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Bulma Divider Extension</strong> by <a
-                    href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
-                The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
-            </p>
-        </div>
-    </footer>
-</body>
-
-</html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><title>Bulma Extensions: Divider</title><style>.hero[data-astro-cid-f6555neh].is-primary{background:linear-gradient(135deg,#00b09b,#96c93d)}.demo-section[data-astro-cid-xkyhgc2t]{padding:3rem 0}.example-box{background-color:#f9f9f9;padding:2rem;border-radius:8px;margin-bottom:2rem;border:1px solid #eee}pre{background-color:#2d2d2d;color:#ccc;padding:1rem;border-radius:8px;overflow-x:auto;margin-top:1rem}code{color:#efefef}.divider-content{color:var(--divider-content-color)}.is-divider{display:flex;align-items:center;justify-content:center;margin:2rem 0;text-align:center;--divider-line-color: var(--bulma-text-soft);--divider-line-thickness: .1rem;--divider-content-color: var(--bulma-text-soft);--divider-content-font-size: var(--bulma-size-7);--divider-content-background-color: var(--bulma-scheme-main)}.is-divider.is-white{--divider-line-color: var(--bulma-white);--divider-content-color: var(--bulma-white)}.is-divider.is-black{--divider-line-color: var(--bulma-black);--divider-content-color: var(--bulma-black)}.is-divider.is-light{--divider-line-color: var(--bulma-light);--divider-content-color: var(--bulma-light)}.is-divider.is-dark{--divider-line-color: var(--bulma-dark);--divider-content-color: var(--bulma-dark)}.is-divider.is-text{--divider-line-color: var(--bulma-text);--divider-content-color: var(--bulma-text)}.is-divider.is-primary{--divider-line-color: var(--bulma-primary);--divider-content-color: var(--bulma-primary)}.is-divider.is-link{--divider-line-color: var(--bulma-link);--divider-content-color: var(--bulma-link)}.is-divider.is-info{--divider-line-color: var(--bulma-info);--divider-content-color: var(--bulma-info)}.is-divider.is-success{--divider-line-color: var(--bulma-success);--divider-content-color: var(--bulma-success)}.is-divider.is-warning{--divider-line-color: var(--bulma-warning);--divider-content-color: var(--bulma-warning)}.is-divider.is-danger{--divider-line-color: var(--bulma-danger);--divider-content-color: var(--bulma-danger)}.is-divider{border-top:var(--divider-line-thickness) solid var(--divider-line-color);height:var(--divider-line-thickness)}.is-divider:has(.divider-content){border-top:none}.is-divider:has(.divider-content):not(.is-start):before{content:"";border-top:var(--divider-line-thickness) solid var(--divider-line-color);height:var(--divider-line-thickness);width:100%}.is-divider:has(.divider-content):not(.is-end):after{content:"";border-top:var(--divider-line-thickness) solid var(--divider-line-color);height:var(--divider-line-thickness);width:100%}.is-divider .divider-content{display:inline-block;font-size:var(--divider-content-font-size);padding:.4rem .8rem}.is-divider.is-vertical{display:flex;flex-direction:column;width:auto;height:auto;margin:0;min-height:2rem;border-top:none;border-left:var(--divider-line-thickness) solid var(--divider-line-color)}.is-divider.is-vertical:has(.divider-content){border-left:none}.is-divider.is-vertical:has(.divider-content):not(.is-start):before{content:"";border-left:var(--divider-line-thickness) solid var(--divider-line-color);width:var(--divider-line-thickness);height:100%}.is-divider.is-vertical:has(.divider-content):not(.is-end):after{content:"";border-left:var(--divider-line-thickness) solid var(--divider-line-color);width:var(--divider-line-thickness);height:100%}.is-divider.is-vertical .divider-content{padding:.2rem .5rem}
+</style></head> <body>  <!-- Hero Header --><header class="hero is-primary is-bold is-medium" data-astro-cid-f6555neh> <div class="hero-body" data-astro-cid-f6555neh> <div class="container has-text-centered" data-astro-cid-f6555neh> <h1 class="title is-1 mb-4" data-astro-cid-f6555neh>Bulma Divider</h1> <p class="subtitle is-4" data-astro-cid-f6555neh>A simple yet powerful divider extension for Bulma.</p> </div> </div> </header> <!-- Page Content --><div class="container mt-6">  <!-- Overview --><div class="message is-info"> <div class="message-body"> 
+The <strong>Divider</strong> extension allows you to easily display horizontal or vertical
+        lines to separate your content. It supports custom text, icons, and images centered or aligned
+        along the line.
+ </div> </div> <!-- Horizontal Divider --><section id="horizontal" class="demo-section" data-astro-cid-xkyhgc2t>    <div class="columns is-vcentered"> <div class="column is-5"> <h2 class="title is-3">Horizontal</h2> <p>Standard horizontal line. Use <code>.is-divider</code> and optional <code>.divider-content</code>
+for text, icons, or images overlays.</p> <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&#x3C;!-- Simple --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-divider"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- With Text --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-divider"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"divider-content"</span><span style="color:#E1E4E8">>OR&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- With Icon --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-divider"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"divider-content"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">i</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"fas fa-star"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">i</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- With Image --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-divider"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"divider-content"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">img</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"/placeholder.png"</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"32"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"32"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </div> <div class="column is-offset-1 is-6"> <div class="example-box block"> <p>Text above divider.</p> <div class="is-divider"></div> <p>Text below divider.</p> <div class="is-divider"> <span class="divider-content">OR</span> </div> <p>Divider with icon.</p> <div class="is-divider"> <span class="divider-content"> <i class="fas fa-heart has-text-danger"></i> </span> </div> <p>Divider with image.</p> <div class="is-divider"> <span class="divider-content"> <img src="/_astro/placeholder.DLL36ivS.png" width="32" height="32" alt="32x32 Placeholder"> </span> </div> </div> </div> </div>  </section> <hr> <!-- Color Variations --><section id="colors" class="demo-section" data-astro-cid-xkyhgc2t> <h2 class="title is-3 has-text-centered" data-astro-cid-xkyhgc2t>Color Variations</h2> <p class="subtitle has-text-centered mb-6 mt-2" data-astro-cid-xkyhgc2t> 
+Apply Bulma core colors using standard modifiers like <code>is-primary</code>, <code>is-info</code>, etc.
+ </p>   <div class="columns is-multiline"> <div class="column is-4"> <div class="is-divider is-primary"> <span class="divider-content">Primary</span> </div> </div> <div class="column is-4"> <div class="is-divider is-info"> <span class="divider-content">Info</span> </div> </div> <div class="column is-4"> <div class="is-divider is-success"> <span class="divider-content">Success</span> </div> </div> <div class="column is-4"> <div class="is-divider is-warning"> <span class="divider-content">Warning</span> </div> </div> <div class="column is-4"> <div class="is-divider is-danger"> <span class="divider-content">Danger</span> </div> </div> <div class="column is-4"> <div class="is-divider is-link"> <span class="divider-content">Link</span> </div> </div> </div>  </section> <hr> <!-- Vertical Divider --><section id="vertical" class="demo-section" data-astro-cid-xkyhgc2t>    <div class="columns is-vcentered"> <div class="column is-6"> <div class="example-box"> <div class="columns is-mobile has-text-centered"> <div class="column"> <p class="is-size-4">Left Side</p> <p>Content one</p> </div> <div class="is-divider is-vertical"> <span class="divider-content">AND</span> </div> <div class="column"> <p class="is-size-4">Right Side</p> <p>Content two</p> </div> </div> </div> </div> <div class="column is-offset-1 is-5"> <h2 class="title is-3">Vertical</h2> <p>Use <code>.is-vertical</code> with <code>.is-divider</code> for vertical separation.</p> <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"columns"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"column"</span><span style="color:#E1E4E8">>Left&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-divider is-vertical"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"divider-content"</span><span style="color:#E1E4E8">>AND&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"column"</span><span style="color:#E1E4E8">>Right&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </div> </div>  </section> <hr> <!-- Alignment --><section id="alignment" class="demo-section" data-astro-cid-xkyhgc2t> <h2 class="title is-3 has-text-centered" data-astro-cid-xkyhgc2t>Alignment</h2> <p class="subtitle has-text-centered mb-6 mt-2" data-astro-cid-xkyhgc2t> 
+Use <code>is-start</code> or <code>is-end</code> to align the content along the line.
+ </p>   <div class="columns"> <div class="column is-6"> <h3 class="title is-4">Horizontal</h3> <div class="example-box"> <div class="is-divider is-start"> <span class="divider-content">Left</span> </div> <div class="is-divider"> <span class="divider-content">Center</span> </div> <div class="is-divider is-end"> <span class="divider-content">Right</span> </div> </div> </div> <div class="column is-6"> <h3 class="title is-4">Vertical</h3> <div class="example-box"> <div class="columns has-text-centered" style="height: 150px;"> <div class="column">Content</div> <div class="is-divider is-vertical is-start"> <span class="divider-content">Top</span> </div> <div class="column">Content</div> <div class="is-divider is-vertical"> <span class="divider-content">Middle</span> </div> <div class="column">Content</div> <div class="is-divider is-vertical is-end"> <span class="divider-content">Bottom</span> </div> <div class="column">Content</div> </div> </div> </div> </div> <div class="columns is-centered"> <div class="column is-8"> <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&#x3C;!-- Horizontal --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-divider is-start"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"divider-content"</span><span style="color:#E1E4E8">>Left&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- Vertical --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-divider is-vertical is-end"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"divider-content"</span><span style="color:#E1E4E8">>Bottom&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </div> </div>  </section>  </div>  <!-- Footer --><footer class="footer"> <div class="content has-text-centered"> <p> <strong>Bulma Extensions: Divider</strong> by <a href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
+            The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
+</p> </div> </footer> </body></html>

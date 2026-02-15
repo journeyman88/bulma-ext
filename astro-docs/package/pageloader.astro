@@ -1,0 +1,77 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/pageloader/css/pageloader.min.css';
+import { Code } from 'astro:components';
+// Examples
+import exampleLoader from '../examples/pageloader/loader.html?raw';
+import exampleTrigger from '../examples/pageloader/trigger.js?raw';
+---
+<!-- Pageloader Elements (Hidden by default) -->
+<div id="loader-default" class="pageloader"><span class="title">Loading...</span></div>
+<div id="loader-primary" class="pageloader is-primary"><span class="title">Primary Loader</span></div>
+<div id="loader-info" class="pageloader is-info is-left-to-right"><span class="title">Slide Left to Right</span></div>
+<div id="loader-warning" class="pageloader is-warning is-bottom-to-top"><span class="title">Slide Bottom to Top</span></div>
+
+<Hero title="Bulma Pageloader" subtitle="A beautiful overlay loader for your Bulma projects." />
+<Container>
+    <Overview>
+        The <strong>Pageloader</strong> extension provides a full-page overlay with smooth animations.
+        Perfect for page transitions or long-running operations.
+    </Overview>
+    <Section id="triggers" title="Interactive Examples" showTitle>
+        <Fragment slot="subtitle">
+            Click the buttons below to trigger different pageloader variations and animations.
+        </Fragment>
+            <div class="example-box">
+                <div class="buttons is-centered">
+                    <button class="button is-dark" onclick="triggerLoader('loader-default')">Default (Slide
+                        Down)</button>
+                    <button class="button is-primary" onclick="triggerLoader('loader-primary')">Primary Color</button>
+                    <button class="button is-info" onclick="triggerLoader('loader-info')">Left to Right</button>
+                    <button class="button is-warning" onclick="triggerLoader('loader-warning')">Bottom to Top</button>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="usage" title="Usage">
+            <div class="columns">
+                <div class="column is-6">
+                    <h2 class="title is-3">How to use</h2>
+                    <p>Add the <code>.pageloader</code> div at the beginning of your <code>&lt;body&gt;</code>. Control
+                        visibility by toggling the <code>.is-active</code> class.</p>
+                    <Code code={exampleLoader} lang="html" />
+                </div>
+                <div class="column is-6">
+                    <h2 class="title is-3">Animations</h2>
+                    <p>Change the slide direction using modifier classes:</p>
+                    <ul>
+                        <li><code>is-left-to-right</code></li>
+                        <li><code>is-right-to-left</code></li>
+                        <li><code>is-bottom-to-top</code></li>
+                        <li>(Default: Top to Bottom)</li>
+                    </ul>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="javascript" title="Simple Trigger Scripts" showTitle>
+        <Fragment slot="subtitle">
+            Use a small snippet of JavaScript to show and hide the loader after a delay.
+        </Fragment>
+        <Code code={exampleTrigger} lang="js" />
+    </Section>
+</Container>
+<script in:line>
+    function triggerLoader(id) {
+        const loader = document.getElementById(id);
+        loader.classList.add('is-active');
+
+        setTimeout(() => {
+            loader.classList.remove('is-active');
+        }, 2500);
+    }
+</script>

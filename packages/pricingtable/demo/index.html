@@ -1,221 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulma Pricing Table Extension</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="../css/pricingtable.min.css">
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
-        }
-
-        .hero.is-primary {
-            background: var(--primary-gradient);
-        }
-
-        .demo-section {
-            padding: 3rem 0;
-        }
-
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-
-        code {
-            color: #efefef;
-        }
-
-        .pricing-table .pricing-plan {
-            margin: 0.5rem;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Hero Header -->
-    <section class="hero is-primary is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Bulma Pricing Table</h1>
-                <h2 class="subtitle">A complete pricing table extension for Bulma.</h2>
-            </div>
-        </div>
-    </section>
-
-    <div class="container mt-6">
-        <!-- Basic Pricing Table -->
-        <section id="basic" class="demo-section">
-            <h2 class="title is-3">Basic Pricing Table</h2>
-            <p class="subtitle mt-3">Standard pricing plans with an active state to highlight the best value.</p>
-
-            <div class="pricing-table mt-5">
-                <div class="pricing-plan">
-                    <div class="plan-header">Starter</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>0</span>/mo</div>
-                    <div class="plan-items">
-                        <div class="plan-item">1 Project</div>
-                        <div class="plan-item">1GB Storage</div>
-                        <div class="plan-item">Communnity Support</div>
-                    </div>
-                    <div class="plan-footer">
-                        <button class="button is-fullwidth">Choose Plan</button>
-                    </div>
-                </div>
-
-                <div class="pricing-plan is-active">
-                    <div class="plan-header">Professional</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>29</span>/mo</div>
-                    <div class="plan-items">
-                        <div class="plan-item">20 Projects</div>
-                        <div class="plan-item">50GB Storage</div>
-                        <div class="plan-item">Priority Support</div>
-                    </div>
-                    <div class="plan-footer">
-                        <button class="button is-fullwidth">Choose Plan</button>
-                    </div>
-                </div>
-
-                <div class="pricing-plan is-info">
-                    <div class="plan-header">Business</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>99</span>/mo</div>
-                    <div class="plan-items">
-                        <div class="plan-item">Unlimited Projects</div>
-                        <div class="plan-item">Unlimited Storage</div>
-                        <div class="plan-item">24/7 Support</div>
-                    </div>
-                    <div class="plan-footer">
-                        <button class="button is-fullwidth">Choose Plan</button>
-                    </div>
-                </div>
-            </div>
-
-            <pre><code>&lt;div class="pricing-table"&gt;
-  &lt;div class="pricing-plan"&gt;
-    &lt;div class="plan-header"&gt;Starter&lt;/div&gt;
-    &lt;div class="plan-price"&gt;&lt;span class="plan-price-amount"&gt;&lt;span class="plan-price-currency"&gt;$&lt;/span&gt;0&lt;/span&gt;/mo&lt;/div&gt;
-    &lt;div class="plan-items"&gt;...&lt;/div&gt;
-    &lt;div class="plan-footer"&gt;&lt;button class="button is-fullwidth"&gt;Choose&lt;/button&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;!-- Highlight with is-active --&gt;
-  &lt;div class="pricing-plan is-active"&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-        </section>
-
-        <hr>
-
-        <!-- Comparative Table -->
-        <section id="comparative" class="demo-section">
-            <h2 class="title is-3">Comparative Layout</h2>
-            <p class="subtitle mt-3">Plan items align horizontally across plans for easy feature comparison. Use
-                <code>is-comparative</code> on the table.</p>
-
-            <div class="pricing-table is-comparative mt-5">
-                <div class="pricing-plan">
-                    <div class="plan-header">Basic</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>10</span></div>
-                    <div class="plan-item" data-feature="Feature 1">Yes</div>
-                    <div class="plan-item" data-feature="Feature 2">No</div>
-                    <div class="plan-item" data-feature="Feature 3">No</div>
-                    <div class="plan-footer">
-                        <button class="button is-fullwidth">Choose</button>
-                    </div>
-                </div>
-
-                <div class="pricing-plan is-primary">
-                    <div class="plan-header">Plus</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>25</span></div>
-                    <div class="plan-item" data-feature="Feature 1">Yes</div>
-                    <div class="plan-item" data-feature="Feature 2">Yes</div>
-                    <div class="plan-item" data-feature="Feature 3">No</div>
-                    <div class="plan-footer">
-                        <button class="button is-fullwidth">Choose</button>
-                    </div>
-                </div>
-
-                <div class="pricing-plan is-warning">
-                    <div class="plan-header">Pro</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>50</span></div>
-                    <div class="plan-item" data-feature="Feature 1">Yes</div>
-                    <div class="plan-item" data-feature="Feature 2">Yes</div>
-                    <div class="plan-item" data-feature="Feature 3">Yes</div>
-                    <div class="plan-footer">
-                        <button class="button is-fullwidth">Choose</button>
-                    </div>
-                </div>
-            </div>
-
-            <pre><code>&lt;div class="pricing-table is-comparative"&gt;
-  &lt;div class="pricing-plan"&gt;
-    &lt;div class="plan-item" data-feature="Custom Label"&gt;Feature Value&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-        </section>
-
-        <hr>
-
-        <!-- Horizontal Layout -->
-        <section id="horizontal" class="demo-section mb-6">
-            <h2 class="title is-3">Horizontal Layout</h2>
-            <p class="subtitle mt-3">Use <code>is-horizontal</code> to stack plans vertically (effective on desktop).
-            </p>
-
-            <div class="pricing-table is-horizontal mt-5">
-                <div class="pricing-plan is-active">
-                    <div class="plan-header">Monthly Plan</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>19</span>/mo</div>
-                    <div class="plan-items">
-                        <div class="plan-item">Access to all features</div>
-                        <div class="plan-item">Individual support</div>
-                    </div>
-                    <div class="plan-footer">
-                        <button class="button">Subscribe Now</button>
-                    </div>
-                </div>
-
-                <div class="pricing-plan is-danger mt-4">
-                    <div class="plan-header">Annual Plan (Best Deal)</div>
-                    <div class="plan-price"><span class="plan-price-amount"><span
-                                class="plan-price-currency">$</span>159</span>/yr</div>
-                    <div class="plan-items">
-                        <div class="plan-item">Save 30% over monthly</div>
-                        <div class="plan-item">VIP Support priority</div>
-                    </div>
-                    <div class="plan-footer">
-                        <button class="button">Subscribe Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <pre><code>&lt;div class="pricing-table is-horizontal"&gt;
-  &lt;div class="pricing-plan"&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Bulma Pricing Table Extension</strong> by <a href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
-                The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
-            </p>
-        </div>
-    </footer>
-</body>
-
-</html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><title>Bulma Extensions: PricingTable</title><link rel="stylesheet" href="/_astro/index.DkdE5ddt.css"></head> <body>  <!-- Hero Header --><header class="hero is-primary is-bold is-medium" data-astro-cid-f6555neh> <div class="hero-body" data-astro-cid-f6555neh> <div class="container has-text-centered" data-astro-cid-f6555neh> <h1 class="title is-1 mb-4" data-astro-cid-f6555neh>Bulma PricingTable</h1> <p class="subtitle is-4" data-astro-cid-f6555neh>A complete pricing table extension for Bulma.</p> </div> </div> </header><!-- Page Content --><div class="container mt-6"> <!-- Overview --><div class="message is-info"> <div class="message-body"> 
+The <strong data-astro-cid-6xkzt66r>Pricing Table</strong> extension provides a complete solution for displaying
+        pricing plans. It supports multiple layouts including horizontal, comparative, and active
+        states to highlight specific plans.
+ </div> </div><!-- Basic Pricing Table --><section id="basic" class="demo-section" data-astro-cid-xkyhgc2t> <h2 class="title is-3 has-text-centered" data-astro-cid-xkyhgc2t>Basic Pricing Table</h2> <p class="subtitle has-text-centered mb-6 mt-2" data-astro-cid-xkyhgc2t> 
+Standard pricing plans with an active state to highlight the best value.
+ </p> <div class="pricing-table mt-5" data-astro-cid-6xkzt66r><div class="pricing-plan" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Starter</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>0</span>/mo</div><div class="plan-items" data-astro-cid-6xkzt66r><div class="plan-item" data-astro-cid-6xkzt66r>1 Project</div><div class="plan-item" data-astro-cid-6xkzt66r>1GB Storage</div><div class="plan-item" data-astro-cid-6xkzt66r>Communnity Support</div></div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button is-fullwidth" data-astro-cid-6xkzt66r>Choose Plan</button></div></div><div class="pricing-plan is-active" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Professional</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>29</span>/mo</div><div class="plan-items" data-astro-cid-6xkzt66r><div class="plan-item" data-astro-cid-6xkzt66r>20 Projects</div><div class="plan-item" data-astro-cid-6xkzt66r>50GB Storage</div><div class="plan-item" data-astro-cid-6xkzt66r>Priority Support</div></div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button is-fullwidth" data-astro-cid-6xkzt66r>Choose Plan</button></div></div><div class="pricing-plan is-info" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Business</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>99</span>/mo</div><div class="plan-items" data-astro-cid-6xkzt66r><div class="plan-item" data-astro-cid-6xkzt66r>Unlimited Projects</div><div class="plan-item" data-astro-cid-6xkzt66r>Unlimited Storage</div><div class="plan-item" data-astro-cid-6xkzt66r>24/7 Support</div></div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button is-fullwidth" data-astro-cid-6xkzt66r>Choose Plan</button></div></div></div><pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-astro-cid-6xkzt66r data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pricing-table"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pricing-plan"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"plan-header"</span><span style="color:#E1E4E8">>Starter&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"plan-price"</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"plan-price-amount"</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"plan-price-currency"</span><span style="color:#E1E4E8">>$&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">>0&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">>/mo&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"plan-items"</span><span style="color:#E1E4E8">>...&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"plan-footer"</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button is-fullwidth"</span><span style="color:#E1E4E8">>Choose&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">    &#x3C;!-- Highlight with is-active --></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pricing-plan is-active"</span><span style="color:#E1E4E8">>...&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </section><hr data-astro-cid-6xkzt66r><!-- Comparative Layout --><section id="comparative" class="demo-section" data-astro-cid-xkyhgc2t> <h2 class="title is-3 has-text-centered" data-astro-cid-xkyhgc2t>Comparative Layout</h2> <p class="subtitle has-text-centered mb-6 mt-2" data-astro-cid-xkyhgc2t> 
+Plan items align horizontally across plans for easy feature comparison. 
+            Use <code data-astro-cid-6xkzt66r>is-comparative</code> on the table.
+ </p> <div class="pricing-table is-comparative mt-5" data-astro-cid-6xkzt66r><div class="pricing-plan" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Basic</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>10</span></div><div class="plan-item" data-feature="Feature 1" data-astro-cid-6xkzt66r>Yes</div><div class="plan-item" data-feature="Feature 2" data-astro-cid-6xkzt66r>No</div><div class="plan-item" data-feature="Feature 3" data-astro-cid-6xkzt66r>No</div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button is-fullwidth" data-astro-cid-6xkzt66r>Choose</button></div></div><div class="pricing-plan is-primary" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Plus</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>25</span></div><div class="plan-item" data-feature="Feature 1" data-astro-cid-6xkzt66r>Yes</div><div class="plan-item" data-feature="Feature 2" data-astro-cid-6xkzt66r>Yes</div><div class="plan-item" data-feature="Feature 3" data-astro-cid-6xkzt66r>No</div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button is-fullwidth" data-astro-cid-6xkzt66r>Choose</button></div></div><div class="pricing-plan is-warning" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Pro</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>50</span></div><div class="plan-item" data-feature="Feature 1" data-astro-cid-6xkzt66r>Yes</div><div class="plan-item" data-feature="Feature 2" data-astro-cid-6xkzt66r>Yes</div><div class="plan-item" data-feature="Feature 3" data-astro-cid-6xkzt66r>Yes</div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button is-fullwidth" data-astro-cid-6xkzt66r>Choose</button></div></div></div><pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-astro-cid-6xkzt66r data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pricing-table is-comparative"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pricing-plan"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"plan-item"</span><span style="color:#B392F0"> data-feature</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Custom Label"</span><span style="color:#E1E4E8">>Feature Value&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </section><hr data-astro-cid-6xkzt66r><!-- Horizontal Layout --><section id="horizontal" class="demo-section" data-astro-cid-xkyhgc2t> <h2 class="title is-3 has-text-centered" data-astro-cid-xkyhgc2t>Horizontal Layout</h2> <p class="subtitle has-text-centered mb-6 mt-2" data-astro-cid-xkyhgc2t> 
+Use <code data-astro-cid-6xkzt66r>is-horizontal</code> to stack plans vertically (effective on desktop).
+ </p> <div class="pricing-table is-horizontal mt-5" data-astro-cid-6xkzt66r><div class="pricing-plan is-primary" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Monthly Plan</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>19</span>/mo</div><div class="plan-items" data-astro-cid-6xkzt66r><div class="plan-item" data-astro-cid-6xkzt66r>Access to all features</div><div class="plan-item" data-astro-cid-6xkzt66r>Individual support</div></div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button" data-astro-cid-6xkzt66r>Subscribe Now</button></div></div><div class="pricing-plan is-danger mt-4" data-astro-cid-6xkzt66r><div class="plan-header" data-astro-cid-6xkzt66r>Annual Plan (Best Deal)</div><div class="plan-price" data-astro-cid-6xkzt66r><span class="plan-price-amount" data-astro-cid-6xkzt66r><span class="plan-price-currency" data-astro-cid-6xkzt66r>$</span>159</span>/yr</div><div class="plan-items" data-astro-cid-6xkzt66r><div class="plan-item" data-astro-cid-6xkzt66r>Save 30% over monthly</div><div class="plan-item" data-astro-cid-6xkzt66r>VIP Support priority</div></div><div class="plan-footer" data-astro-cid-6xkzt66r><button class="button" data-astro-cid-6xkzt66r>Subscribe Now</button></div></div></div><pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-astro-cid-6xkzt66r data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pricing-table is-horizontal"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pricing-plan"</span><span style="color:#E1E4E8">>...&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </section> </div>  <!-- Footer --><footer class="footer"> <div class="content has-text-centered"> <p> <strong>Bulma Extensions: PricingTable</strong> by <a href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
+            The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
+</p> </div> </footer> </body></html>
