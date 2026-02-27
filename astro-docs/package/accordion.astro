@@ -21,32 +21,31 @@ import exampleToggle from '../examples/accordion/toggle.js?raw';
             Wrap your items in an <code>.accordions</code> container. Use <code>.is-active</code> to expand an item.
         </Fragment>
         <div class="accordions">
-                <article class="accordion is-active">
-                    <div class="accordion-header toggle">
-                        <p>Accordion Header 1</p>
-                        <button class="toggle" aria-label="toggle"></button>
+            <article class="accordion is-active">
+                <div class="accordion-header toggle">
+                    <p>Accordion Header 1</p>
+                    <button class="toggle" aria-label="toggle"></button>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        <strong>Pellentesque nec nam aliquam sem.</strong>
+                        Aliquam quis eleifend ex.
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque nec nam
-                                aliquam sem.</strong>
-                            Aliquam quis eleifend ex.
-                        </div>
+                </div>
+            </article>
+            <article id="article-2" class="accordion">
+                <div class="accordion-header toggle">
+                    <p>Accordion Header 2</p>
+                    <button class="toggle" aria-label="toggle"></button>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        Aenean feugiat tellus eu sodales scelerisque. 
+                        Ut nisl dui, ornare quis ultrices vel, scelerisque nec diam.
                     </div>
-                </article>
-
-                <article id="article-2" class="accordion">
-                    <div class="accordion-header toggle">
-                        <p>Accordion Header 2</p>
-                        <button class="toggle" aria-label="toggle"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Aenean feugiat tellus eu sodales scelerisque. Ut nisl dui, ornare quis ultrices vel,
-                            scelerisque nec diam.
-                        </div>
-                    </div>
-                </article>
+                </div>
+            </article>
         </div>
         <Code code={exampleBasic} lang="html" />
     </Section>
@@ -55,71 +54,67 @@ import exampleToggle from '../examples/accordion/toggle.js?raw';
         <Fragment slot="subtitle">
             Easily apply Bulma's standard color palette.
         </Fragment>
-            <div class="accordions">
-                <article id="article-3" class="accordion is-primary">
-                    <div class="accordion-header toggle">
-                        <p>Primary Accordion</p>
-                        <button class="toggle" aria-label="toggle"></button>
+        <div class="accordions">
+            <article id="article-3" class="accordion is-primary">
+                <div class="accordion-header toggle">
+                    <p>Primary Accordion</p>
+                    <button class="toggle" aria-label="toggle"></button>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        Content for the primary styled accordion.
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Content for the primary styled accordion.
-                        </div>
+                </div>
+            </article>
+            <article id="article-4" class="accordion is-info">
+                <div class="accordion-header toggle">
+                    <p>Info Accordion</p>
+                    <button class="toggle" aria-label="toggle"></button>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        Content for the info styled accordion.
                     </div>
-                </article>
-
-                <article id="article-4" class="accordion is-info">
-                    <div class="accordion-header toggle">
-                        <p>Info Accordion</p>
-                        <button class="toggle" aria-label="toggle"></button>
+                </div>
+            </article>
+            <article id="article-5" class="accordion is-success">
+                <div class="accordion-header toggle">
+                    <p>Success Accordion</p>
+                    <button class="toggle" aria-label="toggle"></button>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        Content for the success styled accordion.
                     </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Content for the info styled accordion.
-                        </div>
-                    </div>
-                </article>
-
-                <article id="article-5" class="accordion is-success">
-                    <div class="accordion-header toggle">
-                        <p>Success Accordion</p>
-                        <button class="toggle" aria-label="toggle"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">
-                            Content for the success styled accordion.
-                        </div>
-                    </div>
-                </article>
-            </div>
+                </div>
+            </article>
+        </div>
     </Section>
     <hr>
     <Section id="sizes" title="Sizing" showTitle>
         <Fragment slot="subtitle">
             Choose the size that fits your design: small, normal, medium, or large.
         </Fragment>
-
-            <div class="accordions">
-                <article id="article-6" class="accordion is-small is-dark">
-                    <div class="accordion-header toggle">
-                        <p>Small Accordion</p>
-                        <button class="toggle" aria-label="toggle"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">Small content area.</div>
-                    </div>
-                </article>
-
-                <article id="article-7" class="accordion is-large is-link">
-                    <div class="accordion-header toggle">
-                        <p>Large Accordion</p>
-                        <button class="toggle" aria-label="toggle"></button>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="accordion-content">Large content area with bigger text.</div>
-                    </div>
-                </article>
-            </div>
+        <div class="accordions">
+            <article id="article-6" class="accordion is-small is-dark">
+                <div class="accordion-header toggle">
+                    <p>Small Accordion</p>
+                    <button class="toggle" aria-label="toggle"></button>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">Small content area.</div>
+                </div>
+            </article>
+            <article id="article-7" class="accordion is-large is-link">
+                <div class="accordion-header toggle">
+                    <p>Large Accordion</p>
+                    <button class="toggle" aria-label="toggle"></button>
+                </div>
+                <div class="accordion-body">
+                    <div class="accordion-content">Large content area with bigger text.</div>
+                </div>
+            </article>
+        </div>
     </Section>
     <hr>
     <Section id="javascript" title="Scripting" showTitle>

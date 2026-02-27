@@ -50,6 +50,10 @@
 </nav>
 <script>
     class BulmaNavbar {
+        private navbar;
+        private burger;
+        private menu;
+
         constructor(node) {
             this.navbar = node;
             this.burger = this.navbar.querySelector('.navbar-burger');
@@ -66,6 +70,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        const navbars = document.querySelectorAll('.navbar').forEach(n => new BulmaNavbar(n));
+        document.querySelectorAll('.navbar').forEach(n => new BulmaNavbar(n));
     });
 </script>

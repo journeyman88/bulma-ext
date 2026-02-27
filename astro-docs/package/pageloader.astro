@@ -65,7 +65,7 @@ import exampleTrigger from '../examples/pageloader/trigger.js?raw';
         <Code code={exampleTrigger} lang="js" />
     </Section>
 </Container>
-<script in:line>
+<script is:inline>
     function triggerLoader(id) {
         const loader = document.getElementById(id);
         loader.classList.add('is-active');
