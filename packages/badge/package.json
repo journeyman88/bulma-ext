@@ -8,8 +8,8 @@
     "scripts": {
         "build:expanded": "sass sass/badge.scss css/badge.css --load-path=node_modules --quiet-deps --source-map",
         "build:min": "sass sass/badge.scss css/badge.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
-            "build:demo": "astro build",
-    "build": "pnpm run build:expanded && pnpm run build:min && pnpm build:demo",
+        "build:demo": "astro build",
+        "build": "pnpm run build:expanded && pnpm run build:min && pnpm build:demo",
         "watch": "sass sass/badge.scss css/badge.css --watch"
     },
     "keywords": [
@@ -22,5 +22,32 @@
     "devDependencies": {
         "sass": "^1.77.0",
         "astro": "^5.17.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/journeyman88/bulma-ext.git",
+        "directory": "packages/badge"
+    },
+    "homepage": "https://journeyman88.github.io/bulma-ext/badge",
+    "bugs": {
+        "url": "https://github.com/journeyman88/bulma-ext/issues"
+    },
+    "files": [
+        "css",
+        "sass",
+        "README.md",
+        "LICENSE.txt",
+        "LICENSE-MIT.txt",
+        "NOTICE.txt"
+    ],
+    "exports": {
+        ".": {
+            "style": "./css/badge.min.css",
+            "sass": "./sass/badge.scss",
+            "default": "./css/badge.min.css"
+        }
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

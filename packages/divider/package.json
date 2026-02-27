@@ -22,5 +22,32 @@
   "devDependencies": {
     "sass": "^1.77.0",
     "astro": "^5.17.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/journeyman88/bulma-ext.git",
+    "directory": "packages/divider"
+  },
+  "homepage": "https://journeyman88.github.io/bulma-ext/divider",
+  "bugs": {
+    "url": "https://github.com/journeyman88/bulma-ext/issues"
+  },
+  "files": [
+    "css",
+    "sass",
+    "README.md",
+    "LICENSE.txt",
+    "LICENSE-MIT.txt",
+    "NOTICE.txt"
+  ],
+  "exports": {
+    ".": {
+      "style": "./css/divider.min.css",
+      "sass": "./sass/divider.scss",
+      "default": "./css/divider.min.css"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

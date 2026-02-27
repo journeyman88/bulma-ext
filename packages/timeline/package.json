@@ -8,7 +8,7 @@
   "scripts": {
     "build:expanded": "sass sass/timeline.scss css/timeline.css --load-path=node_modules --quiet-deps --source-map",
     "build:min": "sass sass/timeline.scss css/timeline.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
-        "build:demo": "astro build",
+    "build:demo": "astro build",
     "build": "pnpm run build:expanded && pnpm run build:min && pnpm build:demo",
     "watch": "sass sass/timeline.scss css/timeline.css --watch"
   },
@@ -21,6 +21,33 @@
   },
   "devDependencies": {
     "sass": "^1.77.0",
-        "astro": "^5.17.2"
+    "astro": "^5.17.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/journeyman88/bulma-ext.git",
+    "directory": "packages/timeline"
+  },
+  "homepage": "https://journeyman88.github.io/bulma-ext/timeline",
+  "bugs": {
+    "url": "https://github.com/journeyman88/bulma-ext/issues"
+  },
+  "files": [
+    "css",
+    "sass",
+    "README.md",
+    "LICENSE.txt",
+    "LICENSE-MIT.txt",
+    "NOTICE.txt"
+  ],
+  "exports": {
+    ".": {
+      "style": "./css/timeline.min.css",
+      "sass": "./sass/timeline.scss",
+      "default": "./css/timeline.min.css"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
