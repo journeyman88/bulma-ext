@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><title>Bulma Extensions: QuickView</title><link rel="stylesheet" href="/bulma-ext/_astro/accordion.BT_iLOJ3.css">
+<link rel="stylesheet" href="/bulma-ext/_astro/accordion.BXikcl1g.css">
+<link rel="stylesheet" href="/bulma-ext/_astro/quickview.C8pBQ2rR.css"></head> <body> <nav class="navbar" role="navigation" aria-label="main navigation"> <div class="navbar-brand"> <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="demoNavbar"> <span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span> </a> </div> <div id="demoNavbar" class="navbar-menu"> <div class="navbar-start"> <a class="navbar-item" href="/bulma-ext/">Home</a> <div class="navbar-item has-dropdown is-hoverable"> <a class="navbar-link">Ready</a> <div class="navbar-dropdown"> <a class="navbar-item" href="/bulma-ext/accordion">Accordion</a> <a class="navbar-item" href="/bulma-ext/badge">Badge</a> <a class="navbar-item" href="/bulma-ext/carousel">Carousel</a> <a class="navbar-item" href="/bulma-ext/divider">Divider</a> <a class="navbar-item" href="/bulma-ext/pageloader">Pageloader</a> <a class="navbar-item" href="/bulma-ext/ribbon">Ribbon</a> <a class="navbar-item" href="/bulma-ext/timeline">Timeline</a> </div> </div> <div class="navbar-item has-dropdown is-hoverable"> <a class="navbar-link">Work In Progress</a> <div class="navbar-dropdown"> <a class="navbar-item" href="/bulma-ext/checkradio">CheckRadio</a> <a class="navbar-item" href="/bulma-ext/switch">Switch</a> </div> </div> <div class="navbar-item has-dropdown is-hoverable"> <a class="navbar-link">Draft</a> <div class="navbar-dropdown"> <a class="navbar-item" href="/bulma-ext/pricingtable">PricingTable</a> <a class="navbar-item" href="/bulma-ext/quickview">Quickview</a> </div> </div> </div> <div class="navbar-end"> <a class="navbar-item" href="https://github.com/journeyman88/bulma-ext"> <span class="icon is-large"> <i class="fab fa-github fa-2x"></i> </span> </a> </div> </div> </nav> <script type="module">class r{constructor(e){this.navbar=e,this.burger=this.navbar.querySelector(".navbar-burger"),this.menu=document.getElementById(this.burger.dataset.target),this.init()}init(){this.burger&&this.burger.addEventListener("click",()=>this.toggleMenu())}toggleMenu(){this.burger.classList.toggle("is-active"),this.menu.classList.toggle("is-active")}}document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".navbar").forEach(t=>new r(t))});</script>  <!-- Hero Header --><header class="hero is-primary is-bold is-medium" data-astro-cid-at6x2oed> <div class="hero-body" data-astro-cid-at6x2oed> <div class="container has-text-centered" data-astro-cid-at6x2oed> <h1 class="title is-1 mb-4" data-astro-cid-at6x2oed>Bulma Quickview</h1> <p class="subtitle is-4" data-astro-cid-at6x2oed>A slide-out panel extension for Bulma.</p> </div> </div> </header> <!-- Page Content --><div class="container mt-6">  <!-- Overview --><div class="message is-info"> <div class="message-body"> 
+The <strong>Quickview</strong> extension provides an elegant off-canvas sliding panel
+        for displaying content or menus. It includes a structured layout with a header, body,
+        and footer, and can be configured to slide in from either the left or the right side.
+ </div> </div> <div class="message is-warning mt-4"> <div class="message-body"> <strong>Note:</strong> To handle the opening and closing of the Quickview panel (adding/removing the <code>is-active</code> class), 
+            you need a small amount of JavaScript to listen to button clicks. See the script at the bottom of the examples.
+</div> </div> <!-- Basic Quickview --><section id="basic" class="demo-section" data-astro-cid-yfhrgb42>    <div class="columns is-vcentered"> <div class="column is-5"> <h2 class="title is-3">Basic Pattern</h2> <p>The <code>.quickview</code> structure consists of a <code>.quickview-header</code>, a scrolling <code>.quickview-body</code>, and a <code>.quickview-footer</code>. By default, it slides in from the right edge of the screen.</p> <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button is-primary"</span><span style="color:#B392F0"> data-show</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#B392F0"> data-target</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewDefault"</span><span style="color:#E1E4E8">>Show Quickview&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewDefault"</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">header</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-header"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"title"</span><span style="color:#E1E4E8">>Quickview title&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"delete"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">header</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-body"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-block"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>This is the standard quickview container layout. It slides in from the right side of the screen by</span></span>
+<span class="line"><span style="color:#E1E4E8">                default.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>Click the close button in the header or click anywhere outside to close.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">footer</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-footer"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button is-danger"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>Cancel&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button is-success"</span><span style="color:#E1E4E8">>Save&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </div> <div class="column is-offset-1 is-6"> <div class="example-box"> <button class="button is-primary" data-show="quickview" data-target="quickviewDefault">Show Quickview</button>
+
+<div id="quickviewDefault" class="quickview">
+    <header class="quickview-header">
+        <p class="title">Quickview title</p>
+        <span class="delete" data-dismiss="quickview"></span>
+    </header>
+
+    <div class="quickview-body">
+        <div class="quickview-block">
+            <p>This is the standard quickview container layout. It slides in from the right side of the screen by
+                default.</p>
+            <p>Click the close button in the header or click anywhere outside to close.</p>
+        </div>
+    </div>
+
+    <footer class="quickview-footer">
+        <button class="button is-danger" data-dismiss="quickview">Cancel</button>
+        <button class="button is-success">Save</button>
+    </footer>
+</div> </div> </div> </div>  </section> <hr> <!-- Left Alignment --><section id="left" class="demo-section" data-astro-cid-yfhrgb42>    <div class="columns is-vcentered"> <div class="column is-5"> <h2 class="title is-3">Left Alignment</h2> <p>Append the <code>.is-left</code> modifier to the <code>.quickview</code> container to have the panel slide in from the left side instead of the right.</p> <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button is-info"</span><span style="color:#B392F0"> data-show</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#B392F0"> data-target</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewLeft"</span><span style="color:#E1E4E8">>Show Left Quickview&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- Add is-left to make it slide from the left --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewLeft"</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview is-left"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">header</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-header"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"title"</span><span style="color:#E1E4E8">>Left Quickview&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"delete"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">header</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-body"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-block"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>Adding the &#x3C;</span><span style="color:#85E89D">code</span><span style="color:#E1E4E8">>is-left&#x3C;/</span><span style="color:#85E89D">code</span><span style="color:#E1E4E8">> modifier changes the side the quickview appears from.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">footer</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-footer"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>Close&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </div> <div class="column is-offset-1 is-6"> <div class="example-box"> <button class="button is-info" data-show="quickview" data-target="quickviewLeft">Show Left Quickview</button>
+
+<!-- Add is-left to make it slide from the left -->
+<div id="quickviewLeft" class="quickview is-left">
+    <header class="quickview-header">
+        <p class="title">Left Quickview</p>
+        <span class="delete" data-dismiss="quickview"></span>
+    </header>
+
+    <div class="quickview-body">
+        <div class="quickview-block">
+            <p>Adding the <code>is-left</code> modifier changes the side the quickview appears from.</p>
+        </div>
+    </div>
+
+    <footer class="quickview-footer">
+        <button class="button" data-dismiss="quickview">Close</button>
+    </footer>
+</div> </div> </div> </div>  </section> <hr> <!-- Header Colors --><section id="colors" class="demo-section" data-astro-cid-yfhrgb42> <h2 class="title is-3 has-text-centered" data-astro-cid-yfhrgb42>Header Colors</h2> <p class="subtitle has-text-centered mb-6 mt-2" data-astro-cid-yfhrgb42> 
+The <code>.quickview-header</code> component supports Bulma's color modifiers (like <code>is-success</code>, <code>is-warning</code>, etc.) to set the background color.
+ </p>   <div class="columns is-vcentered"> <div class="column is-6"> <div class="example-box"> <div class="buttons">
+    <button class="button is-success" data-show="quickview" data-target="quickviewSuccess">Success Header</button>
+    <button class="button is-warning" data-show="quickview" data-target="quickviewWarning">Warning Header</button>
+</div>
+
+<!-- Apply color modifiers to the header -->
+<div id="quickviewSuccess" class="quickview">
+    <header class="quickview-header is-success">
+        <p class="title">Success Quickview</p>
+        <span class="delete" data-dismiss="quickview"></span>
+    </header>
+    <div class="quickview-body">
+        <div class="quickview-block">
+            <p>The <code>quickview-header</code> component supports all Bulma color modifiers.</p>
+        </div>
+    </div>
+    <footer class="quickview-footer">
+        <button class="button" data-dismiss="quickview">Close</button>
+    </footer>
+</div>
+
+<div id="quickviewWarning" class="quickview">
+    <header class="quickview-header is-warning">
+        <p class="title">Warning Quickview</p>
+        <span class="delete" data-dismiss="quickview"></span>
+    </header>
+    <div class="quickview-body">
+        <div class="quickview-block">
+            <p>The <code>quickview-header</code> component supports all Bulma color modifiers.</p>
+        </div>
+    </div>
+    <footer class="quickview-footer">
+        <button class="button" data-dismiss="quickview">Close</button>
+    </footer>
+</div> </div> </div> <div class="column is-6"> <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"buttons"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button is-success"</span><span style="color:#B392F0"> data-show</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#B392F0"> data-target</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewSuccess"</span><span style="color:#E1E4E8">>Success Header&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button is-warning"</span><span style="color:#B392F0"> data-show</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#B392F0"> data-target</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewWarning"</span><span style="color:#E1E4E8">>Warning Header&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- Apply color modifiers to the header --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewSuccess"</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">header</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-header is-success"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"title"</span><span style="color:#E1E4E8">>Success Quickview&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"delete"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">header</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-body"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-block"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>The &#x3C;</span><span style="color:#85E89D">code</span><span style="color:#E1E4E8">>quickview-header&#x3C;/</span><span style="color:#85E89D">code</span><span style="color:#E1E4E8">> component supports all Bulma color modifiers.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">footer</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-footer"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>Close&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickviewWarning"</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">header</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-header is-warning"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"title"</span><span style="color:#E1E4E8">>Warning Quickview&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"delete"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">header</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-body"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-block"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>The &#x3C;</span><span style="color:#85E89D">code</span><span style="color:#E1E4E8">>quickview-header&#x3C;/</span><span style="color:#85E89D">code</span><span style="color:#E1E4E8">> component supports all Bulma color modifiers.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">footer</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview-footer"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"button"</span><span style="color:#B392F0"> data-dismiss</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"quickview"</span><span style="color:#E1E4E8">>Close&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre> </div> </div>  </section> <script type="module">document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll('[data-show="quickview"]').forEach(t=>{t.addEventListener("click",s=>{const e=s.currentTarget.dataset.target;if(e){const i=document.getElementById(e);i&&i.classList.add("is-active")}})}),document.querySelectorAll('[data-dismiss="quickview"]').forEach(t=>{t.addEventListener("click",s=>{const e=s.currentTarget.closest(".quickview");e&&e.classList.remove("is-active")})})});</script>  </div>  <!-- Footer --><footer class="footer"> <div class="content has-text-centered"> <p> <strong>Bulma Extensions</strong> by <a href="https://github.com/journeyman88/bulma-ext">Journeyman88</a>.
+            The source code is licensed <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>.
+</p> </div> </footer> </body></html>

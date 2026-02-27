@@ -1,0 +1,195 @@
+/**
+ * Copyright 2026 - Marco Bignami
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ---
+ * This file contains code originally derived from Bulma Extensions 
+ * Copyright (c) 2017 Wikiki (MIT License)
+ * Modified by Marco Bignami in 2026
+ */
+:root {
+  --quickview-z: 35;
+  --quickview-header-height: 3.25em;
+  --quickview-footer-height: 4rem;
+  --quickview-shadow: 5px 0px 13px 3px rgba( 0, 0, 0, 0.1 );
+  --quickview-divider: 1px solid var( --bulma-grey-lighter);
+  --quickview-main-color: var(--bulma-scheme-main);
+  --quickview-inverse-color: var(--bulma-text);
+  --quickview-footer-color: var(--bulma-scheme-main-ter);
+}
+
+.quickview {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--quickview-main-color);
+  max-width: calc(100% - 50px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: var(--quickview-z);
+  transform: translateZ(0);
+  transition: 0.3s ease;
+  backface-visibility: hidden;
+  perspective: 1000;
+  will-change: transform;
+}
+.quickview.is-marginless {
+  max-width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .quickview {
+    width: 100%;
+    right: -100%;
+  }
+}
+@media screen and (min-width: 769px), print {
+  .quickview {
+    width: 50%;
+    right: -50%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .quickview {
+    width: 35%;
+    right: -35%;
+  }
+}
+@media screen and (min-width: 1216px) {
+  .quickview {
+    width: 30%;
+    right: -30%;
+  }
+}
+@media screen and (min-width: 1408px) {
+  .quickview {
+    width: 25%;
+    right: -25%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .quickview.is-left {
+    left: -100%;
+  }
+}
+@media screen and (min-width: 769px), print {
+  .quickview.is-left {
+    left: -50%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .quickview.is-left {
+    left: -35%;
+  }
+}
+@media screen and (min-width: 1216px) {
+  .quickview.is-left {
+    left: -30%;
+  }
+}
+@media screen and (min-width: 1408px) {
+  .quickview.is-left {
+    left: -25%;
+  }
+}
+.quickview.is-active {
+  right: 0;
+  box-shadow: var(--quickview-shadow);
+}
+.quickview.is-active.is-left {
+  left: 0;
+}
+
+.quickview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  min-height: var(--quickview-header-height) !important;
+  border-bottom: var(--quickview-divider);
+  background-color: var(--quickview-main-color);
+}
+.quickview-header.is-white {
+  --quickview-main-color: var(--bulma-white);
+  --quickview-inverse-color: var(--bulma-white-invert);
+}
+.quickview-header.is-black {
+  --quickview-main-color: var(--bulma-black);
+  --quickview-inverse-color: var(--bulma-black-invert);
+}
+.quickview-header.is-light {
+  --quickview-main-color: var(--bulma-light);
+  --quickview-inverse-color: var(--bulma-light-invert);
+}
+.quickview-header.is-dark {
+  --quickview-main-color: var(--bulma-dark);
+  --quickview-inverse-color: var(--bulma-dark-invert);
+}
+.quickview-header.is-text {
+  --quickview-main-color: var(--bulma-text);
+  --quickview-inverse-color: var(--bulma-text-invert);
+}
+.quickview-header.is-primary {
+  --quickview-main-color: var(--bulma-primary);
+  --quickview-inverse-color: var(--bulma-primary-invert);
+}
+.quickview-header.is-link {
+  --quickview-main-color: var(--bulma-link);
+  --quickview-inverse-color: var(--bulma-link-invert);
+}
+.quickview-header.is-info {
+  --quickview-main-color: var(--bulma-info);
+  --quickview-inverse-color: var(--bulma-info-invert);
+}
+.quickview-header.is-success {
+  --quickview-main-color: var(--bulma-success);
+  --quickview-inverse-color: var(--bulma-success-invert);
+}
+.quickview-header.is-warning {
+  --quickview-main-color: var(--bulma-warning);
+  --quickview-inverse-color: var(--bulma-warning-invert);
+}
+.quickview-header.is-danger {
+  --quickview-main-color: var(--bulma-danger);
+  --quickview-inverse-color: var(--bulma-danger-invert);
+}
+.quickview-header .title {
+  color: var(--quickview-inverse-color);
+  font-size: var(--bulma-size-6);
+  font-weight: var(--bulma-weight-light);
+  margin-bottom: 0;
+}
+.quickview-header .title img {
+  max-height: 2em;
+}
+
+.quickview-body {
+  -webkit-box-flex: 1;
+  flex: 1 1 0%;
+  overflow-y: auto;
+}
+
+.quickview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  min-height: var(--quickview-footer-height);
+  background-color: var(--quickview-footer-color);
+  border-top: var(--quickview-divider);
+}
+.quickview-footer > * {
+  margin: 0 0.4rem;
+}
+
+/*# sourceMappingURL=quickview.css.map */
