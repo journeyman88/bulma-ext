@@ -1,0 +1,154 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/switch/css/switch.min.css';
+import { Code } from 'astro:components';
+// Examples
+import exampleBasic from '../examples/switch/basic.html?raw';
+import exampleColors from '../examples/switch/colors.html?raw';
+import exampleSizes from '../examples/switch/sizes.html?raw';
+---
+<Hero title="Bulma Switch" subtitle="A toggle switch extension for Bulma." />
+<Container>
+    <Overview>
+        The <strong>Switch</strong> extension replaces the native checkbox with a sleek toggle-switch
+        control. It inherits Bulma's full color system and sizing scale, and supports shape variants
+        (<strong>rounded</strong>, <strong>thin</strong>), an <strong>outlined</strong> style,
+        <strong>RTL</strong> layout, and disabled states — all with a smooth animated paddle.
+    </Overview>
+    <Section id="basic" title="Basic Switch">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Basic Switch</h2>
+                    <p>Add the <code>.switch</code> class and <code>type="checkbox"</code> to your
+                        <code>&lt;input&gt;</code>. The <code>&lt;label&gt;</code> immediately
+                        following must reference the input via <code>for</code>.</p>
+                    <Code code={exampleBasic} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <input id="demoSw1" type="checkbox" name="demoSw1" class="switch">
+                        <label for="demoSw1">Off / On</label>
+                        <input id="demoSw2" type="checkbox" name="demoSw2" class="switch" checked>
+                        <label for="demoSw2">Checked by default</label>
+                        <input id="demoSw3" type="checkbox" name="demoSw3" class="switch" disabled>
+                        <label for="demoSw3">Disabled</label>
+                        <input id="demoSw4" type="checkbox" name="demoSw4" class="switch" checked disabled>
+                        <label for="demoSw4">Checked disabled</label>
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="colors" title="Color Variations" showTitle>
+        <Fragment slot="subtitle">
+            Apply any Bulma color modifier like <code>is-primary</code>, <code>is-success</code>, etc.
+            to the active track colour.
+        </Fragment>
+        <div class="columns is-vcentered">
+            <div class="column is-6">
+                <div class="example-box">
+                    <input id="clrPrimary" type="checkbox" name="clrPrimary" class="switch is-primary" checked>
+                    <label for="clrPrimary">Primary</label>
+                    <input id="clrInfo" type="checkbox" name="clrInfo" class="switch is-info" checked>
+                    <label for="clrInfo">Info</label>
+                    <input id="clrSuccess" type="checkbox" name="clrSuccess" class="switch is-success" checked>
+                    <label for="clrSuccess">Success</label>
+                    <input id="clrWarning" type="checkbox" name="clrWarning" class="switch is-warning" checked>
+                    <label for="clrWarning">Warning</label>
+                    <input id="clrDanger" type="checkbox" name="clrDanger" class="switch is-danger" checked>
+                    <label for="clrDanger">Danger</label>
+                    <input id="clrLink" type="checkbox" name="clrLink" class="switch is-link" checked>
+                    <label for="clrLink">Link</label>
+                </div>
+            </div>
+            <div class="column is-6">
+                <Code code={exampleColors} lang="html" />
+            </div>
+        </div>
+    </Section>
+    <hr>
+    <Section id="sizes" title="Sizing" showTitle>
+        <Fragment slot="subtitle">
+            Control the size with <code>is-small</code>, <code>is-medium</code>, or <code>is-large</code>.
+        </Fragment>
+        <div class="columns is-vcentered">
+            <div class="column is-6">
+                <div class="example-box">
+                    <input id="szSmall" type="checkbox" name="szSmall" class="switch is-small is-primary" checked>
+                    <label for="szSmall">Small</label>
+                    <input id="szNormal" type="checkbox" name="szNormal" class="switch is-primary" checked>
+                    <label for="szNormal">Normal</label>
+                    <input id="szMedium" type="checkbox" name="szMedium" class="switch is-medium is-primary" checked>
+                    <label for="szMedium">Medium</label>
+                    <input id="szLarge" type="checkbox" name="szLarge" class="switch is-large is-primary" checked>
+                    <label for="szLarge">Large</label>
+                </div>
+            </div>
+            <div class="column is-6">
+                <Code code={exampleSizes} lang="html" />
+            </div>
+        </div>
+    </Section>
+    <hr>
+    <Section id="rounded" title="Rounded" showTitle>
+        <Fragment slot="subtitle">
+            Add <code>is-rounded</code> to give the track fully rounded ends and a circular paddle.
+        </Fragment>
+        <div class="example-box">
+            <input id="roundedOff" type="checkbox" name="roundedOff" class="switch is-rounded is-primary">
+            <label for="roundedOff">Rounded off</label>
+            <input id="roundedOn" type="checkbox" name="roundedOn" class="switch is-rounded is-primary" checked>
+            <label for="roundedOn">Rounded on</label>
+            <input id="roundedInfo" type="checkbox" name="roundedInfo" class="switch is-rounded is-info is-medium" checked>
+            <label for="roundedInfo">Rounded info medium</label>
+            <input id="roundedSuccess" type="checkbox" name="roundedSuccess" class="switch is-rounded is-success is-large" checked>
+            <label for="roundedSuccess">Rounded success large</label>
+        </div>
+    </Section>
+    <hr>
+    <Section id="thin" title="Thin Track" showTitle>
+        <Fragment slot="subtitle">
+            Add <code>is-thin</code> to collapse the track into a thin line with a floating paddle.
+        </Fragment>
+        <div class="example-box">
+            <input id="thinOff" type="checkbox" name="thinOff" class="switch is-thin is-primary">
+            <label for="thinOff">Thin off</label>
+            <input id="thinOn" type="checkbox" name="thinOn" class="switch is-thin is-primary" checked>
+            <label for="thinOn">Thin on</label>
+            <input id="thinRounded" type="checkbox" name="thinRounded" class="switch is-thin is-rounded is-success" checked>
+            <label for="thinRounded">Thin + rounded</label>
+        </div>
+    </Section>
+    <hr>
+    <Section id="outlined" title="Outlined" showTitle>
+        <Fragment slot="subtitle">
+            Add <code>is-outlined</code> for a transparent track with a coloured border and paddle.
+        </Fragment>
+        <div class="example-box">
+            <input id="outlinedOff" type="checkbox" name="outlinedOff" class="switch is-outlined is-primary">
+            <label for="outlinedOff">Outlined off</label>
+            <input id="outlinedOn" type="checkbox" name="outlinedOn" class="switch is-outlined is-primary" checked>
+            <label for="outlinedOn">Outlined on</label>
+            <input id="outlinedRounded" type="checkbox" name="outlinedRounded" class="switch is-outlined is-rounded is-danger" checked>
+            <label for="outlinedRounded">Outlined + rounded</label>
+            <input id="outlinedThin" type="checkbox" name="outlinedThin" class="switch is-outlined is-thin is-info" checked>
+            <label for="outlinedThin">Outlined + thin</label>
+        </div>
+    </Section>
+    <hr>
+    <Section id="rtl" title="RTL Support" showTitle>
+        <Fragment slot="subtitle">
+            Add <code>is-rtl</code> to mirror the switch for right-to-left layouts.
+        </Fragment>
+        <div class="example-box">
+            <input id="rtlOff" type="checkbox" name="rtlOff" class="switch is-rtl is-primary">
+            <label for="rtlOff">RTL off</label>
+            <input id="rtlOn" type="checkbox" name="rtlOn" class="switch is-rtl is-primary" checked>
+            <label for="rtlOn">RTL on</label>
+        </div>
+    </Section>
+</Container>

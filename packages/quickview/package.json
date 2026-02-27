@@ -1,0 +1,53 @@
+{
+    "name": "@bulma-ext/quickview",
+    "version": "1.0.0",
+    "description": "A QuickView Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
+    "license": "Apache-2.0",
+    "main": "css/quickview.min.css",
+    "sass": "sass/quickview.scss",
+    "scripts": {
+        "build:expanded": "sass sass/quickview.scss css/quickview.css --load-path=node_modules --quiet-deps --source-map",
+        "build:min": "sass sass/quickview.scss css/quickview.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+        "build:demo": "astro build",
+        "build": "pnpm run build:expanded && pnpm run build:min && pnpm build:demo",
+        "watch": "sass sass/quickview.scss css/quickview.css --watch"
+    },
+    "keywords": [
+        "bulma",
+        "bulma-extension"
+    ],
+    "peerDependencies": {
+        "bulma": "^1.0.0"
+    },
+    "devDependencies": {
+        "sass": "^1.77.0",
+        "astro": "^5.17.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/journeyman88/bulma-ext.git",
+        "directory": "packages/quickview"
+    },
+    "homepage": "https://journeyman88.github.io/bulma-ext/quickview",
+    "bugs": {
+        "url": "https://github.com/journeyman88/bulma-ext/issues"
+    },
+    "files": [
+        "css",
+        "sass",
+        "README.md",
+        "LICENSE.txt",
+        "LICENSE-MIT.txt",
+        "NOTICE.txt"
+    ],
+    "exports": {
+        ".": {
+            "style": "./css/quickview.min.css",
+            "sass": "./sass/quickview.scss",
+            "default": "./css/quickview.min.css"
+        }
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

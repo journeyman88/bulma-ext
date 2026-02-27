@@ -1,0 +1,264 @@
+/**
+ * Copyright 2026 - Marco Bignami
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ---
+ * This file contains code originally derived from Bulma Extensions 
+ * Copyright (c) 2017 Wikiki (MIT License)
+ * Modified by Marco Bignami in 2026
+ */
+ 
+@use "sass:map";
+@use "bulma/sass/utilities/derived-variables" as vars;
+@use "bulma/sass/utilities/initial-variables" as init;
+@use "bulma/sass/utilities/mixins";
+
+:root {
+  --switch-background: var(--bulma-text);
+  --switch-background-active: var(--bulma-text-light);
+  --switch-paddle-background: var(--bulma-scheme-main-ter);
+  --switch-paddle-background-active: var(--bulma-scheme-main);
+  --switch-radius: var(--bulma-radius);
+  --switch-focus: 1px dotted var(--bulma-grey-light);
+  --switch-border: .1rem solid transparent;
+  --switch-paddle-offset: 0.25rem;
+  --switch-paddle-transition: all 0.25s ease-out;
+}
+
+@mixin switch-size($size) {
+  $switch-height: calc($size * 1.5);
+  $switch-width: calc($switch-height * 2);
+  $paddle-height: calc($switch-height - calc(var(--switch-paddle-offset) * 2));
+  $paddle-width: calc($switch-height - calc(var(--switch-paddle-offset) * 2));
+  $paddle-active-offset: calc($switch-width - $paddle-width - calc(var(--switch-paddle-offset) * 1.5));
+
+  + label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: $size;
+    height: var(--bulma-control-height);
+    line-height: var(--bulma-control-line-height);
+    padding-left: $switch-width + .5;
+    padding-top: .2rem;
+    cursor: pointer;
+
+    &::before,
+    &:before {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: $switch-width;
+      height: $switch-height;
+      border: var(--switch-border);
+      border-radius: var(--switch-radius);
+      background: var(--switch-background);
+      content: '';
+    }
+
+    &::after,
+    &:after {
+      display: block;
+      position: absolute;
+      top: calc(calc($switch-height / 2) - calc($paddle-height / 2));
+      left: var(--switch-paddle-offset);
+      width: $paddle-width;
+      height: $paddle-height;
+      transform: translate3d(0, 0, 0);
+      border-radius: var(--switch-radius);
+      background: var(--switch-paddle-background);
+      transition: var(--switch-paddle-transition);
+      content: '';
+    }
+  }
+
+  &.is-rtl {
+    + label {
+      padding-left: 0;
+      padding-right: $switch-width + .5;
+
+      &::before,
+      &:before {
+        left: auto;
+        right: 0;
+      }
+
+      &::after,
+      &:after {
+        left: auto;
+        right: $paddle-active-offset;
+      }
+    }
+  }
+
+  &:checked {
+    + label {
+      &::before,
+      &:before {
+        background: var(--switch-background-active);
+      }
+
+      &::after {
+        left: $paddle-active-offset;
+      }
+    }
+
+    &.is-rtl {
+      + label {
+        &::after,
+        &:after {
+          left: auto;
+          right: var(--switch-paddle-offset);
+        }
+      }
+    }
+  }
+
+  &.is-outlined {
+    + label {
+      &::before,
+      &:before {
+        background-color: transparent;
+        border-color: var(--switch-background-active);
+      }
+
+      &::after,
+      &:after {
+        background: var(--switch-paddle-background);
+      }
+    }
+
+    &:checked {
+      + label {
+        &::before,
+        &:before {
+          background-color: transparent;
+          border-color: var(--switch-background-active);
+        }
+
+        &::after,
+        &:after {
+          background: var(--switch-background-active);
+        }
+      }
+    }
+  }
+
+  &.is-thin {
+    + label {
+      &::before,
+      &:before {
+        top: calc($switch-height / 2.75);
+        height: calc($switch-height / 4);
+      }
+
+      &::after,
+      &:after {
+        box-shadow: 0px 0px 3px init.$grey;
+      }
+    }
+  }
+
+  &.is-rounded {
+    + label {
+      &::before,
+      &:before {
+        border-radius: calc(var(--bulma-radius-large) * 4);
+      }
+
+      &::after,
+      &:after {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.switch[type="checkbox"] {
+  outline: 0;
+  user-select: none;
+  display: inline-block;
+  position: absolute;
+  opacity: 0;
+
+  &:focus {
+    + label {
+      &::before,
+      &:before,
+      &::after,
+      &:after {
+        outline: var(--switch-focus);
+      }
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    + label {
+      opacity: 0.5;
+
+      &::before,
+      &:before {
+        opacity: 0.5;
+      }
+
+      &::after,
+      &:after {
+        opacity: 0.5;
+      }
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @include switch-size(vars.$size-normal);
+
+  &.is-small {
+    @include switch-size(vars.$size-small);
+  }
+
+  &.is-medium {
+    @include switch-size(vars.$size-medium);
+  }
+
+  &.is-large {
+    @include switch-size(vars.$size-large);
+  }
+
+  @each $name, $components in vars.$colors {
+    &.is-#{$name} {
+      + label{
+        --switch-background: var(--bulma-#{$name}-30);
+        --switch-background-active: var(--bulma-#{$name});
+        --switch-paddle-background: var(--bulma-#{$name}-invert);
+        --switch-paddle-background-active: var(--bulma-#{$name});
+      }
+    }
+  }
+
+ 
+}
+
+.field-body {
+  .switch[type="checkbox"] {
+    + label {
+      margin-top: .375em;
+    }
+  }
+}

@@ -1,0 +1,425 @@
+/**
+ * Copyright 2026 - Marco Bignami
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ---
+ * This file contains code originally derived from Bulma Extensions 
+ * Copyright (c) 2017 Wikiki (MIT License)
+ * Modified by Marco Bignami in 2026
+ */
+ 
+@use "sass:map";
+@use "bulma/sass/utilities/derived-variables" as vars;
+@use "bulma/sass/utilities/initial-variables" as init;
+@use "bulma/sass/utilities/mixins";
+
+@mixin checkbox-size($size) {
+  $newSize: calc($size * 1.5);
+  $height: calc($newSize / 2.5);
+  $width: calc($newSize / 4);
+
+  + label {
+    font-size: $size;
+    // line-height: $newSize;
+    padding-left: calc($size * 2);
+
+    &::before,
+    &:before {
+      width: $newSize;
+      height: $newSize;
+    }
+
+    &::after,
+    &:after {
+      width: $width;
+      height: $height;
+      top: calc((( $newSize / 2 ) - ( $height / 2 ) ) * 0.9);
+      left: $height;
+    }
+  }
+
+  &.is-block {
+    + label {
+      &::before,
+      &:before {
+        width: calc(1.25 * $size);
+        height: calc(1.25 * $size);
+        left: .175rem;
+        top: .175rem;
+      }
+
+      &::after,
+      &:after {
+        top: calc(.2rem + $size * 0.125);
+        left: calc(.2rem + $size * 0.45);
+      }
+    }
+  }
+
+  &.is-rtl {
+    + label {
+      padding-left: 0;
+      padding-right: calc($size * 2);
+
+      &::after,
+      &:after {
+        left: auto;
+        right: $height;
+      }
+    }
+  }
+}
+
+// Use a mixin to define all ratios in the same spot
+@mixin radio-size($size) {
+  $newSize: calc($size * 1.5);
+  $height: $newSize;
+  $width: $newSize;
+
+  + label {
+    font-size: $size;
+    line-height: $newSize;
+    padding-left: calc($size * 2);
+
+    &::before,
+    &:before,
+    &::after,
+    &:after {
+      width: $width;
+      height: $height;
+    }
+  }
+
+  &.is-rtl {
+    + label {
+      padding-right: calc($size * 2);
+    }
+  }
+}
+
+:root {
+  --checkradio-main-color: var(--bulma-text);
+  --checkradio-inverse-color: var(--bulma-scheme-main);
+  --checkradio-checkbox-radius: var(--bulma-radius);
+  --checkradio-border: .1rem solid var(--checkradio-main-color);
+  --checkradio-top-offset: 0rem;
+  --checkradio-checked-width: .1rem;
+  --checkradio-focus: 1px dotted init.$grey-light;
+  --checkradio-block-background: init.$white-ter;
+  --checkradio-block-dark: darken(init.$white-ter, 5%);
+  --checkradio-block-text: init.$black-ter;
+}
+
+.is-checkradio[type="radio"],
+.is-checkradio[type="checkbox"] {
+  outline: 0;
+  user-select: none;
+  display: inline-block;
+  position: absolute;
+  opacity: 0;
+  border-color: var(--checkradio-main-color);
+  color: var(--checkradio-main-color);
+
+
+  + label {
+    position: relative;
+    display: initial;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: .5em;
+    padding: .2rem .5rem .2rem 0;
+    border-radius: var(--checkradio-checkbox-radius);
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:hover {
+      &::before,
+      &:before {
+        animation-duration: 0.4s;
+        animation-fill-mode: both;
+        animation-name: hover-color;
+      }
+    }
+
+    &::before,
+    &:before {
+      position: absolute;
+      left: 0;
+      top: var(--checkradio-top-offset);
+      content: '';
+      border: var(--checkradio-border);
+    }
+
+    &::after,
+    &:after {
+      position: absolute;
+      display: none;
+      content: '';
+      top: var(--checkradio-top-offset);
+    }
+  }
+
+  &.is-rtl {
+    + label {
+      margin-right: 0rem;
+      margin-left: 0.5rem;
+
+      &::before,
+      &:before {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+
+  &:focus {
+    + label {
+      &::before,
+      &:before {
+        outline: var(--checkradio-focus);
+      }
+    }
+  }
+
+  &:hover:not([disabled]) {
+    + label {
+      &::before,
+      &:before {
+        border-color: var(--checkradio-main-color) !important;
+      }
+    }
+  }
+
+  &:checked {
+    + label {
+      &::before,
+      &:before {
+        border: var(--checkradio-border);
+      }
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+
+      + label {
+        opacity: 0.5;
+      }
+    }
+
+    + label {
+      &::before,
+      &:before {
+        animation-name: none;
+      }
+
+      &::after,
+      &:after {
+        display: inline-block;
+      }
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    + label {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover,
+      &:before,
+      &::before,
+      &::after,
+      &:after {
+        cursor: not-allowed;
+      }
+    }
+
+    &:hover {
+      cursor: not-allowed;
+
+      &::before,
+      &:before {
+        animation-name: none;
+      }
+    }
+
+    &::before,
+    &:before {
+      cursor: not-allowed;
+    }
+
+    &::after,
+    &:after {
+      cursor: not-allowed;
+    }
+  }
+
+  &.has-no-border {
+    + label {
+      &::before,
+      &:before {
+        border: none !important;
+      }
+    }
+  }
+
+  &.is-block {
+    display: none !important;
+
+    + label {
+      width: 100% !important;
+      background: var(--checkradio-block-background);
+      color: var(--checkradio-block-text);
+      padding-right: .75em;
+    }
+
+    &:hover:not([disabled]) {
+      + label {
+        background: var(--checkradio-block-dark);
+      }
+    }
+  }
+
+  @each $name, $components in vars.$colors {
+    &.is-#{$name} {
+      + label {
+        --checkradio-main-color: var(--bulma-#{$name});
+        --checkradio-inverse-color: var(--bulma-#{$name}-invert);
+      }
+    }
+  }
+
+
+}
+
+.is-checkradio[type="checkbox"] {
+  + label {
+    &::before,
+    &:before {
+      border-radius: var(--checkradio-checkbox-radius);
+    }
+
+    &::after,
+    &:after {
+      box-sizing: border-box;
+      transform: translateY(var(--checkradio-top-offset)) rotate(45deg);
+      border-width: var(--checkradio-checked-width);
+      border-style: solid;
+      border-color: var(--checkradio-main-color);
+      border-top: 0;
+      border-left: 0;
+    }
+  }
+
+  &.is-circle {
+    + label {
+      &::before,
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  @include checkbox-size(vars.$size-normal);
+
+  &.is-small {
+    @include checkbox-size(vars.$size-small);
+  }
+
+  &.is-medium {
+    @include checkbox-size(vars.$size-medium);
+  }
+
+  &.is-large {
+    @include checkbox-size(vars.$size-large);
+  }
+  
+
+  &:indeterminate {
+    + label {
+      &::after,
+      &:after {
+        display: inline-block;
+        transform: rotate(90deg);
+        border-bottom: none;
+      }
+    }
+
+  }
+}
+
+.is-checkradio[type="radio"] {
+  + label {
+    &::before,
+    &:before {
+      border-radius: 50%;
+    }
+
+    &::after,
+    &:after {
+      border-radius: 50%;
+      background: var(--checkradio-main-color);
+      left: 0;
+      transform: scale(0.5);
+    }
+  }
+
+  &:checked {
+    &.has-background-color {
+      + label {
+        &::before,
+        &:before {
+          border-color: vars.$text !important;
+          background-color: vars.$text !important;
+        }
+
+        &::after,
+        &:after {
+          border-color: vars.$text !important;
+          background-color: vars.$text !important;
+        }
+      }
+    }
+  }
+
+  &.is-rtl {
+    + label {
+      padding-left: 0;
+
+      &::after,
+      &:after {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+
+  @include radio-size(vars.$size-normal);
+
+  &.is-small {
+    @include radio-size(vars.$size-small);
+  }
+
+  &.is-medium {
+    @include radio-size(vars.$size-medium);
+  }
+
+  &.is-large {
+    @include radio-size(vars.$size-large);
+  }
+
+}

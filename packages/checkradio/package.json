@@ -1,0 +1,53 @@
+{
+    "name": "@bulma-ext/checkradio",
+    "version": "1.0.0",
+    "description": "A checkradio Stylesheet compatible with Bulma 1.0.x (https://bulma.io)",
+    "license": "Apache-2.0",
+    "main": "css/checkradio.min.css",
+    "sass": "sass/checkradio.scss",
+    "scripts": {
+        "build:expanded": "sass sass/checkradio.scss css/checkradio.css --load-path=node_modules --quiet-deps --source-map",
+        "build:min": "sass sass/checkradio.scss css/checkradio.min.css --load-path=node_modules --quiet-deps --style=compressed --no-source-map",
+        "build:demo": "astro build",
+        "build": "pnpm run build:expanded && pnpm run build:min && pnpm build:demo",
+        "watch": "sass sass/checkradio.scss css/checkradio.css --watch"
+    },
+    "keywords": [
+        "bulma",
+        "bulma-extension"
+    ],
+    "peerDependencies": {
+        "bulma": "^1.0.0"
+    },
+    "devDependencies": {
+        "sass": "^1.77.0",
+        "astro": "^5.17.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/journeyman88/bulma-ext.git",
+        "directory": "packages/checkradio"
+    },
+    "homepage": "https://journeyman88.github.io/bulma-ext/checkradio",
+    "bugs": {
+        "url": "https://github.com/journeyman88/bulma-ext/issues"
+    },
+    "files": [
+        "css",
+        "sass",
+        "README.md",
+        "LICENSE.txt",
+        "LICENSE-MIT.txt",
+        "NOTICE.txt"
+    ],
+    "exports": {
+        ".": {
+            "style": "./css/checkradio.min.css",
+            "sass": "./sass/checkradio.scss",
+            "default": "./css/checkradio.min.css"
+        }
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

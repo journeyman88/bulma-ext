@@ -1,0 +1,35 @@
+<div class="buttons">
+    <button class="button is-success" data-show="quickview" data-target="quickviewSuccess">Success Header</button>
+    <button class="button is-warning" data-show="quickview" data-target="quickviewWarning">Warning Header</button>
+</div>
+
+<!-- Apply color modifiers to the header -->
+<div id="quickviewSuccess" class="quickview">
+    <header class="quickview-header is-success">
+        <p class="title">Success Quickview</p>
+        <span class="delete" data-dismiss="quickview"></span>
+    </header>
+    <div class="quickview-body">
+        <div class="quickview-block">
+            <p>The <code>quickview-header</code> component supports all Bulma color modifiers.</p>
+        </div>
+    </div>
+    <footer class="quickview-footer">
+        <button class="button" data-dismiss="quickview">Close</button>
+    </footer>
+</div>
+
+<div id="quickviewWarning" class="quickview">
+    <header class="quickview-header is-warning">
+        <p class="title">Warning Quickview</p>
+        <span class="delete" data-dismiss="quickview"></span>
+    </header>
+    <div class="quickview-body">
+        <div class="quickview-block">
+            <p>The <code>quickview-header</code> component supports all Bulma color modifiers.</p>
+        </div>
+    </div>
+    <footer class="quickview-footer">
+        <button class="button" data-dismiss="quickview">Close</button>
+    </footer>
+</div>

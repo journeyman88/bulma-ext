@@ -1,0 +1,102 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/quickview/css/quickview.min.css';
+import { Code } from 'astro:components';
+// Examples
+import exampleBasic from '../examples/quickview/basic.html?raw';
+import exampleLeft from '../examples/quickview/left.html?raw';
+import exampleColors from '../examples/quickview/colors.html?raw';
+---
+<Hero title="Bulma Quickview" subtitle="A slide-out panel extension for Bulma." />
+<Container>
+    <Overview>
+        The <strong>Quickview</strong> extension provides an elegant off-canvas sliding panel
+        for displaying content or menus. It includes a structured layout with a header, body,
+        and footer, and can be configured to slide in from either the left or the right side.
+    </Overview>
+    
+    <div class="message is-warning mt-4">
+        <div class="message-body">
+            <strong>Note:</strong> To handle the opening and closing of the Quickview panel (adding/removing the <code>is-active</code> class), 
+            you need a small amount of JavaScript to listen to button clicks. See the script at the bottom of the examples.
+        </div>
+    </div>
+
+    <Section id="basic" title="Basic Quickview">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Basic Pattern</h2>
+                    <p>The <code>.quickview</code> structure consists of a <code>.quickview-header</code>, a scrolling <code>.quickview-body</code>, and a <code>.quickview-footer</code>. By default, it slides in from the right edge of the screen.</p>
+                    <Code code={exampleBasic} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <Fragment set:html={exampleBasic} />
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    
+    <Section id="left" title="Left Alignment">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Left Alignment</h2>
+                    <p>Append the <code>.is-left</code> modifier to the <code>.quickview</code> container to have the panel slide in from the left side instead of the right.</p>
+                    <Code code={exampleLeft} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <Fragment set:html={exampleLeft} />
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    
+    <Section id="colors" title="Header Colors" showTitle>
+        <Fragment slot="subtitle">
+            The <code>.quickview-header</code> component supports Bulma's color modifiers (like <code>is-success</code>, <code>is-warning</code>, etc.) to set the background color.
+        </Fragment>
+        <div class="columns is-vcentered">
+            <div class="column is-6">
+                <div class="example-box">
+                    <Fragment set:html={exampleColors} />
+                </div>
+            </div>
+            <div class="column is-6">
+                <Code code={exampleColors} lang="html" />
+            </div>
+        </div>
+    </Section>
+    
+    <script>
+        // Simple JavaScript to handle the toggle toggling for the demo
+        document.addEventListener('DOMContentLoaded', () => {
+            // Open bindings
+            const showTriggers = document.querySelectorAll('[data-show="quickview"]');
+            showTriggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = (e.currentTarget as HTMLElement).dataset.target;
+                    if (targetId) {
+                        const targetEl = document.getElementById(targetId);
+                        if (targetEl) targetEl.classList.add('is-active');
+                    }
+                });
+            });
+
+            // Close bindings
+            const dismissTriggers = document.querySelectorAll('[data-dismiss="quickview"]');
+            dismissTriggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const quickviewEl = (e.currentTarget as HTMLElement).closest('.quickview');
+                    if (quickviewEl) quickviewEl.classList.remove('is-active');
+                });
+            });
+        });
+    </script>
+</Container>

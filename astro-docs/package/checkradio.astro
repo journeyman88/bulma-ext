@@ -1,0 +1,187 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/checkradio/css/checkradio.min.css';
+import { Code } from 'astro:components';
+// Examples
+import exampleCheckbox from '../examples/checkradio/checkbox.html?raw';
+import exampleRadio from '../examples/checkradio/radio.html?raw';
+import exampleColors from '../examples/checkradio/colors.html?raw';
+import exampleSizes from '../examples/checkradio/sizes.html?raw';
+---
+<Hero title="Bulma Checkradio" subtitle="Styled checkboxes and radio buttons as a Bulma extension." />
+<Container>
+    <Overview>
+        The <strong>Checkradio</strong> extension replaces the native browser checkbox and radio
+        controls with fully styled equivalents that inherit Bulma's color system and sizing scale.
+        It supports <strong>color variants</strong>, <strong>sizes</strong>, <strong>block</strong>,
+        <strong>circle</strong>, <strong>no-border</strong>, <strong>indeterminate</strong> and
+        <strong>RTL</strong> modes out of the box.
+    </Overview>
+    <Section id="checkbox" title="Checkbox">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Checkbox</h2>
+                    <p>Add the <code>.is-checkradio</code> class and <code>type="checkbox"</code> to
+                        your <code>&lt;input&gt;</code>. The <code>&lt;label&gt;</code> immediately
+                        following must reference the input via <code>for</code>.</p>
+                    <Code code={exampleCheckbox} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <input class="is-checkradio" id="demoChk1" type="checkbox" name="demoChk1">
+                        <label for="demoChk1">Checkbox</label>
+                        <input class="is-checkradio" id="demoChk2" type="checkbox" name="demoChk2" checked>
+                        <label for="demoChk2">Checkbox checked</label>
+                        <input class="is-checkradio" id="demoChk3" type="checkbox" name="demoChk3" disabled>
+                        <label for="demoChk3">Checkbox disabled</label>
+                        <input class="is-checkradio" id="demoChk4" type="checkbox" name="demoChk4" checked disabled>
+                        <label for="demoChk4">Checkbox checked disabled</label>
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="radio" title="Radio Button">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <h2 class="title is-3">Radio Button</h2>
+                    <p>Use <code>type="radio"</code> with the same <code>.is-checkradio</code> class.
+                        Group radio inputs by sharing the same <code>name</code> attribute.</p>
+                    <Code code={exampleRadio} lang="html" />
+                </div>
+                <div class="column is-offset-1 is-6">
+                    <div class="example-box">
+                        <input class="is-checkradio" id="demoRad1" type="radio" name="demoRadio" value="1">
+                        <label for="demoRad1">Radio One</label>
+                        <input class="is-checkradio" id="demoRad2" type="radio" name="demoRadio" value="2" checked>
+                        <label for="demoRad2">Radio Two</label>
+                        <input class="is-checkradio" id="demoRad3" type="radio" name="demoRadio" value="3" disabled>
+                        <label for="demoRad3">Radio Disabled</label>
+                    </div>
+                </div>
+            </div>
+    </Section>
+    <hr>
+    <Section id="colors" title="Color Variations" showTitle>
+        <Fragment slot="subtitle">
+            Apply any Bulma color modifier like <code>is-primary</code>, <code>is-info</code>, etc.
+            to tint the checkmark and border.
+        </Fragment>
+        <div class="columns is-vcentered">
+            <div class="column is-6">
+                <div class="example-box">
+                    <input class="is-checkradio is-primary" id="clrPrimary" type="checkbox" name="clrPrimary" checked>
+                    <label for="clrPrimary">Primary</label>
+                    <input class="is-checkradio is-info" id="clrInfo" type="checkbox" name="clrInfo" checked>
+                    <label for="clrInfo">Info</label>
+                    <input class="is-checkradio is-success" id="clrSuccess" type="checkbox" name="clrSuccess" checked>
+                    <label for="clrSuccess">Success</label>
+                    <input class="is-checkradio is-warning" id="clrWarning" type="checkbox" name="clrWarning" checked>
+                    <label for="clrWarning">Warning</label>
+                    <input class="is-checkradio is-danger" id="clrDanger" type="checkbox" name="clrDanger" checked>
+                    <label for="clrDanger">Danger</label>
+                    <input class="is-checkradio is-link" id="clrLink" type="checkbox" name="clrLink" checked>
+                    <label for="clrLink">Link</label>
+                </div>
+            </div>
+            <div class="column is-6">
+                <Code code={exampleColors} lang="html" />
+            </div>
+        </div>
+    </Section>
+    <hr>
+    <Section id="sizes" title="Sizing" showTitle>
+        <Fragment slot="subtitle">
+            Choose the right size using <code>is-small</code>, <code>is-medium</code>, or <code>is-large</code>.
+        </Fragment>
+        <div class="columns is-vcentered">
+            <div class="column is-6">
+                <div class="example-box">
+                    <input class="is-checkradio is-small" id="szSmall" type="checkbox" name="szSmall" checked>
+                    <label for="szSmall">Small</label>
+                    <input class="is-checkradio" id="szNormal" type="checkbox" name="szNormal" checked>
+                    <label for="szNormal">Normal</label>
+                    <input class="is-checkradio is-medium" id="szMedium" type="checkbox" name="szMedium" checked>
+                    <label for="szMedium">Medium</label>
+                    <input class="is-checkradio is-large" id="szLarge" type="checkbox" name="szLarge" checked>
+                    <label for="szLarge">Large</label>
+                </div>
+            </div>
+            <div class="column is-6">
+                <Code code={exampleSizes} lang="html" />
+            </div>
+        </div>
+    </Section>
+    <hr>
+    <Section id="circle" title="Circle Variant" showTitle>
+        <Fragment slot="subtitle">
+            Add <code>is-circle</code> to a checkbox to give it rounded corners like a radio button.
+        </Fragment>
+        <div class="example-box">
+            <input class="is-checkradio is-circle" id="circle1" type="checkbox" name="circle1">
+            <label for="circle1">Circle checkbox</label>
+            <input class="is-checkradio is-circle is-primary" id="circle2" type="checkbox" name="circle2" checked>
+            <label for="circle2">Circle primary checked</label>
+            <input class="is-checkradio is-circle is-success is-medium" id="circle3" type="checkbox" name="circle3" checked>
+            <label for="circle3">Circle success medium</label>
+        </div>
+    </Section>
+    <hr>
+    <Section id="block" title="Block Mode" showTitle>
+        <Fragment slot="subtitle">
+            Add <code>is-block</code> to make the label span the full width, turning the control into a
+            block-level toggle button.
+        </Fragment>
+        <div class="example-box">
+            <input class="is-checkradio is-block is-primary" id="block1" type="checkbox" name="block1" checked>
+            <label for="block1">Block Primary</label>
+            <input class="is-checkradio is-block is-info" id="block2" type="checkbox" name="block2">
+            <label for="block2">Block Info</label>
+            <input class="is-checkradio is-block is-danger" id="block3" type="checkbox" name="block3">
+            <label for="block3">Block Danger</label>
+        </div>
+    </Section>
+    <hr>
+    <Section id="indeterminate" title="Indeterminate State" showTitle>
+        <Fragment slot="subtitle">
+            The <code>indeterminate</code> property (set via JavaScript) renders a horizontal dash,
+            useful for "select all" toggles in tables.
+        </Fragment>
+        <div class="columns is-vcentered">
+            <div class="column is-6">
+                <div class="example-box">
+                    <input class="is-checkradio" id="indetermChk" type="checkbox" name="indetermChk">
+                    <label for="indetermChk">Indeterminate checkbox</label>
+                </div>
+            </div>
+            <div class="column is-6">
+                <Code code={`const el = document.getElementById('indetermChk');
+el.indeterminate = true;`} lang="js" />
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const el = document.getElementById('indetermChk');
+                if (el) el.indeterminate = true;
+            });
+        </script>
+    </Section>
+    <hr>
+    <Section id="rtl" title="RTL Support" showTitle>
+        <Fragment slot="subtitle">
+            Add <code>is-rtl</code> to mirror the control for right-to-left layouts.
+        </Fragment>
+        <div class="example-box">
+            <input class="is-checkradio is-rtl is-primary" id="rtlChk1" type="checkbox" name="rtlChk1" checked>
+            <label for="rtlChk1">RTL Checkbox</label>
+            <input class="is-checkradio is-rtl is-info" id="rtlRad1" type="radio" name="rtlRadio" checked>
+            <label for="rtlRad1">RTL Radio One</label>
+            <input class="is-checkradio is-rtl is-info" id="rtlRad2" type="radio" name="rtlRadio">
+            <label for="rtlRad2">RTL Radio Two</label>
+        </div>
+    </Section>
+</Container>
