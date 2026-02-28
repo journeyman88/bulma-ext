@@ -47,6 +47,16 @@
 .quickview.is-marginless {
   max-width: 100%;
 }
+.quickview.is-modal::before {
+  position: fixed;
+  display: none;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: hsla(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-scheme-invert-l), 0.86);
+  content: "";
+}
 @media screen and (max-width: 768px) {
   .quickview {
     width: 100%;
@@ -106,7 +116,13 @@
   right: 0;
   box-shadow: var(--quickview-shadow);
 }
+.quickview.is-active.is-modal::before {
+  display: block;
+}
 .quickview.is-active.is-left {
+  left: 0;
+}
+.quickview.is-active.is-left.is-modal::before {
   left: 0;
 }
 

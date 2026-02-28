@@ -1,16 +1,15 @@
 <button class="button is-info" data-show="quickview" data-target="quickviewLeft">Show Left Quickview</button>
 
 <!-- Add is-left to make it slide from the left -->
-<div id="quickviewLeft" class="quickview is-left">
+<div id="quickviewLeft" class="quickview is-left is-modal">
     <header class="quickview-header">
         <p class="title">Left Quickview</p>
         <span class="delete" data-dismiss="quickview"></span>
     </header>
 
     <div class="quickview-body">
-        <div class="quickview-block">
-            <p>Adding the <code>is-left</code> modifier changes the side the quickview appears from.</p>
-        </div>
+        <p>Adding the <code>is-left</code> modifier changes the side the quickview appears from.</p>
+        <p>Adding the <code>is-modal</code> modifier makes the quickview a modal component.</p>
     </div>
 
     <footer class="quickview-footer">

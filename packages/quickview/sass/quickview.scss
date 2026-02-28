@@ -54,6 +54,17 @@
     max-width: 100%;
   }
 
+  &.is-modal::before {
+    position: fixed;
+    display: none;
+    right: 0; 
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: hsla(var(--bulma-scheme-h),var(--bulma-scheme-s),var(--bulma-scheme-invert-l),0.86);
+    content: '';
+  }
+
   @include mixins.mobile {
     width: 100%;
     right: -100%;
@@ -100,9 +111,15 @@
   &.is-active {
     right: 0;
     box-shadow: var(--quickview-shadow);
+    &.is-modal::before {
+      display: block;
+    }
 
     &.is-left {
       left: 0;
+      &.is-modal::before {
+        left: 0;
+      }
     }
   }
 }
