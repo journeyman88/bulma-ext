@@ -135,18 +135,19 @@ $accordion-content-pre-code-background-color: transparent !default;
       }
 
       & + .accordion-body {
-        overflow-y: hidden;
-        max-height: 0;
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
         color: var(--accordion-panel-color);
-        border: $accordion-content-border;
         border-radius: $accordion-content-radius;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        border-top: none;
-        transition: max-height 0.2s ease;
+        transition: grid-template-rows 0.25s ease;
 
         .accordion-content {
-          padding: $accordion-content-padding-top $accordion-content-padding-left;
+          min-height: 0;
+          padding: 0 $accordion-content-padding-left;
+          transition: padding 0.25s ease;
 
           code,
           pre {
@@ -167,7 +168,13 @@ $accordion-content-pre-code-background-color: transparent !default;
         }
       }
       .accordion-body {
-        max-height: 100em;
+        grid-template-rows: 1fr;
+        border: $accordion-content-border;
+        border-top: none;
+
+        .accordion-content {
+          padding: $accordion-content-padding-top $accordion-content-padding-left;
+        }
       }
     }
 

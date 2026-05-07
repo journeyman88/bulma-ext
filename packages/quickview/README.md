@@ -81,6 +81,43 @@ Default animation slides in from the **right**.
 | *(none)* | Slides from Right (default) |
 | `.is-left` | Slides from Left |
 
+### Modal Modifier
+
+Adding `.is-modal` to `.quickview` enables a dark semi-transparent overlay behind the panel. The overlay covers the whole viewport and sits behind the quickview (z-index −1 relative to it). Toggle it the same way:
+
+```html
+<div id="myQuickview" class="quickview is-modal">
+  ...
+</div>
+```
+
+To close the panel when the user clicks the overlay, listen for clicks on the `::before` pseudo-element area (i.e. outside the panel bounds):
+
+```js
+document.getElementById('myQuickview').addEventListener('click', function (e) {
+  if (e.target === this) {
+    this.classList.remove('is-active');
+  }
+});
+```
+
+By default, the panel leaves a 50 px gap from the opposite screen edge. Add `.is-marginless` to allow it to cover the full viewport width:
+
+```html
+<div id="myQuickview" class="quickview is-modal is-marginless">
+  ...
+</div>
+```
+
+### Size Modifiers
+
+Applied to `.quickview`:
+
+| Class | Description |
+|---|---|
+| *(none)* | Responsive width: 100% mobile, 50% tablet, 35% desktop, 30% widescreen, 25% fullhd |
+| `.is-marginless` | Removes the 50 px opposite-edge gap, allowing full-width coverage |
+
 ### Color Modifiers
 
 Applied to `.quickview-header`: `is-white`, `is-black`, `is-light`, `is-dark`, `is-text`, `is-primary`, `is-link`, `is-info`, `is-success`, `is-warning`, `is-danger`

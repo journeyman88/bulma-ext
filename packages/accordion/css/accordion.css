@@ -104,18 +104,19 @@
   display: none;
 }
 .accordions .accordion .accordion-header + .accordion-body {
-  overflow-y: hidden;
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
   color: var(--accordion-panel-color);
-  border: 1px solid var(--accordion-header-background-color);
   border-radius: var(--bulma-radius);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-top: none;
-  transition: max-height 0.2s ease;
+  transition: grid-template-rows 0.25s ease;
 }
 .accordions .accordion .accordion-header + .accordion-body .accordion-content {
-  padding: 1em 1.25em;
+  min-height: 0;
+  padding: 0 1.25em;
+  transition: padding 0.25s ease;
 }
 .accordions .accordion .accordion-header + .accordion-body .accordion-content code,
 .accordions .accordion .accordion-header + .accordion-body .accordion-content pre {
@@ -128,7 +129,12 @@
   content: "-";
 }
 .accordions .accordion.is-active .accordion-body {
-  max-height: 100em;
+  grid-template-rows: 1fr;
+  border: 1px solid var(--accordion-header-background-color);
+  border-top: none;
+}
+.accordions .accordion.is-active .accordion-body .accordion-content {
+  padding: 1em 1.25em;
 }
 .accordions .accordion.is-white {
   --accordion-panel-background-color: var(--bulma-white-soft);
