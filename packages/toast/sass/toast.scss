@@ -1,0 +1,90 @@
+/**
+ * Copyright 2026 - Marco Bignami
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+@mixin toast-left {
+  left: 1rem; 
+  right: auto; 
+  .toast-item {
+    transform: translateX(-110%);
+  }
+}
+
+@mixin toast-right {
+  left: auto; 
+  right: 1rem; 
+  .toast-item {
+    transform: translateX(110%);
+  }
+}
+
+@mixin toast-top {
+  top: 1rem;
+  bottom: auto; 
+}
+
+@mixin toast-bottom {
+  top: auto;
+  bottom: 1rem; 
+}
+
+
+.toast-container {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+  width: calc(100% - 2rem);
+  pointer-events: none;
+
+  @include toast-bottom();
+  @include toast-right();
+
+  &.is-top-right {
+    @include toast-top();
+    @include toast-right();
+  }
+
+  &.is-top-left {
+    @include toast-top();
+    @include toast-left();
+  }
+
+  &.is-bottom-left {
+    @include toast-bottom();
+    @include toast-left();
+  }
+
+  .toast-item {
+    pointer-events: all;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-bottom: 0;
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toast-container .toast-item {
+        transition: opacity 0.15s ease;
+        transform: none !important;
+    }
+}

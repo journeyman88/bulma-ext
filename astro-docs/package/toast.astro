@@ -1,0 +1,108 @@
+---
+import Hero from '../components/hero.astro';
+import Container from '../components/container.astro';
+import Section from '../components/demoSection.astro';
+import Overview from '../components/overview.astro';
+import '../static/common.css';
+import '../../packages/toast/css/toast.min.css';
+import { Code } from 'astro:components';
+// Examples
+import exampleBasicHtml from '../examples/toast/basic.html?raw';
+import exampleBasicJs from '../examples/toast/basic.js?raw';
+import examplePositions from '../examples/toast/positions.html?raw';
+import exampleToastJs from '../examples/toast/toast.js?raw';
+---
+<Hero title="Bulma Toast" subtitle="A lightweight, animated toast notification extension for Bulma." />
+<Container>
+    <Overview>
+        The <strong>Toast Extension</strong> provides a fixed-position container for stacking animated
+        notification toasts. Toasts slide in from the edge of the screen, support all four corners,
+        and use Bulma's <code>.notification</code> classes for color and styling.
+    </Overview>
+
+    <Section id="basic" title="Basic Usage">
+        <div class="columns is-vcentered">
+            <div class="column is-5">
+                <h2 class="title is-3">Basic Usage</h2>
+                <p>Place a <code>.toast-container</code> anywhere in the page — it uses
+                <code>position: fixed</code>. Set a default auto-dismiss duration (ms) with
+                <code>data-duration</code>. Then call <code>appendMessage()</code> on the
+                registered toaster instance.</p>
+                <Code code={exampleBasicHtml} lang="html" />
+                <Code code={exampleBasicJs} lang="js" />
+            </div>
+            <div class="column is-offset-1 is-6">
+                <div class="example-box is-flex is-justify-content-center">
+                    <button class="button is-success" data-toast-target="toaster-br">Show Toast</button>
+                </div>
+            </div>
+        </div>
+    </Section>
+    <hr>
+
+    <Section id="positions" title="Positions" showTitle>
+        <Fragment slot="subtitle">
+            Use <code>.is-top-right</code>, <code>.is-top-left</code>, or <code>.is-bottom-left</code>
+            on the container. The default (no modifier) positions toasts at the <strong>bottom-right</strong>.
+        </Fragment>
+        <div class="columns is-vcentered">
+            <div class="column is-5">
+                <Code code={examplePositions} lang="html" />
+            </div>
+            <div class="column is-offset-1 is-6">
+                <div class="example-box">
+                    <div class="buttons is-centered">
+                        <button class="button is-info"    data-toast-target="toaster-br" data-toast-color="is-info">Bottom Right</button>
+                        <button class="button is-primary" data-toast-target="toaster-tr" data-toast-color="is-primary">Top Right</button>
+                        <button class="button is-warning" data-toast-target="toaster-tl" data-toast-color="is-warning">Top Left</button>
+                        <button class="button is-danger"  data-toast-target="toaster-bl" data-toast-color="is-danger">Bottom Left</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Section>
+    <hr>
+
+    <Section id="colors" title="Color Variants" showTitle>
+        <Fragment slot="subtitle">
+            Toast items accept all Bulma <code>.notification</code> color modifiers.
+        </Fragment>
+        <div class="example-box">
+            <div class="buttons is-centered">
+                <button class="button is-primary" data-toast-target="toaster-br" data-toast-color="is-primary">Primary</button>
+                <button class="button is-link"    data-toast-target="toaster-br" data-toast-color="is-link">Link</button>
+                <button class="button is-info"    data-toast-target="toaster-br" data-toast-color="is-info">Info</button>
+                <button class="button is-success" data-toast-target="toaster-br" data-toast-color="is-success">Success</button>
+                <button class="button is-warning" data-toast-target="toaster-br" data-toast-color="is-warning">Warning</button>
+                <button class="button is-danger"  data-toast-target="toaster-br" data-toast-color="is-danger">Danger</button>
+            </div>
+        </div>
+    </Section>
+
+    <Section id="javascript" title="Scripting" showTitle>
+        <Fragment slot="subtitle">
+            Scripting is needed to manage the toast messages, it can be done with a simple function or a component model.
+        </Fragment>
+        <Code code={exampleToastJs} lang="js" />
+    </Section>
+</Container>
+
+<div id="toaster-br" class="toast-container" data-duration="3000"></div>
+<div id="toaster-tr" class="toast-container is-top-right" data-duration="3000"></div>
+<div id="toaster-tl" class="toast-container is-top-left" data-duration="3000"></div>
+<div id="toaster-bl" class="toast-container is-bottom-left" data-duration="3000"></div>
+
+
+<script src="../examples/toast/toast.js"></script>
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-toast-target]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.dataset.toastTarget;
+                const color = btn.dataset.toastColor ?? 'is-info';
+                const label = btn.textContent?.trim() ?? 'Toast';
+                window.toasters[targetId]?.appendMessage(`This is a <strong>${label}</strong> toast.`, color);
+            });
+        });
+    });
+</script>
