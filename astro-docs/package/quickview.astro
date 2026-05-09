@@ -10,6 +10,7 @@ import { Code } from 'astro:components';
 import exampleBasic from '../examples/quickview/basic.html?raw';
 import exampleLeft from '../examples/quickview/left.html?raw';
 import exampleColors from '../examples/quickview/colors.html?raw';
+import quickviewsJs from '../examples/quickview/quickview.js?raw';
 ---
 <Hero title="Bulma Quickview" subtitle="A slide-out panel extension for Bulma." />
 <Container>
@@ -73,28 +74,24 @@ import exampleColors from '../examples/quickview/colors.html?raw';
             </div>
         </div>
     </Section>
+
+    <Section id="javascript" title="Scripting" showTitle>
+        <Fragment slot="subtitle">
+            Scripting is needed to manage the quickview, it can be done with a simple function or a component model.
+        </Fragment>
+        <Code code={quickviewsJs} lang="js" />
+    </Section>
     
+    <script src="../examples/quickview/quickview.js"></script>
     <script>
         // Simple JavaScript to handle the toggle toggling for the demo
         document.addEventListener('DOMContentLoaded', () => {
             // Open bindings
             const showTriggers = document.querySelectorAll('[data-show="quickview"]');
             showTriggers.forEach(btn => {
+                const tgt = (btn as HTMLElement).dataset.target;
                 btn.addEventListener('click', (e) => {
-                    const targetId = (e.currentTarget as HTMLElement).dataset.target;
-                    if (targetId) {
-                        const targetEl = document.getElementById(targetId);
-                        if (targetEl) targetEl.classList.add('is-active');
-                    }
-                });
-            });
-
-            // Close bindings
-            const dismissTriggers = document.querySelectorAll('[data-dismiss="quickview"]');
-            dismissTriggers.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const quickviewEl = (e.currentTarget as HTMLElement).closest('.quickview');
-                    if (quickviewEl) quickviewEl.classList.remove('is-active');
+                    window.quickviews[tgt].showView();
                 });
             });
         });
